@@ -1,0 +1,16 @@
+# Local assistant files (not part of the repository)
+CLAUDE.md
+MEMORY.md
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# OS and editors
+.DS_Store
+*.code-workspace
+.vscode/
