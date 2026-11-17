@@ -1,0 +1,705 @@
+{
+ "healthcare_hobeck": {
+  "dataset": "healthcare",
+  "tasks": [
+   116,
+   116
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   17,
+   17
+  ],
+  "scopes": [
+   0,
+   0
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 0,
+  "N4_attributes_only_ours": [
+   "elemType",
+   "fromParticipant",
+   "msgType",
+   "participant"
+  ],
+  "N4_attributes_only_reference": [
+   "concept:name"
+  ],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "real1_hobeck": {
+  "dataset": "real1",
+  "tasks": [
+   2,
+   2
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   1,
+   1
+  ],
+  "scopes": [
+   0,
+   0
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 0,
+  "N4_attributes_only_ours": [
+   "case:creator",
+   "case:variant",
+   "case:variant-index",
+   "elemType",
+   "fromParticipant",
+   "msgType",
+   "participant"
+  ],
+  "N4_attributes_only_reference": [
+   "concept:name"
+  ],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "real2_hobeck": {
+  "dataset": "real2",
+  "tasks": [
+   842,
+   842
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   96,
+   96
+  ],
+  "scopes": [
+   0,
+   0
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 0,
+  "N4_attributes_only_ours": [
+   "elemType",
+   "fromParticipant",
+   "msgFlow",
+   "msgType",
+   "participant"
+  ],
+  "N4_attributes_only_reference": [
+   "concept:name",
+   "msgName"
+  ],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "real3_hobeck": {
+  "dataset": "real3",
+  "tasks": [
+   472,
+   472
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   59,
+   59
+  ],
+  "scopes": [
+   0,
+   0
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 0,
+  "N4_attributes_only_ours": [
+   "elemType",
+   "fromParticipant",
+   "msgFlow",
+   "msgType",
+   "participant"
+  ],
+  "N4_attributes_only_reference": [
+   "concept:name",
+   "msgName"
+  ],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "real4_hobeck": {
+  "dataset": "real4",
+  "tasks": [
+   4,
+   4
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   1,
+   1
+  ],
+  "scopes": [
+   0,
+   0
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 0,
+  "N4_attributes_only_ours": [
+   "elemType",
+   "fromParticipant",
+   "msgFlow",
+   "msgType",
+   "participant"
+  ],
+  "N4_attributes_only_reference": [
+   "concept:name",
+   "msgName"
+  ],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "real5_hobeck": {
+  "dataset": "real5",
+  "tasks": [
+   15,
+   15
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   3,
+   3
+  ],
+  "scopes": [
+   0,
+   0
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": false,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 0,
+  "N4_attributes_only_ours": [
+   "elemType",
+   "fromParticipant",
+   "msgFlow",
+   "msgType",
+   "participant"
+  ],
+  "N4_attributes_only_reference": [
+   "concept:name",
+   "msgName"
+  ],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "smartagriculture_hobeck": {
+  "dataset": "smartagriculture",
+  "tasks": [
+   114,
+   114
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   10,
+   10
+  ],
+  "scopes": [
+   0,
+   0
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": false,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 0,
+  "N4_attributes_only_ours": [
+   "case:creator",
+   "case:variant",
+   "case:variant-index",
+   "elemType",
+   "fromParticipant",
+   "msgType",
+   "participant"
+  ],
+  "N4_attributes_only_reference": [
+   "concept:name"
+  ],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "beanstalk_attack": {
+  "dataset": "eth-beanstalk-attack",
+  "tasks": [
+   489,
+   489
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   3,
+   3
+  ],
+  "scopes": [
+   139,
+   139
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 52,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d_uniqueFunction": {
+  "dataset": "eth-boredapeyachtclub",
+  "tasks": [
+   18,
+   18
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   9,
+   9
+  ],
+  "scopes": [
+   5,
+   5
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 1,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction": {
+  "dataset": "eth-cryptokitties-core",
+  "tasks": [
+   204,
+   204
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   22,
+   22
+  ],
+  "scopes": [
+   59,
+   59
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 79,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0xb1690c08e213a35ed9bab7b318de14420fb57d8c_uniqueFunction": {
+  "dataset": "eth-cryptokitties-saleauction",
+  "tasks": [
+   6,
+   6
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   2,
+   2
+  ],
+  "scopes": [
+   2,
+   2
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 4,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0x00000000219ab540356cbb839cbe05303d7705fa_uniqueFunction": {
+  "dataset": "eth-depositcontract",
+  "tasks": [
+   9,
+   9
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   1,
+   1
+  ],
+  "scopes": [
+   1,
+   1
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 0,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction": {
+  "dataset": "eth-ensgovernor",
+  "tasks": [
+   21,
+   21
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   9,
+   9
+  ],
+  "scopes": [
+   6,
+   6
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 2,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03_uniqueFunction": {
+  "dataset": "eth-nounstoken",
+  "tasks": [
+   12,
+   12
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   7,
+   7
+  ],
+  "scopes": [
+   3,
+   3
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 0,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0x556b9306565093c855aea9ae92a594704c2cd59e_uniqueFunction": {
+  "dataset": "eth-pancakeswap-masterchefv3",
+  "tasks": [
+   241,
+   241
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   13,
+   13
+  ],
+  "scopes": [
+   64,
+   64
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 37,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction": {
+  "dataset": "eth-sushiswap-router",
+  "tasks": [
+   267,
+   267
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   19,
+   19
+  ],
+  "scopes": [
+   67,
+   67
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 40,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0x5e_cd49912": {
+  "dataset": "eth-tornadocash-governance",
+  "tasks": [
+   4,
+   4
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   1,
+   1
+  ],
+  "scopes": [
+   2,
+   2
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 1,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction": {
+  "dataset": "eth-tornadocash-governance",
+  "tasks": [
+   35,
+   35
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   11,
+   11
+  ],
+  "scopes": [
+   17,
+   17
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 11,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction": {
+  "dataset": "eth-tornadocash-router",
+  "tasks": [
+   85,
+   85
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   2,
+   2
+  ],
+  "scopes": [
+   13,
+   13
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 8,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ },
+ "0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc_uniqueFunction": {
+  "dataset": "eth-uniswap-v2pair-usdc-weth",
+  "tasks": [
+   61,
+   61
+  ],
+  "tasks_unmatched": [
+   0,
+   0
+  ],
+  "tasks_differing": 0,
+  "message_sharing_equal": true,
+  "instances_equal": true,
+  "instances": [
+   6,
+   6
+  ],
+  "scopes": [
+   17,
+   17
+  ],
+  "scopes_equal": true,
+  "participants_equal": true,
+  "participant_types_identical": true,
+  "participant_types_consistently_renamed": true,
+  "N3_none_values_dropped": 1,
+  "N4_attributes_only_ours": [],
+  "N4_attributes_only_reference": [],
+  "N4_common_attribute_values_differing": 0,
+  "examples": [],
+  "equivalent": true
+ }
+}

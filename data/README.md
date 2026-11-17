@@ -112,10 +112,10 @@ Provenance notes, checked by comparing the files after removing carriage returns
 
 - **One CL per scenario.** The CL used by InfSys and the CL that ocelchor ships as test
   ground truth (`xescol2ocelchor/tests/data/`) are identical to `pena/*_collab.xes`,
-  except for Real4: the InfSys copy drops a trailing space in two activity names
+  except for Real4: the InfSys copy drops a trailing non-breaking space (U+00A0) in two activity names
   (`Send request to billing department`, `Wait fot payment`), 100 occurrences each. Only
   Peña's copy is kept. A regression test against the InfSys OCEL of Real4 must therefore
-  ignore that trailing space.
+  ignore that trailing character.
 - **The raw log is contained in the CL.** Peña's normalized raw log
   (`Evaluation/collectivelog_<n>.xes`) is the input of Hobeck et al.: the files in
   `ocelchor/xescol2ocelchor/data/input/` are identical to it. The CL has the same traces

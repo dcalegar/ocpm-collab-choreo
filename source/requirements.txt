@@ -1,0 +1,9 @@
+# Environment of source/ (Python 3.10). The InfSys mapping is installed separately:
+#   pip install --no-deps -e ../ocpm-collab-ppm   (commit 98d5e697)
+# trace2ocelchor (ocelchor clone) is imported from $OCELCHOR, unmodified.
+pm4py==2.7.22.5
+pandas==2.3.3
+numpy==2.2.6
+lxml==6.1.1
+jsonschema
+pytest

@@ -14,3 +14,7 @@ venv/
 .DS_Store
 *.code-workspace
 .vscode/
+
+# Mapping outputs (regenerable with source/mapping/map_all.py)
+data/*/mapped/
+data/mapped_summary.json

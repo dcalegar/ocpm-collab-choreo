@@ -1,0 +1,236 @@
+{
+ "artificial1_cl": {
+  "events": [
+   800,
+   800
+  ],
+  "objects": [
+   702,
+   702
+  ],
+  "e2o": [
+   2800,
+   2800
+  ],
+  "o2o": [
+   1600,
+   1600
+  ],
+  "events_differing": 0,
+  "events_with_trailing_space_only": 0,
+  "objects_differing": 0,
+  "e2o_differing": 0,
+  "o2o_differing": 0,
+  "examples": [],
+  "equal": true,
+  "equal_without_normalization": true
+ },
+ "artificial1_complete": {
+  "events": [
+   800,
+   800
+  ],
+  "objects": [
+   702,
+   702
+  ],
+  "e2o": [
+   2800,
+   2800
+  ],
+  "o2o": [
+   1600,
+   1600
+  ],
+  "events_differing": 0,
+  "events_with_trailing_space_only": 0,
+  "objects_differing": 0,
+  "e2o_differing": 0,
+  "o2o_differing": 0,
+  "examples": [],
+  "equal": true,
+  "equal_without_normalization": true
+ },
+ "artificial5_cl": {
+  "events": [
+   2360,
+   2360
+  ],
+  "objects": [
+   1450,
+   1450
+  ],
+  "e2o": [
+   8096,
+   8096
+  ],
+  "o2o": [
+   3664,
+   3664
+  ],
+  "events_differing": 0,
+  "events_with_trailing_space_only": 0,
+  "objects_differing": 0,
+  "e2o_differing": 0,
+  "o2o_differing": 0,
+  "examples": [],
+  "equal": true,
+  "equal_without_normalization": true
+ },
+ "artificial5_complete": {
+  "events": [
+   2360,
+   2360
+  ],
+  "objects": [
+   1450,
+   1450
+  ],
+  "e2o": [
+   8096,
+   8096
+  ],
+  "o2o": [
+   3664,
+   3664
+  ],
+  "events_differing": 0,
+  "events_with_trailing_space_only": 0,
+  "objects_differing": 0,
+  "e2o_differing": 0,
+  "o2o_differing": 0,
+  "examples": [],
+  "equal": true,
+  "equal_without_normalization": true
+ },
+ "healthcare_cl": {
+  "events": [
+   1450,
+   1450
+  ],
+  "objects": [
+   1528,
+   1528
+  ],
+  "e2o": [
+   5424,
+   5424
+  ],
+  "o2o": [
+   3896,
+   3896
+  ],
+  "events_differing": 0,
+  "events_with_trailing_space_only": 0,
+  "objects_differing": 0,
+  "e2o_differing": 0,
+  "o2o_differing": 0,
+  "examples": [],
+  "equal": true,
+  "equal_without_normalization": true
+ },
+ "healthcare_complete": {
+  "events": [
+   1450,
+   1450
+  ],
+  "objects": [
+   1528,
+   1528
+  ],
+  "e2o": [
+   5424,
+   5424
+  ],
+  "o2o": [
+   3896,
+   3896
+  ],
+  "events_differing": 0,
+  "events_with_trailing_space_only": 0,
+  "objects_differing": 0,
+  "e2o_differing": 0,
+  "o2o_differing": 0,
+  "examples": [],
+  "equal": true,
+  "equal_without_normalization": true
+ },
+ "real4_cl": {
+  "events": [
+   1800,
+   1800
+  ],
+  "objects": [
+   1203,
+   1203
+  ],
+  "e2o": [
+   6200,
+   6200
+  ],
+  "o2o": [
+   3000,
+   3000
+  ],
+  "events_differing": 0,
+  "events_with_trailing_space_only": 200,
+  "objects_differing": 0,
+  "e2o_differing": 0,
+  "o2o_differing": 0,
+  "examples": [],
+  "equal": true,
+  "equal_without_normalization": false
+ },
+ "real4_complete": {
+  "events": [
+   1800,
+   1800
+  ],
+  "objects": [
+   1203,
+   1203
+  ],
+  "e2o": [
+   6200,
+   6200
+  ],
+  "o2o": [
+   3000,
+   3000
+  ],
+  "events_differing": 0,
+  "events_with_trailing_space_only": 200,
+  "objects_differing": 0,
+  "e2o_differing": 0,
+  "o2o_differing": 0,
+  "examples": [],
+  "equal": true,
+  "equal_without_normalization": false
+ },
+ "bpic2013_cl": {
+  "events": [
+   69584,
+   69584
+  ],
+  "objects": [
+   25527,
+   25527
+  ],
+  "e2o": [
+   216854,
+   216854
+  ],
+  "o2o": [
+   43998,
+   43998
+  ],
+  "events_differing": 0,
+  "events_with_trailing_space_only": 0,
+  "objects_differing": 0,
+  "e2o_differing": 0,
+  "o2o_differing": 0,
+  "examples": [],
+  "equal": true,
+  "equal_without_normalization": true
+ }
+}

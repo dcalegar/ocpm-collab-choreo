@@ -1,0 +1,62 @@
+# experiments/: E1, E2, E2b, E3
+
+The experiments compare the output of the unified mapping (`../mapping/`) with the
+object-centric logs of InfSys and Hobeck et al., and check its consistency. They read the
+outputs of `map_all.py` in `data/<dataset>/mapped/` and never change the mapping. The
+input/reference pairs are listed in `../../data/README.md`.
+
+| Script | Experiment | Inputs → references | Result |
+|---|---|---|---|
+| `e1_infsys.py` | **E1.** The collaboration projection π_C of the unified output equals the InfSys OCEL (conservativity) | `pena/*_collab.xes` (collaboration and complete profiles) of Artificial1, Artificial5, Healthcare, Real4, and the BPIC 2013 CL → `infsys/*.sqlite` | `results/e1_infsys.{md,json}` |
+| `e2_hobeck.py` | **E2.** The export η_H of the unified output is equivalent to Hobeck et al.'s OCEL, from the same input | `hobeck/collectivelog_<n>_uniqueInteraction.xes` of the 7 collaborative logs → `hobeck/<n>_uniqueInteraction_ocel.json`; `hobeck/<stem>.json` of the 13 Ethereum files → `hobeck/<stem>_ocel.json` | `results/e2_hobeck.{md,json}` |
+| `e2b_roundtrip.py` | **E2b.** Round trip η_H(μ⁺(ι_H(H))) ≅ H: every OCEL H of Hobeck et al. is read back into the unified representation by the reverse adapter ι_H (`reverse_hobeck.py`), mapped, exported, and compared with H as in E2; μ⁺(ι_H(H)) must also satisfy the structural criteria | the 20 OCEL logs of Hobeck et al. (7 from `xescol2ocelchor`, 13 from `trace2ocelchor`) | `results/e2b_roundtrip.{md,json}` |
+| `e3_consistency.py` | **E3.** Consistency per profile: P1.1–P1.7 and U1–U7 on every output; C0–C16 (`ocelchorvalidator`, unmodified) on every η_H export, cross-checked on Hobeck et al.'s references | the 48 outputs (9 scenarios × 3 profiles, 7 Hobeck XES, BPIC 2013, 13 Ethereum files) | `results/e3_consistency.{md,json}` |
+
+## Comparison rules
+
+- **E1** compares sets read from the two SQLite files: events (id, type, time, attributes),
+  objects (id, type, attributes), E2O, and O2O. π_C removes, by structure, the events
+  without `in_collaboration`, the objects of the new types, and the relations that touch
+  them or carry a new qualifier. The only normalization is documented in `data/README.md`:
+  the InfSys copy of Real4 drops a trailing non-breaking space in two activity names
+  (200 events).
+- **E2** compares the choreography information of Def. 2 of Hobeck et al. task by task:
+  case, type, time, initiator and participants, messages (type, source, target, content),
+  which tasks share a message, instances, and the scope tree. The normalizations are
+  explicit and counted (docstring of `e2_hobeck.py`):
+  - N1 identifiers;
+  - N2 participant object types, up to a consistent renaming;
+  - N3 absent content values (`output = "None"` in `trace2ocelchor`);
+  - N4 event attributes, compared on the names both logs have.
+- **E2b** uses the comparison of E2. ι_H turns each task into an exchange event and each
+  message object into one logical message (the message id is the identifier, so shared
+  messages stay shared); the request is the message whose source is the initiator. When
+  the redundant relations of Hobeck et al. disagree, ι_H counts the case in its
+  diagnostics instead of choosing silently (docstring of `reverse_hobeck.py`). ι_H lives
+  here, not in the mapping, because the mapping reads the original formats. A reference
+  passes only if the round trip is equivalent, the structural U criteria and P1.7 hold,
+  ι_H reports no diagnostic, and μ⁺ reports no conflicting values; U4/U6 are only reported.
+- **E3** reads the criteria from the `_checks.json` files that the mapping writes, and
+  runs the validator through its Python API (`read_ocel`, `build_index`, `validate_all`).
+  It needs `ocelchorvalidator` from the ocelchor clone (`OCELCHOR`, or a sibling
+  `../ocelchor`); without it, the script stops with a message instead of running.
+
+## Running
+
+```bash
+export OCELCHOR=/path/to/ocelchor     # trace2ocelchor (mapping) and ocelchorvalidator (E3)
+cd source/mapping && ../../.venv/bin/python map_all.py
+cd ../experiments
+../../.venv/bin/python e1_infsys.py
+../../.venv/bin/python e2_hobeck.py
+../../.venv/bin/python e2b_roundtrip.py
+../../.venv/bin/python e3_consistency.py
+```
+
+`tests/test_roundtrip.py` checks that the comparison of E2 is not vacuous: perturbing one
+message target, initiator, shared message, content value, or scope relation of a
+reference log makes it fail. It also checks the diagnostics of ι_H
+(`.venv/bin/python -m pytest source/experiments/tests`).
+
+Each script prints its Markdown summary, writes it with the full JSON to `results/`, and
+exits with 1 if its property fails.

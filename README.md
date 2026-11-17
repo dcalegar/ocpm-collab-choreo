@@ -21,8 +21,8 @@ These are not included and must be cloned separately:
 
 | Repository | Version | Use |
 |---|---|---|
-| [23722/ocelchor](https://github.com/23722/ocelchor) | branch `v1.2-IS-2026-CPMDS`, commit `edbb6c1` (paper tag `v1.1-BPM-2026-PTF`) | `ocelchorvalidator` (constraints C0–C16), run unmodified on the mapping output |
-| [dcalegar/ocpm-collab-ppm](https://github.com/dcalegar/ocpm-collab-ppm) | commit `98d5e697` | InfSys mapping and prediction pipeline (OCPA features) |
+| [23722/ocelchor](https://github.com/23722/ocelchor) | branch `v1.2-IS-2026-CPMDS`, commit `edbb6c1` (paper tag `v1.1-BPM-2026-PTF`) | `trace2ocelchor` parser and naming helpers, imported unmodified to read the Ethereum traces (`$OCELCHOR`); `ocelchorvalidator` (constraints C0–C16), run unmodified on the mapping output |
+| [dcalegar/ocpm-collab-ppm](https://github.com/dcalegar/ocpm-collab-ppm) | commit `98d5e697` | InfSys mapping (M1–M8, P1.1–P1.7), imported unmodified by the unified mapping (`pip install --no-deps -e`); prediction pipeline (OCPA features) |
 
 ## References
 

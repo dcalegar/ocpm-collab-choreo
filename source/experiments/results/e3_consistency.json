@@ -1,0 +1,6028 @@
+{
+ "criteria": {
+  "artificial1_cl": {
+   "dataset": "artificial1",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 200,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 200,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 200,
+   "logical_messages": 200
+  },
+  "artificial1_chl": {
+   "dataset": "artificial1",
+   "profile": "choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 200,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 200
+   },
+   "tasks": 200,
+   "logical_messages": 200
+  },
+  "artificial1_complete": {
+   "dataset": "artificial1",
+   "profile": "complete",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 200,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 200,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 200,
+   "logical_messages": 200
+  },
+  "artificial5_cl": {
+   "dataset": "artificial5",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 530,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 486,
+    "correct_multicast": 0,
+    "absent": 44,
+    "absent_no_send": 0,
+    "absent_no_receive": 44,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 530,
+   "logical_messages": 530
+  },
+  "artificial5_chl": {
+   "dataset": "artificial5",
+   "profile": "choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 530,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 530
+   },
+   "tasks": 530,
+   "logical_messages": 530
+  },
+  "artificial5_complete": {
+   "dataset": "artificial5",
+   "profile": "complete",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 530,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 486,
+    "correct_multicast": 0,
+    "absent": 44,
+    "absent_no_send": 0,
+    "absent_no_receive": 44,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 530,
+   "logical_messages": 530
+  },
+  "bpic2013_cl": {
+   "dataset": "bpic2013",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 4051,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 4051,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 4051,
+   "logical_messages": 4051
+  },
+  "beanstalk_attack": {
+   "dataset": "eth-beanstalk-attack",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 703,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 703
+   },
+   "tasks": 489,
+   "logical_messages": 703
+  },
+  "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d_uniqueFunction": {
+   "dataset": "eth-boredapeyachtclub",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 21,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 21
+   },
+   "tasks": 18,
+   "logical_messages": 21
+  },
+  "0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction": {
+   "dataset": "eth-cryptokitties-core",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 302,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 302
+   },
+   "tasks": 204,
+   "logical_messages": 302
+  },
+  "0xb1690c08e213a35ed9bab7b318de14420fb57d8c_uniqueFunction": {
+   "dataset": "eth-cryptokitties-saleauction",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 10,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 10
+   },
+   "tasks": 6,
+   "logical_messages": 10
+  },
+  "0x00000000219ab540356cbb839cbe05303d7705fa_uniqueFunction": {
+   "dataset": "eth-depositcontract",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 17,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 17
+   },
+   "tasks": 9,
+   "logical_messages": 17
+  },
+  "0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction": {
+   "dataset": "eth-ensgovernor",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 31,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 31
+   },
+   "tasks": 21,
+   "logical_messages": 31
+  },
+  "0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03_uniqueFunction": {
+   "dataset": "eth-nounstoken",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 13,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 13
+   },
+   "tasks": 12,
+   "logical_messages": 13
+  },
+  "0x556b9306565093c855aea9ae92a594704c2cd59e_uniqueFunction": {
+   "dataset": "eth-pancakeswap-masterchefv3",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 361,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 361
+   },
+   "tasks": 241,
+   "logical_messages": 361
+  },
+  "0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction": {
+   "dataset": "eth-sushiswap-router",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 415,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 415
+   },
+   "tasks": 267,
+   "logical_messages": 415
+  },
+  "0x5e_cd49912": {
+   "dataset": "eth-tornadocash-governance",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 5,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 5
+   },
+   "tasks": 4,
+   "logical_messages": 5
+  },
+  "0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction": {
+   "dataset": "eth-tornadocash-governance",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 47,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 47
+   },
+   "tasks": 35,
+   "logical_messages": 47
+  },
+  "0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction": {
+   "dataset": "eth-tornadocash-router",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 146,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 146
+   },
+   "tasks": 85,
+   "logical_messages": 146
+  },
+  "0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc_uniqueFunction": {
+   "dataset": "eth-uniswap-v2pair-usdc-weth",
+   "profile": "hierarchical choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 88,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 88
+   },
+   "tasks": 61,
+   "logical_messages": 88
+  },
+  "healthcare_cl": {
+   "dataset": "healthcare",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 550,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 524,
+    "correct_multicast": 0,
+    "absent": 26,
+    "absent_no_send": 0,
+    "absent_no_receive": 26,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 550,
+   "logical_messages": 550
+  },
+  "healthcare_chl": {
+   "dataset": "healthcare",
+   "profile": "choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 550,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 550
+   },
+   "tasks": 550,
+   "logical_messages": 550
+  },
+  "healthcare_complete": {
+   "dataset": "healthcare",
+   "profile": "complete",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 550,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 524,
+    "correct_multicast": 0,
+    "absent": 26,
+    "absent_no_send": 0,
+    "absent_no_receive": 26,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 550,
+   "logical_messages": 550
+  },
+  "healthcare_hobeck": {
+   "dataset": "healthcare",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 116,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 107,
+    "correct_multicast": 0,
+    "absent": 9,
+    "absent_no_send": 0,
+    "absent_no_receive": 9,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 116,
+   "logical_messages": 116
+  },
+  "real1_cl": {
+   "dataset": "real1",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 44,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 44,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 44,
+   "logical_messages": 44
+  },
+  "real1_chl": {
+   "dataset": "real1",
+   "profile": "choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 44,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 44
+   },
+   "tasks": 44,
+   "logical_messages": 44
+  },
+  "real1_complete": {
+   "dataset": "real1",
+   "profile": "complete",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 44,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 44,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 44,
+   "logical_messages": 44
+  },
+  "real1_hobeck": {
+   "dataset": "real1",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 2,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 2,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 2,
+   "logical_messages": 2
+  },
+  "real2_cl": {
+   "dataset": "real2",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 500,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 401,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 99,
+    "no_message_events": 0
+   },
+   "tasks": 869,
+   "logical_messages": 500
+  },
+  "real2_chl": {
+   "dataset": "real2",
+   "profile": "choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 500,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 500
+   },
+   "tasks": 869,
+   "logical_messages": 500
+  },
+  "real2_complete": {
+   "dataset": "real2",
+   "profile": "complete",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 500,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 401,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 99,
+    "no_message_events": 0
+   },
+   "tasks": 869,
+   "logical_messages": 500
+  },
+  "real2_hobeck": {
+   "dataset": "real2",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 480,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 385,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 95,
+    "no_message_events": 0
+   },
+   "tasks": 842,
+   "logical_messages": 480
+  },
+  "real3_cl": {
+   "dataset": "real3",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 492,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 401,
+    "correct_multicast": 0,
+    "absent": 13,
+    "absent_no_send": 0,
+    "absent_no_receive": 13,
+    "incoherent": 78,
+    "no_message_events": 0
+   },
+   "tasks": 653,
+   "logical_messages": 492
+  },
+  "real3_chl": {
+   "dataset": "real3",
+   "profile": "choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 492,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 492
+   },
+   "tasks": 653,
+   "logical_messages": 492
+  },
+  "real3_complete": {
+   "dataset": "real3",
+   "profile": "complete",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 492,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 401,
+    "correct_multicast": 0,
+    "absent": 13,
+    "absent_no_send": 0,
+    "absent_no_receive": 13,
+    "incoherent": 78,
+    "no_message_events": 0
+   },
+   "tasks": 653,
+   "logical_messages": 492
+  },
+  "real3_hobeck": {
+   "dataset": "real3",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 321,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 240,
+    "correct_multicast": 0,
+    "absent": 8,
+    "absent_no_send": 0,
+    "absent_no_receive": 8,
+    "incoherent": 73,
+    "no_message_events": 0
+   },
+   "tasks": 472,
+   "logical_messages": 321
+  },
+  "real4_cl": {
+   "dataset": "real4",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 400,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 400,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 400,
+   "logical_messages": 400
+  },
+  "real4_chl": {
+   "dataset": "real4",
+   "profile": "choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 400,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 400
+   },
+   "tasks": 400,
+   "logical_messages": 400
+  },
+  "real4_complete": {
+   "dataset": "real4",
+   "profile": "complete",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 400,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 400,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 400,
+   "logical_messages": 400
+  },
+  "real4_hobeck": {
+   "dataset": "real4",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 4,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 4,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 4,
+   "logical_messages": 4
+  },
+  "real5_cl": {
+   "dataset": "real5",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 345,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 345,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 345,
+   "logical_messages": 345
+  },
+  "real5_chl": {
+   "dataset": "real5",
+   "profile": "choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 345,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 345
+   },
+   "tasks": 345,
+   "logical_messages": 345
+  },
+  "real5_complete": {
+   "dataset": "real5",
+   "profile": "complete",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 345,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 345,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 345,
+   "logical_messages": 345
+  },
+  "real5_hobeck": {
+   "dataset": "real5",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 15,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 15,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 0
+   },
+   "tasks": 15,
+   "logical_messages": 15
+  },
+  "smartagriculture_cl": {
+   "dataset": "smartagriculture",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 102,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 95,
+    "correct_multicast": 9,
+    "absent": 2,
+    "absent_no_send": 2,
+    "absent_no_receive": 0,
+    "incoherent": 5,
+    "no_message_events": 0
+   },
+   "tasks": 114,
+   "logical_messages": 102
+  },
+  "smartagriculture_chl": {
+   "dataset": "smartagriculture",
+   "profile": "choreography",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 100,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "absent": 0,
+    "absent_no_send": 0,
+    "absent_no_receive": 0,
+    "incoherent": 0,
+    "no_message_events": 100
+   },
+   "tasks": 114,
+   "logical_messages": 100
+  },
+  "smartagriculture_complete": {
+   "dataset": "smartagriculture",
+   "profile": "complete",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 102,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 95,
+    "correct_multicast": 9,
+    "absent": 2,
+    "absent_no_send": 2,
+    "absent_no_receive": 0,
+    "incoherent": 5,
+    "no_message_events": 0
+   },
+   "tasks": 114,
+   "logical_messages": 102
+  },
+  "smartagriculture_hobeck": {
+   "dataset": "smartagriculture",
+   "profile": "collaboration",
+   "structural_ok": true,
+   "U4": {
+    "logical_messages": 102,
+    "several_senders": 0,
+    "recorded_receiver_not_among_receives": 0,
+    "exchange_event_endpoints_disagree": 0
+   },
+   "U6": {
+    "correct": 95,
+    "correct_multicast": 9,
+    "absent": 2,
+    "absent_no_send": 2,
+    "absent_no_receive": 0,
+    "incoherent": 5,
+    "no_message_events": 0
+   },
+   "tasks": 114,
+   "logical_messages": 102
+  }
+ },
+ "constraints": {
+  "artificial1_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     200
+    ],
+    "C1": [
+     0,
+     200
+    ],
+    "C2": [
+     0,
+     200
+    ],
+    "C3": [
+     0,
+     200
+    ],
+    "C4": [
+     0,
+     200
+    ],
+    "C5": [
+     0,
+     200
+    ],
+    "C6": [
+     0,
+     200
+    ],
+    "C7": [
+     0,
+     200
+    ],
+    "C8": [
+     0,
+     200
+    ],
+    "C9": [
+     0,
+     200
+    ],
+    "C10": [
+     0,
+     200
+    ],
+    "C11": [
+     0,
+     200
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     100
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "artificial1_chl": {
+   "profile": "choreography",
+   "constraints": {
+    "C0": [
+     0,
+     200
+    ],
+    "C1": [
+     0,
+     200
+    ],
+    "C2": [
+     0,
+     200
+    ],
+    "C3": [
+     0,
+     200
+    ],
+    "C4": [
+     0,
+     200
+    ],
+    "C5": [
+     0,
+     200
+    ],
+    "C6": [
+     0,
+     200
+    ],
+    "C7": [
+     0,
+     200
+    ],
+    "C8": [
+     0,
+     200
+    ],
+    "C9": [
+     0,
+     200
+    ],
+    "C10": [
+     0,
+     200
+    ],
+    "C11": [
+     0,
+     200
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     100
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "artificial1_complete": {
+   "profile": "complete",
+   "constraints": {
+    "C0": [
+     0,
+     200
+    ],
+    "C1": [
+     0,
+     200
+    ],
+    "C2": [
+     0,
+     200
+    ],
+    "C3": [
+     0,
+     200
+    ],
+    "C4": [
+     0,
+     200
+    ],
+    "C5": [
+     0,
+     200
+    ],
+    "C6": [
+     0,
+     200
+    ],
+    "C7": [
+     0,
+     200
+    ],
+    "C8": [
+     0,
+     200
+    ],
+    "C9": [
+     0,
+     200
+    ],
+    "C10": [
+     0,
+     200
+    ],
+    "C11": [
+     0,
+     200
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     100
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "artificial5_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     530
+    ],
+    "C1": [
+     0,
+     530
+    ],
+    "C2": [
+     0,
+     530
+    ],
+    "C3": [
+     44,
+     530
+    ],
+    "C4": [
+     0,
+     530
+    ],
+    "C5": [
+     0,
+     530
+    ],
+    "C6": [
+     44,
+     530
+    ],
+    "C7": [
+     0,
+     530
+    ],
+    "C8": [
+     0,
+     530
+    ],
+    "C9": [
+     0,
+     530
+    ],
+    "C10": [
+     0,
+     530
+    ],
+    "C11": [
+     0,
+     530
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     136,
+     430
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "artificial5_chl": {
+   "profile": "choreography",
+   "constraints": {
+    "C0": [
+     0,
+     530
+    ],
+    "C1": [
+     0,
+     530
+    ],
+    "C2": [
+     0,
+     530
+    ],
+    "C3": [
+     44,
+     530
+    ],
+    "C4": [
+     0,
+     530
+    ],
+    "C5": [
+     0,
+     530
+    ],
+    "C6": [
+     44,
+     530
+    ],
+    "C7": [
+     0,
+     530
+    ],
+    "C8": [
+     0,
+     530
+    ],
+    "C9": [
+     0,
+     530
+    ],
+    "C10": [
+     0,
+     530
+    ],
+    "C11": [
+     0,
+     530
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     136,
+     430
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "artificial5_complete": {
+   "profile": "complete",
+   "constraints": {
+    "C0": [
+     0,
+     530
+    ],
+    "C1": [
+     0,
+     530
+    ],
+    "C2": [
+     0,
+     530
+    ],
+    "C3": [
+     44,
+     530
+    ],
+    "C4": [
+     0,
+     530
+    ],
+    "C5": [
+     0,
+     530
+    ],
+    "C6": [
+     44,
+     530
+    ],
+    "C7": [
+     0,
+     530
+    ],
+    "C8": [
+     0,
+     530
+    ],
+    "C9": [
+     0,
+     530
+    ],
+    "C10": [
+     0,
+     530
+    ],
+    "C11": [
+     0,
+     530
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     136,
+     430
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "bpic2013_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     4051
+    ],
+    "C1": [
+     0,
+     4051
+    ],
+    "C2": [
+     0,
+     4051
+    ],
+    "C3": [
+     0,
+     4051
+    ],
+    "C4": [
+     0,
+     4051
+    ],
+    "C5": [
+     0,
+     4051
+    ],
+    "C6": [
+     0,
+     4051
+    ],
+    "C7": [
+     0,
+     4051
+    ],
+    "C8": [
+     0,
+     4051
+    ],
+    "C9": [
+     0,
+     4051
+    ],
+    "C10": [
+     0,
+     4051
+    ],
+    "C11": [
+     0,
+     4051
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     15,
+     2069
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "beanstalk_attack": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     489
+    ],
+    "C1": [
+     0,
+     703
+    ],
+    "C2": [
+     0,
+     489
+    ],
+    "C3": [
+     1,
+     489
+    ],
+    "C4": [
+     0,
+     489
+    ],
+    "C5": [
+     0,
+     703
+    ],
+    "C6": [
+     1,
+     703
+    ],
+    "C7": [
+     0,
+     489
+    ],
+    "C8": [
+     0,
+     489
+    ],
+    "C9": [
+     0,
+     703
+    ],
+    "C10": [
+     0,
+     703
+    ],
+    "C11": [
+     0,
+     489
+    ],
+    "C12": [
+     0,
+     139
+    ],
+    "C13": [
+     0,
+     139
+    ],
+    "C14": [
+     0,
+     139
+    ],
+    "C15": [
+     1,
+     486
+    ],
+    "C16": [
+     0,
+     139
+    ]
+   }
+  },
+  "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     18
+    ],
+    "C1": [
+     0,
+     21
+    ],
+    "C2": [
+     0,
+     18
+    ],
+    "C3": [
+     0,
+     18
+    ],
+    "C4": [
+     0,
+     18
+    ],
+    "C5": [
+     0,
+     21
+    ],
+    "C6": [
+     0,
+     21
+    ],
+    "C7": [
+     0,
+     18
+    ],
+    "C8": [
+     0,
+     18
+    ],
+    "C9": [
+     0,
+     21
+    ],
+    "C10": [
+     0,
+     21
+    ],
+    "C11": [
+     0,
+     18
+    ],
+    "C12": [
+     0,
+     5
+    ],
+    "C13": [
+     0,
+     5
+    ],
+    "C14": [
+     0,
+     5
+    ],
+    "C15": [
+     0,
+     9
+    ],
+    "C16": [
+     0,
+     5
+    ]
+   }
+  },
+  "0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     204
+    ],
+    "C1": [
+     0,
+     302
+    ],
+    "C2": [
+     0,
+     204
+    ],
+    "C3": [
+     0,
+     204
+    ],
+    "C4": [
+     2,
+     204
+    ],
+    "C5": [
+     0,
+     302
+    ],
+    "C6": [
+     0,
+     302
+    ],
+    "C7": [
+     0,
+     204
+    ],
+    "C8": [
+     0,
+     204
+    ],
+    "C9": [
+     0,
+     302
+    ],
+    "C10": [
+     0,
+     302
+    ],
+    "C11": [
+     0,
+     204
+    ],
+    "C12": [
+     0,
+     59
+    ],
+    "C13": [
+     0,
+     59
+    ],
+    "C14": [
+     0,
+     59
+    ],
+    "C15": [
+     0,
+     182
+    ],
+    "C16": [
+     0,
+     59
+    ]
+   }
+  },
+  "0xb1690c08e213a35ed9bab7b318de14420fb57d8c_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     6
+    ],
+    "C1": [
+     0,
+     10
+    ],
+    "C2": [
+     0,
+     6
+    ],
+    "C3": [
+     0,
+     6
+    ],
+    "C4": [
+     0,
+     6
+    ],
+    "C5": [
+     0,
+     10
+    ],
+    "C6": [
+     0,
+     10
+    ],
+    "C7": [
+     0,
+     6
+    ],
+    "C8": [
+     0,
+     6
+    ],
+    "C9": [
+     0,
+     10
+    ],
+    "C10": [
+     0,
+     10
+    ],
+    "C11": [
+     0,
+     6
+    ],
+    "C12": [
+     0,
+     2
+    ],
+    "C13": [
+     0,
+     2
+    ],
+    "C14": [
+     0,
+     2
+    ],
+    "C15": [
+     0,
+     4
+    ],
+    "C16": [
+     0,
+     2
+    ]
+   }
+  },
+  "0x00000000219ab540356cbb839cbe05303d7705fa_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     9
+    ],
+    "C1": [
+     0,
+     17
+    ],
+    "C2": [
+     0,
+     9
+    ],
+    "C3": [
+     0,
+     9
+    ],
+    "C4": [
+     0,
+     9
+    ],
+    "C5": [
+     0,
+     17
+    ],
+    "C6": [
+     0,
+     17
+    ],
+    "C7": [
+     0,
+     9
+    ],
+    "C8": [
+     0,
+     9
+    ],
+    "C9": [
+     0,
+     17
+    ],
+    "C10": [
+     0,
+     17
+    ],
+    "C11": [
+     0,
+     9
+    ],
+    "C12": [
+     0,
+     1
+    ],
+    "C13": [
+     0,
+     1
+    ],
+    "C14": [
+     0,
+     1
+    ],
+    "C15": [
+     0,
+     8
+    ],
+    "C16": [
+     0,
+     1
+    ]
+   }
+  },
+  "0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     21
+    ],
+    "C1": [
+     0,
+     31
+    ],
+    "C2": [
+     0,
+     21
+    ],
+    "C3": [
+     0,
+     21
+    ],
+    "C4": [
+     0,
+     21
+    ],
+    "C5": [
+     0,
+     31
+    ],
+    "C6": [
+     0,
+     31
+    ],
+    "C7": [
+     0,
+     21
+    ],
+    "C8": [
+     0,
+     21
+    ],
+    "C9": [
+     0,
+     31
+    ],
+    "C10": [
+     0,
+     31
+    ],
+    "C11": [
+     0,
+     21
+    ],
+    "C12": [
+     0,
+     6
+    ],
+    "C13": [
+     0,
+     6
+    ],
+    "C14": [
+     0,
+     6
+    ],
+    "C15": [
+     0,
+     12
+    ],
+    "C16": [
+     0,
+     6
+    ]
+   }
+  },
+  "0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     12
+    ],
+    "C1": [
+     0,
+     13
+    ],
+    "C2": [
+     0,
+     12
+    ],
+    "C3": [
+     0,
+     12
+    ],
+    "C4": [
+     0,
+     12
+    ],
+    "C5": [
+     0,
+     13
+    ],
+    "C6": [
+     0,
+     13
+    ],
+    "C7": [
+     0,
+     12
+    ],
+    "C8": [
+     0,
+     12
+    ],
+    "C9": [
+     0,
+     13
+    ],
+    "C10": [
+     0,
+     13
+    ],
+    "C11": [
+     0,
+     12
+    ],
+    "C12": [
+     0,
+     3
+    ],
+    "C13": [
+     0,
+     3
+    ],
+    "C14": [
+     0,
+     3
+    ],
+    "C15": [
+     0,
+     5
+    ],
+    "C16": [
+     0,
+     3
+    ]
+   }
+  },
+  "0x556b9306565093c855aea9ae92a594704c2cd59e_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     241
+    ],
+    "C1": [
+     0,
+     361
+    ],
+    "C2": [
+     0,
+     241
+    ],
+    "C3": [
+     0,
+     241
+    ],
+    "C4": [
+     10,
+     241
+    ],
+    "C5": [
+     0,
+     361
+    ],
+    "C6": [
+     0,
+     361
+    ],
+    "C7": [
+     0,
+     241
+    ],
+    "C8": [
+     0,
+     241
+    ],
+    "C9": [
+     0,
+     361
+    ],
+    "C10": [
+     0,
+     361
+    ],
+    "C11": [
+     0,
+     241
+    ],
+    "C12": [
+     0,
+     64
+    ],
+    "C13": [
+     0,
+     64
+    ],
+    "C14": [
+     0,
+     64
+    ],
+    "C15": [
+     0,
+     228
+    ],
+    "C16": [
+     0,
+     64
+    ]
+   }
+  },
+  "0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     267
+    ],
+    "C1": [
+     0,
+     415
+    ],
+    "C2": [
+     0,
+     267
+    ],
+    "C3": [
+     0,
+     267
+    ],
+    "C4": [
+     0,
+     267
+    ],
+    "C5": [
+     0,
+     415
+    ],
+    "C6": [
+     0,
+     415
+    ],
+    "C7": [
+     0,
+     267
+    ],
+    "C8": [
+     0,
+     267
+    ],
+    "C9": [
+     0,
+     415
+    ],
+    "C10": [
+     0,
+     415
+    ],
+    "C11": [
+     0,
+     267
+    ],
+    "C12": [
+     0,
+     67
+    ],
+    "C13": [
+     0,
+     67
+    ],
+    "C14": [
+     0,
+     67
+    ],
+    "C15": [
+     0,
+     248
+    ],
+    "C16": [
+     0,
+     67
+    ]
+   }
+  },
+  "0x5e_cd49912": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     4
+    ],
+    "C1": [
+     0,
+     5
+    ],
+    "C2": [
+     0,
+     4
+    ],
+    "C3": [
+     0,
+     4
+    ],
+    "C4": [
+     0,
+     4
+    ],
+    "C5": [
+     0,
+     5
+    ],
+    "C6": [
+     0,
+     5
+    ],
+    "C7": [
+     0,
+     4
+    ],
+    "C8": [
+     0,
+     4
+    ],
+    "C9": [
+     0,
+     5
+    ],
+    "C10": [
+     0,
+     5
+    ],
+    "C11": [
+     0,
+     4
+    ],
+    "C12": [
+     0,
+     2
+    ],
+    "C13": [
+     0,
+     2
+    ],
+    "C14": [
+     0,
+     2
+    ],
+    "C15": [
+     0,
+     3
+    ],
+    "C16": [
+     0,
+     2
+    ]
+   }
+  },
+  "0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     35
+    ],
+    "C1": [
+     0,
+     47
+    ],
+    "C2": [
+     0,
+     35
+    ],
+    "C3": [
+     0,
+     35
+    ],
+    "C4": [
+     0,
+     35
+    ],
+    "C5": [
+     0,
+     47
+    ],
+    "C6": [
+     0,
+     47
+    ],
+    "C7": [
+     0,
+     35
+    ],
+    "C8": [
+     0,
+     35
+    ],
+    "C9": [
+     0,
+     47
+    ],
+    "C10": [
+     0,
+     47
+    ],
+    "C11": [
+     0,
+     35
+    ],
+    "C12": [
+     0,
+     17
+    ],
+    "C13": [
+     0,
+     17
+    ],
+    "C14": [
+     0,
+     17
+    ],
+    "C15": [
+     0,
+     24
+    ],
+    "C16": [
+     0,
+     17
+    ]
+   }
+  },
+  "0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     85
+    ],
+    "C1": [
+     0,
+     146
+    ],
+    "C2": [
+     0,
+     85
+    ],
+    "C3": [
+     0,
+     85
+    ],
+    "C4": [
+     0,
+     85
+    ],
+    "C5": [
+     0,
+     146
+    ],
+    "C6": [
+     0,
+     146
+    ],
+    "C7": [
+     0,
+     85
+    ],
+    "C8": [
+     0,
+     85
+    ],
+    "C9": [
+     0,
+     146
+    ],
+    "C10": [
+     0,
+     146
+    ],
+    "C11": [
+     0,
+     85
+    ],
+    "C12": [
+     0,
+     13
+    ],
+    "C13": [
+     0,
+     13
+    ],
+    "C14": [
+     0,
+     13
+    ],
+    "C15": [
+     0,
+     83
+    ],
+    "C16": [
+     0,
+     13
+    ]
+   }
+  },
+  "0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc_uniqueFunction": {
+   "profile": "hierarchical choreography",
+   "constraints": {
+    "C0": [
+     0,
+     61
+    ],
+    "C1": [
+     0,
+     88
+    ],
+    "C2": [
+     0,
+     61
+    ],
+    "C3": [
+     0,
+     61
+    ],
+    "C4": [
+     0,
+     61
+    ],
+    "C5": [
+     0,
+     88
+    ],
+    "C6": [
+     0,
+     88
+    ],
+    "C7": [
+     0,
+     61
+    ],
+    "C8": [
+     0,
+     61
+    ],
+    "C9": [
+     0,
+     88
+    ],
+    "C10": [
+     0,
+     88
+    ],
+    "C11": [
+     0,
+     61
+    ],
+    "C12": [
+     0,
+     17
+    ],
+    "C13": [
+     0,
+     17
+    ],
+    "C14": [
+     0,
+     17
+    ],
+    "C15": [
+     0,
+     55
+    ],
+    "C16": [
+     0,
+     17
+    ]
+   }
+  },
+  "healthcare_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     550
+    ],
+    "C1": [
+     0,
+     550
+    ],
+    "C2": [
+     0,
+     550
+    ],
+    "C3": [
+     26,
+     550
+    ],
+    "C4": [
+     0,
+     550
+    ],
+    "C5": [
+     0,
+     550
+    ],
+    "C6": [
+     26,
+     550
+    ],
+    "C7": [
+     0,
+     550
+    ],
+    "C8": [
+     0,
+     550
+    ],
+    "C9": [
+     0,
+     550
+    ],
+    "C10": [
+     0,
+     550
+    ],
+    "C11": [
+     0,
+     550
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     26,
+     450
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "healthcare_chl": {
+   "profile": "choreography",
+   "constraints": {
+    "C0": [
+     0,
+     550
+    ],
+    "C1": [
+     0,
+     550
+    ],
+    "C2": [
+     0,
+     550
+    ],
+    "C3": [
+     26,
+     550
+    ],
+    "C4": [
+     0,
+     550
+    ],
+    "C5": [
+     0,
+     550
+    ],
+    "C6": [
+     26,
+     550
+    ],
+    "C7": [
+     0,
+     550
+    ],
+    "C8": [
+     0,
+     550
+    ],
+    "C9": [
+     0,
+     550
+    ],
+    "C10": [
+     0,
+     550
+    ],
+    "C11": [
+     0,
+     550
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     26,
+     450
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "healthcare_complete": {
+   "profile": "complete",
+   "constraints": {
+    "C0": [
+     0,
+     550
+    ],
+    "C1": [
+     0,
+     550
+    ],
+    "C2": [
+     0,
+     550
+    ],
+    "C3": [
+     26,
+     550
+    ],
+    "C4": [
+     0,
+     550
+    ],
+    "C5": [
+     0,
+     550
+    ],
+    "C6": [
+     26,
+     550
+    ],
+    "C7": [
+     0,
+     550
+    ],
+    "C8": [
+     0,
+     550
+    ],
+    "C9": [
+     0,
+     550
+    ],
+    "C10": [
+     0,
+     550
+    ],
+    "C11": [
+     0,
+     550
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     26,
+     450
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "healthcare_hobeck": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     116
+    ],
+    "C1": [
+     0,
+     116
+    ],
+    "C2": [
+     0,
+     116
+    ],
+    "C3": [
+     9,
+     116
+    ],
+    "C4": [
+     0,
+     116
+    ],
+    "C5": [
+     0,
+     116
+    ],
+    "C6": [
+     9,
+     116
+    ],
+    "C7": [
+     0,
+     116
+    ],
+    "C8": [
+     0,
+     116
+    ],
+    "C9": [
+     0,
+     116
+    ],
+    "C10": [
+     0,
+     116
+    ],
+    "C11": [
+     0,
+     116
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     9,
+     99
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real1_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     44
+    ],
+    "C1": [
+     0,
+     44
+    ],
+    "C2": [
+     0,
+     44
+    ],
+    "C3": [
+     0,
+     44
+    ],
+    "C4": [
+     0,
+     44
+    ],
+    "C5": [
+     0,
+     44
+    ],
+    "C6": [
+     0,
+     44
+    ],
+    "C7": [
+     0,
+     44
+    ],
+    "C8": [
+     0,
+     44
+    ],
+    "C9": [
+     0,
+     44
+    ],
+    "C10": [
+     0,
+     44
+    ],
+    "C11": [
+     0,
+     44
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     22
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real1_chl": {
+   "profile": "choreography",
+   "constraints": {
+    "C0": [
+     0,
+     44
+    ],
+    "C1": [
+     0,
+     44
+    ],
+    "C2": [
+     0,
+     44
+    ],
+    "C3": [
+     0,
+     44
+    ],
+    "C4": [
+     0,
+     44
+    ],
+    "C5": [
+     0,
+     44
+    ],
+    "C6": [
+     0,
+     44
+    ],
+    "C7": [
+     0,
+     44
+    ],
+    "C8": [
+     0,
+     44
+    ],
+    "C9": [
+     0,
+     44
+    ],
+    "C10": [
+     0,
+     44
+    ],
+    "C11": [
+     0,
+     44
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     22
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real1_complete": {
+   "profile": "complete",
+   "constraints": {
+    "C0": [
+     0,
+     44
+    ],
+    "C1": [
+     0,
+     44
+    ],
+    "C2": [
+     0,
+     44
+    ],
+    "C3": [
+     0,
+     44
+    ],
+    "C4": [
+     0,
+     44
+    ],
+    "C5": [
+     0,
+     44
+    ],
+    "C6": [
+     0,
+     44
+    ],
+    "C7": [
+     0,
+     44
+    ],
+    "C8": [
+     0,
+     44
+    ],
+    "C9": [
+     0,
+     44
+    ],
+    "C10": [
+     0,
+     44
+    ],
+    "C11": [
+     0,
+     44
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     22
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real1_hobeck": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     2
+    ],
+    "C1": [
+     0,
+     2
+    ],
+    "C2": [
+     0,
+     2
+    ],
+    "C3": [
+     0,
+     2
+    ],
+    "C4": [
+     0,
+     2
+    ],
+    "C5": [
+     0,
+     2
+    ],
+    "C6": [
+     0,
+     2
+    ],
+    "C7": [
+     0,
+     2
+    ],
+    "C8": [
+     0,
+     2
+    ],
+    "C9": [
+     0,
+     2
+    ],
+    "C10": [
+     0,
+     2
+    ],
+    "C11": [
+     0,
+     2
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     1
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real2_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     869
+    ],
+    "C1": [
+     0,
+     869
+    ],
+    "C2": [
+     0,
+     869
+    ],
+    "C3": [
+     0,
+     869
+    ],
+    "C4": [
+     0,
+     869
+    ],
+    "C5": [
+     0,
+     869
+    ],
+    "C6": [
+     0,
+     869
+    ],
+    "C7": [
+     0,
+     869
+    ],
+    "C8": [
+     0,
+     869
+    ],
+    "C9": [
+     0,
+     869
+    ],
+    "C10": [
+     0,
+     869
+    ],
+    "C11": [
+     0,
+     869
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     769
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real2_chl": {
+   "profile": "choreography",
+   "constraints": {
+    "C0": [
+     0,
+     869
+    ],
+    "C1": [
+     0,
+     869
+    ],
+    "C2": [
+     0,
+     869
+    ],
+    "C3": [
+     0,
+     869
+    ],
+    "C4": [
+     0,
+     869
+    ],
+    "C5": [
+     0,
+     869
+    ],
+    "C6": [
+     0,
+     869
+    ],
+    "C7": [
+     0,
+     869
+    ],
+    "C8": [
+     0,
+     869
+    ],
+    "C9": [
+     0,
+     869
+    ],
+    "C10": [
+     0,
+     869
+    ],
+    "C11": [
+     0,
+     869
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     769
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real2_complete": {
+   "profile": "complete",
+   "constraints": {
+    "C0": [
+     0,
+     869
+    ],
+    "C1": [
+     0,
+     869
+    ],
+    "C2": [
+     0,
+     869
+    ],
+    "C3": [
+     0,
+     869
+    ],
+    "C4": [
+     0,
+     869
+    ],
+    "C5": [
+     0,
+     869
+    ],
+    "C6": [
+     0,
+     869
+    ],
+    "C7": [
+     0,
+     869
+    ],
+    "C8": [
+     0,
+     869
+    ],
+    "C9": [
+     0,
+     869
+    ],
+    "C10": [
+     0,
+     869
+    ],
+    "C11": [
+     0,
+     869
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     769
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real2_hobeck": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     842
+    ],
+    "C1": [
+     0,
+     842
+    ],
+    "C2": [
+     0,
+     842
+    ],
+    "C3": [
+     0,
+     842
+    ],
+    "C4": [
+     0,
+     842
+    ],
+    "C5": [
+     0,
+     842
+    ],
+    "C6": [
+     0,
+     842
+    ],
+    "C7": [
+     0,
+     842
+    ],
+    "C8": [
+     0,
+     842
+    ],
+    "C9": [
+     0,
+     842
+    ],
+    "C10": [
+     0,
+     842
+    ],
+    "C11": [
+     0,
+     842
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     746
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real3_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     653
+    ],
+    "C1": [
+     0,
+     653
+    ],
+    "C2": [
+     0,
+     653
+    ],
+    "C3": [
+     13,
+     653
+    ],
+    "C4": [
+     0,
+     653
+    ],
+    "C5": [
+     0,
+     653
+    ],
+    "C6": [
+     13,
+     653
+    ],
+    "C7": [
+     0,
+     653
+    ],
+    "C8": [
+     0,
+     653
+    ],
+    "C9": [
+     0,
+     653
+    ],
+    "C10": [
+     0,
+     653
+    ],
+    "C11": [
+     0,
+     653
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     119,
+     553
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real3_chl": {
+   "profile": "choreography",
+   "constraints": {
+    "C0": [
+     0,
+     653
+    ],
+    "C1": [
+     0,
+     653
+    ],
+    "C2": [
+     0,
+     653
+    ],
+    "C3": [
+     13,
+     653
+    ],
+    "C4": [
+     0,
+     653
+    ],
+    "C5": [
+     0,
+     653
+    ],
+    "C6": [
+     13,
+     653
+    ],
+    "C7": [
+     0,
+     653
+    ],
+    "C8": [
+     0,
+     653
+    ],
+    "C9": [
+     0,
+     653
+    ],
+    "C10": [
+     0,
+     653
+    ],
+    "C11": [
+     0,
+     653
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     119,
+     553
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real3_complete": {
+   "profile": "complete",
+   "constraints": {
+    "C0": [
+     0,
+     653
+    ],
+    "C1": [
+     0,
+     653
+    ],
+    "C2": [
+     0,
+     653
+    ],
+    "C3": [
+     13,
+     653
+    ],
+    "C4": [
+     0,
+     653
+    ],
+    "C5": [
+     0,
+     653
+    ],
+    "C6": [
+     13,
+     653
+    ],
+    "C7": [
+     0,
+     653
+    ],
+    "C8": [
+     0,
+     653
+    ],
+    "C9": [
+     0,
+     653
+    ],
+    "C10": [
+     0,
+     653
+    ],
+    "C11": [
+     0,
+     653
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     119,
+     553
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real3_hobeck": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     472
+    ],
+    "C1": [
+     0,
+     472
+    ],
+    "C2": [
+     0,
+     472
+    ],
+    "C3": [
+     8,
+     472
+    ],
+    "C4": [
+     0,
+     472
+    ],
+    "C5": [
+     0,
+     472
+    ],
+    "C6": [
+     8,
+     472
+    ],
+    "C7": [
+     0,
+     472
+    ],
+    "C8": [
+     0,
+     472
+    ],
+    "C9": [
+     0,
+     472
+    ],
+    "C10": [
+     0,
+     472
+    ],
+    "C11": [
+     0,
+     472
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     99,
+     413
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real4_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     400
+    ],
+    "C1": [
+     0,
+     400
+    ],
+    "C2": [
+     0,
+     400
+    ],
+    "C3": [
+     0,
+     400
+    ],
+    "C4": [
+     0,
+     400
+    ],
+    "C5": [
+     0,
+     400
+    ],
+    "C6": [
+     0,
+     400
+    ],
+    "C7": [
+     0,
+     400
+    ],
+    "C8": [
+     0,
+     400
+    ],
+    "C9": [
+     0,
+     400
+    ],
+    "C10": [
+     0,
+     400
+    ],
+    "C11": [
+     0,
+     400
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     300
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real4_chl": {
+   "profile": "choreography",
+   "constraints": {
+    "C0": [
+     0,
+     400
+    ],
+    "C1": [
+     0,
+     400
+    ],
+    "C2": [
+     0,
+     400
+    ],
+    "C3": [
+     0,
+     400
+    ],
+    "C4": [
+     0,
+     400
+    ],
+    "C5": [
+     0,
+     400
+    ],
+    "C6": [
+     0,
+     400
+    ],
+    "C7": [
+     0,
+     400
+    ],
+    "C8": [
+     0,
+     400
+    ],
+    "C9": [
+     0,
+     400
+    ],
+    "C10": [
+     0,
+     400
+    ],
+    "C11": [
+     0,
+     400
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     300
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real4_complete": {
+   "profile": "complete",
+   "constraints": {
+    "C0": [
+     0,
+     400
+    ],
+    "C1": [
+     0,
+     400
+    ],
+    "C2": [
+     0,
+     400
+    ],
+    "C3": [
+     0,
+     400
+    ],
+    "C4": [
+     0,
+     400
+    ],
+    "C5": [
+     0,
+     400
+    ],
+    "C6": [
+     0,
+     400
+    ],
+    "C7": [
+     0,
+     400
+    ],
+    "C8": [
+     0,
+     400
+    ],
+    "C9": [
+     0,
+     400
+    ],
+    "C10": [
+     0,
+     400
+    ],
+    "C11": [
+     0,
+     400
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     300
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real4_hobeck": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     4
+    ],
+    "C1": [
+     0,
+     4
+    ],
+    "C2": [
+     0,
+     4
+    ],
+    "C3": [
+     0,
+     4
+    ],
+    "C4": [
+     0,
+     4
+    ],
+    "C5": [
+     0,
+     4
+    ],
+    "C6": [
+     0,
+     4
+    ],
+    "C7": [
+     0,
+     4
+    ],
+    "C8": [
+     0,
+     4
+    ],
+    "C9": [
+     0,
+     4
+    ],
+    "C10": [
+     0,
+     4
+    ],
+    "C11": [
+     0,
+     4
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     3
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real5_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     345
+    ],
+    "C1": [
+     0,
+     345
+    ],
+    "C2": [
+     0,
+     345
+    ],
+    "C3": [
+     0,
+     345
+    ],
+    "C4": [
+     0,
+     345
+    ],
+    "C5": [
+     0,
+     345
+    ],
+    "C6": [
+     0,
+     345
+    ],
+    "C7": [
+     0,
+     345
+    ],
+    "C8": [
+     0,
+     345
+    ],
+    "C9": [
+     0,
+     345
+    ],
+    "C10": [
+     0,
+     345
+    ],
+    "C11": [
+     0,
+     345
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     276
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real5_chl": {
+   "profile": "choreography",
+   "constraints": {
+    "C0": [
+     0,
+     345
+    ],
+    "C1": [
+     0,
+     345
+    ],
+    "C2": [
+     0,
+     345
+    ],
+    "C3": [
+     0,
+     345
+    ],
+    "C4": [
+     0,
+     345
+    ],
+    "C5": [
+     0,
+     345
+    ],
+    "C6": [
+     0,
+     345
+    ],
+    "C7": [
+     0,
+     345
+    ],
+    "C8": [
+     0,
+     345
+    ],
+    "C9": [
+     0,
+     345
+    ],
+    "C10": [
+     0,
+     345
+    ],
+    "C11": [
+     0,
+     345
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     276
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real5_complete": {
+   "profile": "complete",
+   "constraints": {
+    "C0": [
+     0,
+     345
+    ],
+    "C1": [
+     0,
+     345
+    ],
+    "C2": [
+     0,
+     345
+    ],
+    "C3": [
+     0,
+     345
+    ],
+    "C4": [
+     0,
+     345
+    ],
+    "C5": [
+     0,
+     345
+    ],
+    "C6": [
+     0,
+     345
+    ],
+    "C7": [
+     0,
+     345
+    ],
+    "C8": [
+     0,
+     345
+    ],
+    "C9": [
+     0,
+     345
+    ],
+    "C10": [
+     0,
+     345
+    ],
+    "C11": [
+     0,
+     345
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     276
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "real5_hobeck": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     15
+    ],
+    "C1": [
+     0,
+     15
+    ],
+    "C2": [
+     0,
+     15
+    ],
+    "C3": [
+     0,
+     15
+    ],
+    "C4": [
+     0,
+     15
+    ],
+    "C5": [
+     0,
+     15
+    ],
+    "C6": [
+     0,
+     15
+    ],
+    "C7": [
+     0,
+     15
+    ],
+    "C8": [
+     0,
+     15
+    ],
+    "C9": [
+     0,
+     15
+    ],
+    "C10": [
+     0,
+     15
+    ],
+    "C11": [
+     0,
+     15
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     12
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "smartagriculture_cl": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     114
+    ],
+    "C1": [
+     0,
+     114
+    ],
+    "C2": [
+     0,
+     114
+    ],
+    "C3": [
+     28,
+     114
+    ],
+    "C4": [
+     0,
+     114
+    ],
+    "C5": [
+     0,
+     114
+    ],
+    "C6": [
+     28,
+     114
+    ],
+    "C7": [
+     0,
+     114
+    ],
+    "C8": [
+     0,
+     114
+    ],
+    "C9": [
+     0,
+     114
+    ],
+    "C10": [
+     0,
+     114
+    ],
+    "C11": [
+     0,
+     114
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     9,
+     104
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "smartagriculture_chl": {
+   "profile": "choreography",
+   "constraints": {
+    "C0": [
+     0,
+     114
+    ],
+    "C1": [
+     0,
+     114
+    ],
+    "C2": [
+     0,
+     114
+    ],
+    "C3": [
+     16,
+     114
+    ],
+    "C4": [
+     0,
+     114
+    ],
+    "C5": [
+     0,
+     114
+    ],
+    "C6": [
+     16,
+     114
+    ],
+    "C7": [
+     0,
+     114
+    ],
+    "C8": [
+     0,
+     114
+    ],
+    "C9": [
+     0,
+     114
+    ],
+    "C10": [
+     0,
+     114
+    ],
+    "C11": [
+     0,
+     114
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     9,
+     104
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "smartagriculture_complete": {
+   "profile": "complete",
+   "constraints": {
+    "C0": [
+     0,
+     114
+    ],
+    "C1": [
+     0,
+     114
+    ],
+    "C2": [
+     0,
+     114
+    ],
+    "C3": [
+     28,
+     114
+    ],
+    "C4": [
+     0,
+     114
+    ],
+    "C5": [
+     0,
+     114
+    ],
+    "C6": [
+     28,
+     114
+    ],
+    "C7": [
+     0,
+     114
+    ],
+    "C8": [
+     0,
+     114
+    ],
+    "C9": [
+     0,
+     114
+    ],
+    "C10": [
+     0,
+     114
+    ],
+    "C11": [
+     0,
+     114
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     9,
+     104
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  },
+  "smartagriculture_hobeck": {
+   "profile": "collaboration",
+   "constraints": {
+    "C0": [
+     0,
+     114
+    ],
+    "C1": [
+     0,
+     114
+    ],
+    "C2": [
+     0,
+     114
+    ],
+    "C3": [
+     28,
+     114
+    ],
+    "C4": [
+     0,
+     114
+    ],
+    "C5": [
+     0,
+     114
+    ],
+    "C6": [
+     28,
+     114
+    ],
+    "C7": [
+     0,
+     114
+    ],
+    "C8": [
+     0,
+     114
+    ],
+    "C9": [
+     0,
+     114
+    ],
+    "C10": [
+     0,
+     114
+    ],
+    "C11": [
+     0,
+     114
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     9,
+     104
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   }
+  }
+ },
+ "cross_check": {
+  "healthcare_hobeck": {
+   "reference": {
+    "C0": [
+     0,
+     116
+    ],
+    "C1": [
+     0,
+     116
+    ],
+    "C2": [
+     0,
+     116
+    ],
+    "C3": [
+     9,
+     116
+    ],
+    "C4": [
+     0,
+     116
+    ],
+    "C5": [
+     0,
+     116
+    ],
+    "C6": [
+     9,
+     116
+    ],
+    "C7": [
+     0,
+     116
+    ],
+    "C8": [
+     0,
+     116
+    ],
+    "C9": [
+     0,
+     116
+    ],
+    "C10": [
+     0,
+     116
+    ],
+    "C11": [
+     0,
+     116
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     9,
+     99
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "real1_hobeck": {
+   "reference": {
+    "C0": [
+     0,
+     2
+    ],
+    "C1": [
+     0,
+     2
+    ],
+    "C2": [
+     0,
+     2
+    ],
+    "C3": [
+     0,
+     2
+    ],
+    "C4": [
+     0,
+     2
+    ],
+    "C5": [
+     0,
+     2
+    ],
+    "C6": [
+     0,
+     2
+    ],
+    "C7": [
+     0,
+     2
+    ],
+    "C8": [
+     0,
+     2
+    ],
+    "C9": [
+     0,
+     2
+    ],
+    "C10": [
+     0,
+     2
+    ],
+    "C11": [
+     0,
+     2
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     1
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "real2_hobeck": {
+   "reference": {
+    "C0": [
+     0,
+     842
+    ],
+    "C1": [
+     0,
+     842
+    ],
+    "C2": [
+     0,
+     842
+    ],
+    "C3": [
+     0,
+     842
+    ],
+    "C4": [
+     0,
+     842
+    ],
+    "C5": [
+     0,
+     842
+    ],
+    "C6": [
+     0,
+     842
+    ],
+    "C7": [
+     0,
+     842
+    ],
+    "C8": [
+     0,
+     842
+    ],
+    "C9": [
+     0,
+     842
+    ],
+    "C10": [
+     0,
+     842
+    ],
+    "C11": [
+     0,
+     842
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     746
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "real3_hobeck": {
+   "reference": {
+    "C0": [
+     0,
+     472
+    ],
+    "C1": [
+     0,
+     472
+    ],
+    "C2": [
+     0,
+     472
+    ],
+    "C3": [
+     8,
+     472
+    ],
+    "C4": [
+     0,
+     472
+    ],
+    "C5": [
+     0,
+     472
+    ],
+    "C6": [
+     8,
+     472
+    ],
+    "C7": [
+     0,
+     472
+    ],
+    "C8": [
+     0,
+     472
+    ],
+    "C9": [
+     0,
+     472
+    ],
+    "C10": [
+     0,
+     472
+    ],
+    "C11": [
+     0,
+     472
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     99,
+     413
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "real4_hobeck": {
+   "reference": {
+    "C0": [
+     0,
+     4
+    ],
+    "C1": [
+     0,
+     4
+    ],
+    "C2": [
+     0,
+     4
+    ],
+    "C3": [
+     0,
+     4
+    ],
+    "C4": [
+     0,
+     4
+    ],
+    "C5": [
+     0,
+     4
+    ],
+    "C6": [
+     0,
+     4
+    ],
+    "C7": [
+     0,
+     4
+    ],
+    "C8": [
+     0,
+     4
+    ],
+    "C9": [
+     0,
+     4
+    ],
+    "C10": [
+     0,
+     4
+    ],
+    "C11": [
+     0,
+     4
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     3
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "real5_hobeck": {
+   "reference": {
+    "C0": [
+     0,
+     15
+    ],
+    "C1": [
+     0,
+     15
+    ],
+    "C2": [
+     0,
+     15
+    ],
+    "C3": [
+     0,
+     15
+    ],
+    "C4": [
+     0,
+     15
+    ],
+    "C5": [
+     0,
+     15
+    ],
+    "C6": [
+     0,
+     15
+    ],
+    "C7": [
+     0,
+     15
+    ],
+    "C8": [
+     0,
+     15
+    ],
+    "C9": [
+     0,
+     15
+    ],
+    "C10": [
+     0,
+     15
+    ],
+    "C11": [
+     0,
+     15
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     0,
+     12
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "smartagriculture_hobeck": {
+   "reference": {
+    "C0": [
+     0,
+     114
+    ],
+    "C1": [
+     0,
+     114
+    ],
+    "C2": [
+     0,
+     114
+    ],
+    "C3": [
+     28,
+     114
+    ],
+    "C4": [
+     0,
+     114
+    ],
+    "C5": [
+     0,
+     114
+    ],
+    "C6": [
+     28,
+     114
+    ],
+    "C7": [
+     0,
+     114
+    ],
+    "C8": [
+     0,
+     114
+    ],
+    "C9": [
+     0,
+     114
+    ],
+    "C10": [
+     0,
+     114
+    ],
+    "C11": [
+     0,
+     114
+    ],
+    "C12": [
+     0,
+     0
+    ],
+    "C13": [
+     0,
+     0
+    ],
+    "C14": [
+     0,
+     0
+    ],
+    "C15": [
+     9,
+     104
+    ],
+    "C16": [
+     0,
+     0
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "beanstalk_attack": {
+   "reference": {
+    "C0": [
+     0,
+     489
+    ],
+    "C1": [
+     0,
+     703
+    ],
+    "C2": [
+     0,
+     489
+    ],
+    "C3": [
+     1,
+     489
+    ],
+    "C4": [
+     0,
+     489
+    ],
+    "C5": [
+     0,
+     703
+    ],
+    "C6": [
+     1,
+     703
+    ],
+    "C7": [
+     0,
+     489
+    ],
+    "C8": [
+     0,
+     489
+    ],
+    "C9": [
+     0,
+     703
+    ],
+    "C10": [
+     0,
+     703
+    ],
+    "C11": [
+     0,
+     489
+    ],
+    "C12": [
+     0,
+     139
+    ],
+    "C13": [
+     0,
+     139
+    ],
+    "C14": [
+     0,
+     139
+    ],
+    "C15": [
+     1,
+     486
+    ],
+    "C16": [
+     0,
+     139
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     18
+    ],
+    "C1": [
+     0,
+     21
+    ],
+    "C2": [
+     0,
+     18
+    ],
+    "C3": [
+     0,
+     18
+    ],
+    "C4": [
+     0,
+     18
+    ],
+    "C5": [
+     0,
+     21
+    ],
+    "C6": [
+     0,
+     21
+    ],
+    "C7": [
+     0,
+     18
+    ],
+    "C8": [
+     0,
+     18
+    ],
+    "C9": [
+     0,
+     21
+    ],
+    "C10": [
+     0,
+     21
+    ],
+    "C11": [
+     0,
+     18
+    ],
+    "C12": [
+     0,
+     5
+    ],
+    "C13": [
+     0,
+     5
+    ],
+    "C14": [
+     0,
+     5
+    ],
+    "C15": [
+     0,
+     9
+    ],
+    "C16": [
+     0,
+     5
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     204
+    ],
+    "C1": [
+     0,
+     302
+    ],
+    "C2": [
+     0,
+     204
+    ],
+    "C3": [
+     0,
+     204
+    ],
+    "C4": [
+     2,
+     204
+    ],
+    "C5": [
+     0,
+     302
+    ],
+    "C6": [
+     0,
+     302
+    ],
+    "C7": [
+     0,
+     204
+    ],
+    "C8": [
+     0,
+     204
+    ],
+    "C9": [
+     0,
+     302
+    ],
+    "C10": [
+     0,
+     302
+    ],
+    "C11": [
+     0,
+     204
+    ],
+    "C12": [
+     0,
+     59
+    ],
+    "C13": [
+     0,
+     59
+    ],
+    "C14": [
+     0,
+     59
+    ],
+    "C15": [
+     0,
+     182
+    ],
+    "C16": [
+     0,
+     59
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0xb1690c08e213a35ed9bab7b318de14420fb57d8c_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     6
+    ],
+    "C1": [
+     0,
+     10
+    ],
+    "C2": [
+     0,
+     6
+    ],
+    "C3": [
+     0,
+     6
+    ],
+    "C4": [
+     0,
+     6
+    ],
+    "C5": [
+     0,
+     10
+    ],
+    "C6": [
+     0,
+     10
+    ],
+    "C7": [
+     0,
+     6
+    ],
+    "C8": [
+     0,
+     6
+    ],
+    "C9": [
+     0,
+     10
+    ],
+    "C10": [
+     0,
+     10
+    ],
+    "C11": [
+     0,
+     6
+    ],
+    "C12": [
+     0,
+     2
+    ],
+    "C13": [
+     0,
+     2
+    ],
+    "C14": [
+     0,
+     2
+    ],
+    "C15": [
+     0,
+     4
+    ],
+    "C16": [
+     0,
+     2
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0x00000000219ab540356cbb839cbe05303d7705fa_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     9
+    ],
+    "C1": [
+     0,
+     17
+    ],
+    "C2": [
+     0,
+     9
+    ],
+    "C3": [
+     0,
+     9
+    ],
+    "C4": [
+     0,
+     9
+    ],
+    "C5": [
+     0,
+     17
+    ],
+    "C6": [
+     0,
+     17
+    ],
+    "C7": [
+     0,
+     9
+    ],
+    "C8": [
+     0,
+     9
+    ],
+    "C9": [
+     0,
+     17
+    ],
+    "C10": [
+     0,
+     17
+    ],
+    "C11": [
+     0,
+     9
+    ],
+    "C12": [
+     0,
+     1
+    ],
+    "C13": [
+     0,
+     1
+    ],
+    "C14": [
+     0,
+     1
+    ],
+    "C15": [
+     0,
+     8
+    ],
+    "C16": [
+     0,
+     1
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     21
+    ],
+    "C1": [
+     0,
+     31
+    ],
+    "C2": [
+     0,
+     21
+    ],
+    "C3": [
+     0,
+     21
+    ],
+    "C4": [
+     0,
+     21
+    ],
+    "C5": [
+     0,
+     31
+    ],
+    "C6": [
+     0,
+     31
+    ],
+    "C7": [
+     0,
+     21
+    ],
+    "C8": [
+     0,
+     21
+    ],
+    "C9": [
+     0,
+     31
+    ],
+    "C10": [
+     0,
+     31
+    ],
+    "C11": [
+     0,
+     21
+    ],
+    "C12": [
+     0,
+     6
+    ],
+    "C13": [
+     0,
+     6
+    ],
+    "C14": [
+     0,
+     6
+    ],
+    "C15": [
+     0,
+     12
+    ],
+    "C16": [
+     0,
+     6
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     12
+    ],
+    "C1": [
+     0,
+     13
+    ],
+    "C2": [
+     0,
+     12
+    ],
+    "C3": [
+     0,
+     12
+    ],
+    "C4": [
+     0,
+     12
+    ],
+    "C5": [
+     0,
+     13
+    ],
+    "C6": [
+     0,
+     13
+    ],
+    "C7": [
+     0,
+     12
+    ],
+    "C8": [
+     0,
+     12
+    ],
+    "C9": [
+     0,
+     13
+    ],
+    "C10": [
+     0,
+     13
+    ],
+    "C11": [
+     0,
+     12
+    ],
+    "C12": [
+     0,
+     3
+    ],
+    "C13": [
+     0,
+     3
+    ],
+    "C14": [
+     0,
+     3
+    ],
+    "C15": [
+     0,
+     5
+    ],
+    "C16": [
+     0,
+     3
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0x556b9306565093c855aea9ae92a594704c2cd59e_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     241
+    ],
+    "C1": [
+     0,
+     361
+    ],
+    "C2": [
+     0,
+     241
+    ],
+    "C3": [
+     0,
+     241
+    ],
+    "C4": [
+     10,
+     241
+    ],
+    "C5": [
+     0,
+     361
+    ],
+    "C6": [
+     0,
+     361
+    ],
+    "C7": [
+     0,
+     241
+    ],
+    "C8": [
+     0,
+     241
+    ],
+    "C9": [
+     0,
+     361
+    ],
+    "C10": [
+     0,
+     361
+    ],
+    "C11": [
+     0,
+     241
+    ],
+    "C12": [
+     0,
+     64
+    ],
+    "C13": [
+     0,
+     64
+    ],
+    "C14": [
+     0,
+     64
+    ],
+    "C15": [
+     0,
+     228
+    ],
+    "C16": [
+     0,
+     64
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     267
+    ],
+    "C1": [
+     0,
+     415
+    ],
+    "C2": [
+     0,
+     267
+    ],
+    "C3": [
+     0,
+     267
+    ],
+    "C4": [
+     0,
+     267
+    ],
+    "C5": [
+     0,
+     415
+    ],
+    "C6": [
+     0,
+     415
+    ],
+    "C7": [
+     0,
+     267
+    ],
+    "C8": [
+     0,
+     267
+    ],
+    "C9": [
+     0,
+     415
+    ],
+    "C10": [
+     0,
+     415
+    ],
+    "C11": [
+     0,
+     267
+    ],
+    "C12": [
+     0,
+     67
+    ],
+    "C13": [
+     0,
+     67
+    ],
+    "C14": [
+     0,
+     67
+    ],
+    "C15": [
+     0,
+     248
+    ],
+    "C16": [
+     0,
+     67
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0x5e_cd49912": {
+   "reference": {
+    "C0": [
+     0,
+     4
+    ],
+    "C1": [
+     0,
+     5
+    ],
+    "C2": [
+     0,
+     4
+    ],
+    "C3": [
+     0,
+     4
+    ],
+    "C4": [
+     0,
+     4
+    ],
+    "C5": [
+     0,
+     5
+    ],
+    "C6": [
+     0,
+     5
+    ],
+    "C7": [
+     0,
+     4
+    ],
+    "C8": [
+     0,
+     4
+    ],
+    "C9": [
+     0,
+     5
+    ],
+    "C10": [
+     0,
+     5
+    ],
+    "C11": [
+     0,
+     4
+    ],
+    "C12": [
+     0,
+     2
+    ],
+    "C13": [
+     0,
+     2
+    ],
+    "C14": [
+     0,
+     2
+    ],
+    "C15": [
+     0,
+     3
+    ],
+    "C16": [
+     0,
+     2
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     35
+    ],
+    "C1": [
+     0,
+     47
+    ],
+    "C2": [
+     0,
+     35
+    ],
+    "C3": [
+     0,
+     35
+    ],
+    "C4": [
+     0,
+     35
+    ],
+    "C5": [
+     0,
+     47
+    ],
+    "C6": [
+     0,
+     47
+    ],
+    "C7": [
+     0,
+     35
+    ],
+    "C8": [
+     0,
+     35
+    ],
+    "C9": [
+     0,
+     47
+    ],
+    "C10": [
+     0,
+     47
+    ],
+    "C11": [
+     0,
+     35
+    ],
+    "C12": [
+     0,
+     17
+    ],
+    "C13": [
+     0,
+     17
+    ],
+    "C14": [
+     0,
+     17
+    ],
+    "C15": [
+     0,
+     24
+    ],
+    "C16": [
+     0,
+     17
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     85
+    ],
+    "C1": [
+     0,
+     146
+    ],
+    "C2": [
+     0,
+     85
+    ],
+    "C3": [
+     0,
+     85
+    ],
+    "C4": [
+     0,
+     85
+    ],
+    "C5": [
+     0,
+     146
+    ],
+    "C6": [
+     0,
+     146
+    ],
+    "C7": [
+     0,
+     85
+    ],
+    "C8": [
+     0,
+     85
+    ],
+    "C9": [
+     0,
+     146
+    ],
+    "C10": [
+     0,
+     146
+    ],
+    "C11": [
+     0,
+     85
+    ],
+    "C12": [
+     0,
+     13
+    ],
+    "C13": [
+     0,
+     13
+    ],
+    "C14": [
+     0,
+     13
+    ],
+    "C15": [
+     0,
+     83
+    ],
+    "C16": [
+     0,
+     13
+    ]
+   },
+   "same_violation_counts": true
+  },
+  "0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc_uniqueFunction": {
+   "reference": {
+    "C0": [
+     0,
+     61
+    ],
+    "C1": [
+     0,
+     88
+    ],
+    "C2": [
+     0,
+     61
+    ],
+    "C3": [
+     0,
+     61
+    ],
+    "C4": [
+     0,
+     61
+    ],
+    "C5": [
+     0,
+     88
+    ],
+    "C6": [
+     0,
+     88
+    ],
+    "C7": [
+     0,
+     61
+    ],
+    "C8": [
+     0,
+     61
+    ],
+    "C9": [
+     0,
+     88
+    ],
+    "C10": [
+     0,
+     88
+    ],
+    "C11": [
+     0,
+     61
+    ],
+    "C12": [
+     0,
+     17
+    ],
+    "C13": [
+     0,
+     17
+    ],
+    "C14": [
+     0,
+     17
+    ],
+    "C15": [
+     0,
+     55
+    ],
+    "C16": [
+     0,
+     17
+    ]
+   },
+   "same_violation_counts": true
+  }
+ }
+}
