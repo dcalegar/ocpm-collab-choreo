@@ -198,10 +198,19 @@ def u5_task_roles(ix: Index) -> Criterion:
 
 
 def u6_correlation_status(ix: Index) -> Criterion:
+    """A logical message is incoherent when several tasks carry it (a reused
+    identifier, visible in every profile, also without message events), when
+    it has several sends, or when its endpoints disagree."""
     c = Counter()
     ex = []
     for cm in ix.of_type(u.OT_CM):
         sends, receives = ix.message_events(cm)
+        carriers = set(ix.events_of(cm, u.Q_REQUEST)) | set(ix.events_of(cm, u.Q_RESPONSE))
+        if len(carriers) > 1:
+            c["incoherent"] += 1
+            c["incoherent_several_tasks"] += 1
+            ex.append(cm)
+            continue
         if not sends and not receives:
             c["no_message_events"] += 1
             continue
@@ -217,7 +226,8 @@ def u6_correlation_status(ix: Index) -> Criterion:
             if len(receives) > 1:
                 c["correct_multicast"] += 1
     counts = {k: c[k] for k in ("correct", "correct_multicast", "absent", "absent_no_send",
-                                "absent_no_receive", "incoherent", "no_message_events")}
+                                "absent_no_receive", "incoherent",
+                                "incoherent_several_tasks", "no_message_events")}
     return _crit("U6 Correlation status", DIAGNOSTIC, counts, ex)
 
 

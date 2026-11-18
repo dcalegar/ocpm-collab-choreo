@@ -35,11 +35,11 @@ U6 columns count logical messages; U4 counts logical messages with any endpoint 
 | real1_complete | complete | yes | 44 | 44 | 44 | 0 | 0 | 0 | 0 | 0 |
 | real1_hobeck | collaboration | yes | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 0 |
 | real2_cl | collaboration | yes | 869 | 500 | 401 | 0 | 0 | 99 | 0 | 0 |
-| real2_chl | choreography | yes | 869 | 500 | 0 | 0 | 0 | 0 | 500 | 0 |
+| real2_chl | choreography | yes | 869 | 500 | 0 | 0 | 0 | 99 | 401 | 0 |
 | real2_complete | complete | yes | 869 | 500 | 401 | 0 | 0 | 99 | 0 | 0 |
 | real2_hobeck | collaboration | yes | 842 | 480 | 385 | 0 | 0 | 95 | 0 | 0 |
 | real3_cl | collaboration | yes | 653 | 492 | 401 | 0 | 13 | 78 | 0 | 0 |
-| real3_chl | choreography | yes | 653 | 492 | 0 | 0 | 0 | 0 | 492 | 0 |
+| real3_chl | choreography | yes | 653 | 492 | 0 | 0 | 0 | 78 | 414 | 0 |
 | real3_complete | complete | yes | 653 | 492 | 401 | 0 | 13 | 78 | 0 | 0 |
 | real3_hobeck | collaboration | yes | 472 | 321 | 240 | 0 | 8 | 73 | 0 | 0 |
 | real4_cl | collaboration | yes | 400 | 400 | 400 | 0 | 0 | 0 | 0 | 0 |
@@ -51,7 +51,7 @@ U6 columns count logical messages; U4 counts logical messages with any endpoint 
 | real5_complete | complete | yes | 345 | 345 | 345 | 0 | 0 | 0 | 0 | 0 |
 | real5_hobeck | collaboration | yes | 15 | 15 | 15 | 0 | 0 | 0 | 0 | 0 |
 | smartagriculture_cl | collaboration | yes | 114 | 102 | 95 | 9 | 2 | 5 | 0 | 0 |
-| smartagriculture_chl | choreography | yes | 114 | 100 | 0 | 0 | 0 | 0 | 100 | 0 |
+| smartagriculture_chl | choreography | yes | 114 | 100 | 0 | 0 | 0 | 5 | 95 | 0 |
 | smartagriculture_complete | complete | yes | 114 | 102 | 95 | 9 | 2 | 5 | 0 | 0 |
 | smartagriculture_hobeck | collaboration | yes | 114 | 102 | 95 | 9 | 2 | 5 | 0 | 0 |
 

@@ -90,6 +90,25 @@ def test_conflicting_content_is_reported_not_lost():
     assert res.stats["n_logical_messages_with_conflicting_values"] == 1
 
 
+def test_u6_diagnoses_a_reused_key_without_message_events():
+    """Choreography profile: two exchange events reuse one identifier, so one
+    logical message has two tasks and no message events."""
+    x = [ExchangeEvent("c1", "S", T("2020-01-01 10:00"), i, "A", ("B",), "k")
+         for i in range(2)]
+    c = by_name(criteria.unified_criteria(index_of(u.map_log(SourceLog("reused", [], exchange=x))), KEY))
+    assert c["U6"].counts["incoherent"] == 1
+    assert c["U6"].counts["incoherent_several_tasks"] == 1
+    assert c["U6"].counts["no_message_events"] == 0
+    assert all(c[k].ok for k in ("U1", "U2", "U3", "U5", "U7"))
+
+
+def test_u6_two_way_task_is_not_several_tasks():
+    x = [ExchangeEvent("c1", "S", T("2020-01-01 10:00"), 0, "A", ("B",), "k",
+                       response_key="r")]
+    c = by_name(criteria.unified_criteria(index_of(u.map_log(SourceLog("tw", [], exchange=x))), KEY))
+    assert c["U6"].counts["incoherent"] == 0 and c["U6"].counts["no_message_events"] == 2
+
+
 def test_equal_values_are_not_conflicts():
     x = [ExchangeEvent("c1", "S", T("2020-01-01 10:00"), i, "A", ("B",), "k",
                        content={"payload": "same"}) for i in range(2)]
