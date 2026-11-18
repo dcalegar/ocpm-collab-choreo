@@ -24,6 +24,57 @@ These are not included and must be cloned separately:
 | [23722/ocelchor](https://github.com/23722/ocelchor) | branch `v1.2-IS-2026-CPMDS`, commit `edbb6c1` (paper tag `v1.1-BPM-2026-PTF`) | `trace2ocelchor` parser and naming helpers, imported unmodified to read the Ethereum traces (`$OCELCHOR`); `ocelchorvalidator` (constraints C0–C16), run unmodified on the mapping output |
 | [dcalegar/ocpm-collab-ppm](https://github.com/dcalegar/ocpm-collab-ppm) | commit `98d5e697` | InfSys mapping (M1–M8, P1.1–P1.7), imported unmodified by the unified mapping (`pip install --no-deps -e`); prediction pipeline (OCPA features) |
 
+## Setup and running
+
+The commands assume both dependencies are cloned next to this repository, as
+`../ocelchor` and `../ocpm-collab-ppm`. The code finds ocelchor through `$OCELCHOR`
+or, if that is unset, the sibling clone.
+
+```bash
+git clone -b v1.2-IS-2026-CPMDS https://github.com/23722/ocelchor ../ocelchor
+git -C ../ocelchor checkout edbb6c1
+git clone https://github.com/dcalegar/ocpm-collab-ppm ../ocpm-collab-ppm
+git -C ../ocpm-collab-ppm checkout 98d5e697
+```
+
+Two Python 3.10 environments are needed, because OCPA pins pm4py 2.2.32 and the
+mapping uses pm4py 2.7:
+
+| Environment | Used by | Install |
+|---|---|---|
+| `.venv` | mapping, E1–E3, tests | [`source/mapping/README.md`](source/mapping/README.md#setup-and-use) |
+| `.venv-predict` | E4 (prediction) | [`source/prediction/README.md`](source/prediction/README.md#environment-and-use), OCPA first |
+
+```bash
+python3.10 -m venv .venv
+.venv/bin/pip install -r source/requirements.txt
+.venv/bin/pip install --no-deps -e ../ocpm-collab-ppm
+
+python3.10 -m venv .venv-predict
+.venv-predict/bin/pip install "git+https://github.com/ocpm/ocpa.git@de056e0203a3fa4a9bbc19a95e001eada323074a"
+.venv-predict/bin/pip install -r source/requirements-predict.txt
+.venv-predict/bin/pip install --no-deps -e ../ocpm-collab-ppm
+```
+
+Run the experiments in this order. `map_all.py` writes `data/<dataset>/mapped/`, which
+is not versioned, and every experiment reads it:
+
+```bash
+cd source/mapping && ../../.venv/bin/python map_all.py
+cd ../experiments
+../../.venv/bin/python e1_infsys.py
+../../.venv/bin/python e2_hobeck.py
+../../.venv/bin/python e2b_roundtrip.py
+../../.venv/bin/python e3_consistency.py
+../../.venv-predict/bin/python e4_prediction.py
+```
+
+Each experiment writes its results to `source/experiments/results/` and exits with 1
+if its property fails. The tests run from the repository root:
+`.venv/bin/python -m pytest source` and
+`.venv-predict/bin/python -m pytest source/prediction/tests`. Details per step:
+[`source/experiments/README.md`](source/experiments/README.md#running).
+
 ## References
 
 - D. Calegari, A. Delgado, L. Peña, M. Rubio. A Framework for Object-Centric Predictive
