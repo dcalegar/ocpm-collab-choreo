@@ -1,4 +1,4 @@
-# experiments/: E1, E2, E2b, E3
+# experiments/: E1, E2, E2b, E3, E4
 
 The experiments compare the output of the unified mapping (`../mapping/`) with the
 object-centric logs of InfSys and Hobeck et al., and check its consistency. They read the
@@ -11,6 +11,7 @@ input/reference pairs are listed in `../../data/README.md`.
 | `e2_hobeck.py` | **E2.** The export η_H of the unified output is equivalent to Hobeck et al.'s OCEL, from the same input | `hobeck/collectivelog_<n>_uniqueInteraction.xes` of the 7 collaborative logs → `hobeck/<n>_uniqueInteraction_ocel.json`; `hobeck/<stem>.json` of the 13 Ethereum files → `hobeck/<stem>_ocel.json` | `results/e2_hobeck.{md,json}` |
 | `e2b_roundtrip.py` | **E2b.** Round trip η_H(μ⁺(ι_H(H))) ≅ H: every OCEL H of Hobeck et al. is read back into the unified representation by the reverse adapter ι_H (`reverse_hobeck.py`), mapped, exported, and compared with H as in E2; μ⁺(ι_H(H)) must also satisfy the structural criteria | the 20 OCEL logs of Hobeck et al. (7 from `xescol2ocelchor`, 13 from `trace2ocelchor`) | `results/e2b_roundtrip.{md,json}` |
 | `e3_consistency.py` | **E3.** Consistency per profile: P1.1–P1.7 and U1–U7 on every output; C0–C16 (`ocelchorvalidator`, unmodified) on every η_H export, cross-checked on Hobeck et al.'s references | the 48 outputs (9 scenarios × 3 profiles, 7 Hobeck XES, BPIC 2013, 13 Ethereum files) | `results/e3_consistency.{md,json}` |
+| `e4_prediction.py` | **E4.** Example of choreography-level prediction: the ten distinct restated InfSys tasks with the InfSys pipeline (OCPA, `ChoreographyCase` as leading type, random forest, 5-fold CV grouped by case); no comparison. Adapter, tasks, and runner in [`../prediction/`](../prediction/README.md) | ChL profile of Healthcare (`healthcare_chl.sqlite`), participant Hospital, OB-M activity "Communicate the need to hospitalise" | `results/e4_prediction_healthcare.{md,json}` |
 
 ## Comparison rules
 
@@ -51,6 +52,7 @@ cd ../experiments
 ../../.venv/bin/python e2_hobeck.py
 ../../.venv/bin/python e2b_roundtrip.py
 ../../.venv/bin/python e3_consistency.py
+../../.venv-predict/bin/python e4_prediction.py    # E4, prediction environment
 ```
 
 `tests/test_roundtrip.py` checks that the comparison of E2 is not vacuous: perturbing one

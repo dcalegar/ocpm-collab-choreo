@@ -1,0 +1,22 @@
+# Environment of source/prediction/ (Python 3.10), separate from requirements.txt
+# because OCPA pins pm4py==2.2.32 while the mapping uses pm4py 2.7. Versions follow
+# ocpm-collab-ppm/requirements.txt (commit 98d5e697), the pipeline of InfSys.
+# Install OCPA FIRST, then this file, then InfSys without dependencies:
+#
+#   python3.10 -m venv .venv-predict
+#   .venv-predict/bin/pip install "git+https://github.com/ocpm/ocpa.git@de056e0203a3fa4a9bbc19a95e001eada323074a"
+#   .venv-predict/bin/pip install -r source/requirements-predict.txt
+#   .venv-predict/bin/pip install --no-deps -e ../ocpm-collab-ppm
+#
+# pm4py==2.2.32 comes with OCPA; do not override it.
+scikit-learn==1.7.2
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.3
+joblib==1.5.3
+# evaluation.profiling, imported by evaluation.rq3_pipeline.
+psutil==7.2.2
+# predictors.dispatch imports every predictor; lstm_torch and transformer import torch
+# at module level. Only random_forest is used.
+torch==2.13.0
+pytest
