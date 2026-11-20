@@ -1,0 +1,277 @@
+{
+ "inputs": [
+  "data/eth-cryptokitties-core/hobeck/0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction.json"
+ ],
+ "stats": {
+  "profile": {
+   "internal_tasks": false,
+   "message_events": false,
+   "exchange_events": true,
+   "correlation": true,
+   "hierarchy": true
+  },
+  "n_events": 204,
+  "n_local_events": 0,
+  "n_exchange_events": 204,
+  "n_tasks": 204,
+  "n_two_way_tasks": 98,
+  "n_objects": 483,
+  "n_objects_by_type": {
+   "Message": 302,
+   "SubChoreographyCase": 59,
+   "CollaborationCase": 22,
+   "ChoreographyCase": 22,
+   "P0xea73a0c1fab72c3eb29494b0afec1554e8802afe": 1,
+   "P0x941a6d105802cccaa06de58a13a6f49ebdcd481c": 1,
+   "P0xba30e5f9bb24caa003e9f2f0497ad287fdf95623": 1,
+   "P0x57f1887a8bf19b14fc0df6fd9b2acc9af147ea85": 1,
+   "P0xa5409ec958c83c3f309868babaca7c86dcb077c1": 1,
+   "P0xb156adf8523fdc6152affdba076a2143fd7e3c69": 1,
+   "P0x589b89164ce781475df59db280b42b13a640100d": 1,
+   "P0x3f1d193884fd596e2b2110759f314118af410ced": 1,
+   "P0x21b06a1e6111c2581860e6b13afd0fbd72bb1fae": 1,
+   "P0x06012c8cf97bead5deae237070f9587f8e7a266d": 1,
+   "P0x09191d18729da57a83a9afc8ace0c8d7d104e118": 1,
+   "P0xd93206bd0062cc054e397ecccdb8436c3fa5700e": 1,
+   "P0x2c0d708c6e82dc6c427ce6a96ba5ff2ea09be272": 1,
+   "P0x732c1d84a88df099c459befab680fa9e97bdcd35": 1,
+   "P0xaffc7c9bfb48ffd2a580e1a0d36f8cc7d45dcb58": 1,
+   "P0x7167d8eff9d7e8f58c58001697a61a71150e79bf": 1,
+   "P0x8a90cab2b38dba80c64b7734e58ee1db38b8992e": 1,
+   "P0x3d3292d9142c9194de2e1fc7ea8f1ac51c01e408": 1,
+   "P0xa71a3d82e5016a9c8ee72eb93b42c52f0c3ff380": 1,
+   "P0x6314664483fb84462b91e8fafc59942fc53e729e": 1,
+   "P0xbeddf3e43015f5221f5d1ac0fd0d2ab3352d2f7b": 1,
+   "P0xd9db270c1b5e3bd161e8c8503c55ceabee709552": 1,
+   "P0x482579f93dc13e6b434e38b5a0447ca543d88a46": 1,
+   "P0x1d5b5d30718c29e8bd19c38055a45be5dac6f156": 1,
+   "P0xb6d64221451edbac7736d4c3da7fc827457dec03": 1,
+   "P0x92cd4bd69e305634a72fc95992ecfa0699c784e7": 1,
+   "P0x44da3a8051ba88eab0440db3779cab9d679ae76f": 1,
+   "P0x9d58779365b067d5d3fcc6e92d237acd06f1e6a1": 1,
+   "P0xf27696c8bca7d54d696189085ae1283f59342fa6": 1,
+   "P0x2a46f2ffd99e19a89476e2f62270e0a35bbf0756": 1,
+   "P0xe529178bf1ad4f8e01f09037a3c6e96131cff5f3": 1,
+   "P0xd07dc4262bcdbf85190c01c996b4c06a461d2430": 1,
+   "P0x41a322b28d0ff354040e2cbc676f0320d8c8850d": 1,
+   "P0xf48f2b2d2a534e402487b3ee7c18c33aec0fe5e4": 1,
+   "P0x83a2fc8c7958422faa8a003e955751d696f546e1": 1,
+   "P0x232a68a51d6e07357ae025d2a459c16077327102": 1,
+   "P0x40a2accbd92bca938b02010e17a5b8929b49130d": 1,
+   "P0x89f4fa054434097da5e475cad3a47c249d804f20": 1,
+   "P0x3d10886306e54489f8c5b45db3126f583c5b64e2": 1,
+   "P0xab5622d7da96c571c6abe08e4b85e462eb666e4f": 1,
+   "P0x0000000000000000000000000000000000000001": 1,
+   "P0xee1d050e9c29353186a27d4a35c2f1f1a25db8e3": 1,
+   "P0x25c7b64a93eb1261e130ec21a3e9918caa38b611": 1,
+   "P0x52e4afd48efde363f56215c1300faa56f9a47ee8": 1,
+   "P0x09fe5f0236f0ea5d930197dce254d77b04128075": 1,
+   "P0x91e04c5fe50a02440d822092f87ae6b8b957f4d4": 1,
+   "P0x0000a26b00c1f0df003000390027140000faa719": 1,
+   "P0x1e0049783f008a0085193e00003d00cd54003c71": 1,
+   "P0x00000000000000adc04c56bf30ac9d3c0aaf14dc": 1,
+   "P0x750ddb4efcc73805595b2859ee4c8adca4c71acc": 1,
+   "P0x348eda2adb19c4130b405ecc782c7bd4ed97ac6c": 1,
+   "P0x6e70355c1b1405e69dc3535d8f0808ede3397aac": 1,
+   "P0xb1690c08e213a35ed9bab7b318de14420fb57d8c": 1,
+   "P0x711c5bcca67bbe50b57bdfcf0f8e8f834ac05516": 1,
+   "P0xf0d65a2c1cfa6816570f82f729b8343046cf2081": 1,
+   "P0xc79fd9befd02ec67cab3ee2bae66976c182e4d31": 1,
+   "P0xb77feddb7e627a78140a2a32cac65a49ed1dba8e": 1,
+   "P0xe9ce9119f45806c3cd17b95d8b7c47a5365120e2": 1,
+   "P0x526d2dee2e6ea828b04607face8f9dd84b167234": 1,
+   "P0x050fbde5c7cd07c30181d685c141dfda62e18e4e": 1,
+   "P0x067dc2a11d33e9fd94949e7e27fbc0c4e73fafb5": 1,
+   "P0x4a8b01e437c65fa8612e8b699266c0e0a98ff65c": 1,
+   "P0x73da73ef3a6982109c4d5bdb0db9dd3e3783f313": 1,
+   "P0x10daa9f4c0f985430fde4959adb2c791ef2ccf83": 1,
+   "P0x6bf5ed59de0e19999d264746843ff931c0133090": 1,
+   "P0xe8521613c21ba03204955ceb5128aebcb9f12a45": 1,
+   "P0x82c7a8f707110f5fbb16184a5933e9f78a34c6ab": 1,
+   "P0x0000000000c2d145a2526bd8c716263bfebe1a72": 1,
+   "P0x000000e7ec00e7b300774b00001314b8610022b8": 1,
+   "P0x989a2ad9acaa8c4e50b2fc6b650d6e1809b9195b": 1,
+   "P0x0000000000000000000000000000000000000004": 1,
+   "P0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 1,
+   "P0x70db6ba00197d1e7d19ac294791228ff5949290c": 1,
+   "P0xf165d353abddb7cb00052d610254249fcc12a8c7": 1,
+   "P0xc7af99fe5513eb6710e6d5f44f9989da40f27f26": 1,
+   "P0xf6b1fde85d1d0d2f88f2c98c8926f4ff3abe259c": 1,
+   "P0xa306dc890a5bb419d9d711d661c73f371da521c0": 1,
+   "P0xaf0b85097971e4149a294f462868df07ed41cc70": 1
+  },
+  "n_new_objects": 483,
+  "n_e2o": 1113,
+  "n_o2o": 970,
+  "n_logical_messages": 302,
+  "n_singleton_logical_messages": 0,
+  "n_logical_messages_with_conflicting_values": 0,
+  "conflicting_values": [],
+  "n_choreography_cases": 22
+ },
+ "export": {
+  "witness_e2o_edges": 22,
+  "ocel2_json_schema_problems": [],
+  "infsys_view": null
+ },
+ "mapping_diagnostics": {
+  "conflicting_values": []
+ },
+ "criteria": [
+  {
+   "name": "P1.7 Export reachability (core)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=483; unreachable in the exported E2O table=0; E2O to unknown objects=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "U1 Instance",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 204,
+    "choreography_cases": 22,
+    "tasks_without_exactly_one_case": 0,
+    "tasks_in_another_case_than_their_request": 0,
+    "cases_without_exactly_one_part_of": 0,
+    "cases_part_of_another_case": 0,
+    "cases_without_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U2 Task",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 204,
+    "exchange_events": 204,
+    "exchange_events_not_tasks": 0,
+    "sends_with_wrong_task_status": 0,
+    "other_local_events_as_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U3 Message identity",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "logical_messages": 302,
+    "duplicate_identifiers": 0,
+    "messages_without_exactly_one_case": 0,
+    "messages_without_events": 0,
+    "message_events_without_exactly_one_message": 0,
+    "links_of_the_wrong_kind": 0,
+    "message_events_in_another_case": 0,
+    "message_events_with_another_identifier": 0,
+    "exchange_events_without_logical_message": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U4 Endpoint coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "logical_messages": 302,
+    "several_senders": 0,
+    "declared_receiver_not_among_receives": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U5 Task roles",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 204,
+    "two_way_tasks": 98,
+    "tasks_without_exactly_one_request": 0,
+    "tasks_with_several_responses": 0,
+    "tasks_without_exactly_one_initiator": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U6 Correlation status",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "send_only": 0,
+    "receive_only": 0,
+    "uncorrelated": 0,
+    "incoherent": 0,
+    "incoherent_several_tasks": 0,
+    "no_message_events": 302
+   },
+   "examples": []
+  },
+  {
+   "name": "U7 Hierarchy",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "scopes": 59,
+    "tasks_in_several_innermost_scopes": 0,
+    "scopes_with_tasks_of_several_cases": 0,
+    "empty_scopes": 0,
+    "scopes_with_several_parents": 0,
+    "scopes_in_a_cycle": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U8 Role coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "tasks": 204,
+    "initiators_not_request_senders": 0,
+    "participants_not_request_receivers": 0,
+    "responses_not_reversing_the_roles": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction.jsonocel)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=483; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction.sqlite)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=483; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  }
+ ],
+ "structural_criteria_hold": true
+}

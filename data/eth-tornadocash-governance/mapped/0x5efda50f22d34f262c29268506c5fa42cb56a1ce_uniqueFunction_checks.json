@@ -1,0 +1,215 @@
+{
+ "inputs": [
+  "data/eth-tornadocash-governance/hobeck/0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction.json"
+ ],
+ "stats": {
+  "profile": {
+   "internal_tasks": false,
+   "message_events": false,
+   "exchange_events": true,
+   "correlation": true,
+   "hierarchy": true
+  },
+  "n_events": 35,
+  "n_local_events": 0,
+  "n_exchange_events": 35,
+  "n_tasks": 35,
+  "n_two_way_tasks": 12,
+  "n_objects": 102,
+  "n_objects_by_type": {
+   "Message": 47,
+   "SubChoreographyCase": 17,
+   "CollaborationCase": 11,
+   "ChoreographyCase": 11,
+   "P0x5efda50f22d34f262c29268506c5fa42cb56a1ce": 1,
+   "P0x5a0cb6505b3b99dd4035bb1ac43cc51202d4e29f": 1,
+   "P0xa9689ed4a82a288e267b11ae8fe137fb4cb2177e": 1,
+   "P0x933c6bdad1dd196f463a38b5e7946882f392f199": 1,
+   "P0xc8e68d674df0eab152926c4f0ee7d0ac0745c715": 1,
+   "P0x79667ce99bcd209eb439559df031f18ac8f71a44": 1,
+   "P0xf92e8c50ff5a750f176823b1b372f6e0154b9388": 1,
+   "P0x41e06931e14c09ab705a3fac97d0f865096f1fe9": 1,
+   "P0xdcbeffbecce100cce9e4b153c4e15cb885643193": 1,
+   "P0xdd8b9a27490a7a3ae5cb0eadfc328092015bc03c": 1,
+   "P0x0d807d0ca70448078220efa878d43f61bce3a5c3": 1,
+   "P0xe9d8179134acd7611a9d9d1a371d56bf925e19c4": 1,
+   "P0x0000000000000000000000000000000000000001": 1,
+   "P0x77777feddddffc19ff86db637967013e6c6a116c": 1,
+   "P0xffbac21a641dcfe4552920138d90f3638b3c9fba": 1,
+   "P0xd26baa5f41cc7839cedb020b6d98e1c6e1642d75": 1
+  },
+  "n_new_objects": 102,
+  "n_e2o": 187,
+  "n_o2o": 158,
+  "n_logical_messages": 47,
+  "n_singleton_logical_messages": 0,
+  "n_logical_messages_with_conflicting_values": 0,
+  "conflicting_values": [],
+  "n_choreography_cases": 11
+ },
+ "export": {
+  "witness_e2o_edges": 11,
+  "ocel2_json_schema_problems": [],
+  "infsys_view": null
+ },
+ "mapping_diagnostics": {
+  "conflicting_values": []
+ },
+ "criteria": [
+  {
+   "name": "P1.7 Export reachability (core)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=102; unreachable in the exported E2O table=0; E2O to unknown objects=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "U1 Instance",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 35,
+    "choreography_cases": 11,
+    "tasks_without_exactly_one_case": 0,
+    "tasks_in_another_case_than_their_request": 0,
+    "cases_without_exactly_one_part_of": 0,
+    "cases_part_of_another_case": 0,
+    "cases_without_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U2 Task",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 35,
+    "exchange_events": 35,
+    "exchange_events_not_tasks": 0,
+    "sends_with_wrong_task_status": 0,
+    "other_local_events_as_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U3 Message identity",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "logical_messages": 47,
+    "duplicate_identifiers": 0,
+    "messages_without_exactly_one_case": 0,
+    "messages_without_events": 0,
+    "message_events_without_exactly_one_message": 0,
+    "links_of_the_wrong_kind": 0,
+    "message_events_in_another_case": 0,
+    "message_events_with_another_identifier": 0,
+    "exchange_events_without_logical_message": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U4 Endpoint coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "logical_messages": 47,
+    "several_senders": 0,
+    "declared_receiver_not_among_receives": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U5 Task roles",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 35,
+    "two_way_tasks": 12,
+    "tasks_without_exactly_one_request": 0,
+    "tasks_with_several_responses": 0,
+    "tasks_without_exactly_one_initiator": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U6 Correlation status",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "send_only": 0,
+    "receive_only": 0,
+    "uncorrelated": 0,
+    "incoherent": 0,
+    "incoherent_several_tasks": 0,
+    "no_message_events": 47
+   },
+   "examples": []
+  },
+  {
+   "name": "U7 Hierarchy",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "scopes": 17,
+    "tasks_in_several_innermost_scopes": 0,
+    "scopes_with_tasks_of_several_cases": 0,
+    "empty_scopes": 0,
+    "scopes_with_several_parents": 0,
+    "scopes_in_a_cycle": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U8 Role coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "tasks": 35,
+    "initiators_not_request_senders": 0,
+    "participants_not_request_receivers": 0,
+    "responses_not_reversing_the_roles": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction.jsonocel)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=102; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction.sqlite)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=102; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  }
+ ],
+ "structural_criteria_hold": true
+}

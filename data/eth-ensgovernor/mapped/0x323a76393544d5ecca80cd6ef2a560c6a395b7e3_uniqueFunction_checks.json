@@ -1,0 +1,207 @@
+{
+ "inputs": [
+  "data/eth-ensgovernor/hobeck/0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction.json"
+ ],
+ "stats": {
+  "profile": {
+   "internal_tasks": false,
+   "message_events": false,
+   "exchange_events": true,
+   "correlation": true,
+   "hierarchy": true
+  },
+  "n_events": 21,
+  "n_local_events": 0,
+  "n_exchange_events": 21,
+  "n_tasks": 21,
+  "n_two_way_tasks": 10,
+  "n_objects": 63,
+  "n_objects_by_type": {
+   "Message": 31,
+   "CollaborationCase": 9,
+   "ChoreographyCase": 9,
+   "SubChoreographyCase": 6,
+   "P0xb8c2c29ee19d8307cb7255e1cd9cbde883a267d5": 1,
+   "P0x323a76393544d5ecca80cd6ef2a560c6a395b7e3": 1,
+   "P0xc18360217d8f7ab5e7c516566761ea12ce7f9d72": 1,
+   "P0x29a82e07b96c405ac99a8023f767d2971546de70": 1,
+   "P0xb6e040c9ecaae172a89bd561c5f73e1c48d28cd9": 1,
+   "P0xfe89cc7abb2c4183683ab71653c4cdc9b02d44b7": 1,
+   "P0x1e9f72c28b227cbb56577dc6f693b95237ac0bfe": 1,
+   "P0xccdba906bab28603b2f53f07d8ae87affd063b07": 1
+  },
+  "n_new_objects": 63,
+  "n_e2o": 111,
+  "n_o2o": 103,
+  "n_logical_messages": 31,
+  "n_singleton_logical_messages": 0,
+  "n_logical_messages_with_conflicting_values": 0,
+  "conflicting_values": [],
+  "n_choreography_cases": 9
+ },
+ "export": {
+  "witness_e2o_edges": 9,
+  "ocel2_json_schema_problems": [],
+  "infsys_view": null
+ },
+ "mapping_diagnostics": {
+  "conflicting_values": []
+ },
+ "criteria": [
+  {
+   "name": "P1.7 Export reachability (core)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=63; unreachable in the exported E2O table=0; E2O to unknown objects=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "U1 Instance",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 21,
+    "choreography_cases": 9,
+    "tasks_without_exactly_one_case": 0,
+    "tasks_in_another_case_than_their_request": 0,
+    "cases_without_exactly_one_part_of": 0,
+    "cases_part_of_another_case": 0,
+    "cases_without_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U2 Task",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 21,
+    "exchange_events": 21,
+    "exchange_events_not_tasks": 0,
+    "sends_with_wrong_task_status": 0,
+    "other_local_events_as_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U3 Message identity",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "logical_messages": 31,
+    "duplicate_identifiers": 0,
+    "messages_without_exactly_one_case": 0,
+    "messages_without_events": 0,
+    "message_events_without_exactly_one_message": 0,
+    "links_of_the_wrong_kind": 0,
+    "message_events_in_another_case": 0,
+    "message_events_with_another_identifier": 0,
+    "exchange_events_without_logical_message": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U4 Endpoint coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "logical_messages": 31,
+    "several_senders": 0,
+    "declared_receiver_not_among_receives": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U5 Task roles",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 21,
+    "two_way_tasks": 10,
+    "tasks_without_exactly_one_request": 0,
+    "tasks_with_several_responses": 0,
+    "tasks_without_exactly_one_initiator": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U6 Correlation status",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "send_only": 0,
+    "receive_only": 0,
+    "uncorrelated": 0,
+    "incoherent": 0,
+    "incoherent_several_tasks": 0,
+    "no_message_events": 31
+   },
+   "examples": []
+  },
+  {
+   "name": "U7 Hierarchy",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "scopes": 6,
+    "tasks_in_several_innermost_scopes": 0,
+    "scopes_with_tasks_of_several_cases": 0,
+    "empty_scopes": 0,
+    "scopes_with_several_parents": 0,
+    "scopes_in_a_cycle": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U8 Role coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "tasks": 21,
+    "initiators_not_request_senders": 0,
+    "participants_not_request_receivers": 0,
+    "responses_not_reversing_the_roles": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction.jsonocel)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=63; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction.sqlite)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=63; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  }
+ ],
+ "structural_criteria_hold": true
+}

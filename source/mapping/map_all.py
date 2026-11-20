@@ -3,7 +3,10 @@
 
 Writes `data/<dataset>/mapped/<name>{.jsonocel,.sqlite,_infsys.sqlite,_hobeck.json,_checks.json}`
 (see `map_log.py`) and `data/mapped_summary.json`. The `mapped/` folders are
-regenerable and are not versioned.
+regenerable and versioned. An output larger than 50 MB (GitHub's warning size) is
+stored gzip-compressed instead (`<file>.gz`, without file name or time stamp, so that
+regenerating it leaves it byte-identical); this applies only to
+`bpic2013_cl.jsonocel`, which no experiment reads.
 
 | Dataset | Name | Input | Profile |
 |---|---|---|---|
@@ -20,8 +23,10 @@ Usage: `python map_all.py [data_dir] [--only <dataset> ...]`
 from __future__ import annotations
 
 import argparse
+import gzip
 import json
 import logging
+import shutil
 import sys
 import time
 from pathlib import Path
@@ -31,6 +36,25 @@ import sources
 import unified as u
 
 REPO = Path(__file__).resolve().parents[2]
+OUTPUT_SUFFIXES = (".jsonocel", ".sqlite", "_infsys.sqlite", "_hobeck.json", "_checks.json")
+LARGE = 50 * 1024 * 1024
+
+
+def compress_large(base: str) -> None:
+    """Replace each output of `base` larger than LARGE by a deterministic gzip
+    copy (`.gz`), and drop a stale copy when the output fits."""
+    for suffix in OUTPUT_SUFFIXES:
+        path = Path(base + suffix)
+        gz = Path(str(path) + ".gz")
+        if not path.is_file():
+            continue
+        if path.stat().st_size <= LARGE:
+            gz.unlink(missing_ok=True)
+            continue
+        with open(path, "rb") as src, open(gz, "wb") as raw, \
+                gzip.GzipFile(filename="", mode="wb", fileobj=raw, mtime=0) as dst:
+            shutil.copyfileobj(src, dst)
+        path.unlink()
 
 
 def jobs(data: Path):
@@ -72,7 +96,9 @@ def main(argv=None) -> int:
             continue
         t0 = time.time()
         res = u.map_log(read())
-        report = map_log.write_outputs(res, str(data / dataset / "mapped" / name))
+        base = str(data / dataset / "mapped" / name)
+        report = map_log.write_outputs(res, base)
+        compress_large(base)
         failed = [c["name"] for c in report["criteria"] if not c["ok"]]
         ok = ok and not failed
         s = res.stats

@@ -1,0 +1,254 @@
+{
+ "inputs": [
+  "data/eth-sushiswap-router/hobeck/0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction.json"
+ ],
+ "stats": {
+  "profile": {
+   "internal_tasks": false,
+   "message_events": false,
+   "exchange_events": true,
+   "correlation": true,
+   "hierarchy": true
+  },
+  "n_events": 267,
+  "n_local_events": 0,
+  "n_exchange_events": 267,
+  "n_tasks": 267,
+  "n_two_way_tasks": 148,
+  "n_objects": 575,
+  "n_objects_by_type": {
+   "Message": 415,
+   "SubChoreographyCase": 67,
+   "CollaborationCase": 19,
+   "ChoreographyCase": 19,
+   "P0x723ef61d28112cb2ed3fca7af806442b39c772c3": 1,
+   "P0x82dbc2673e9640343d263a3c55de49021ad39ae2": 1,
+   "P0x1559fa1b8f28238fd5d76d9f434ad86fd20d1559": 1,
+   "P0xc570a59faa07fed02f16483825d8e8f55ff692a4": 1,
+   "P0x35fa164735182de50811e8e2e824cfb9b6118ac2": 1,
+   "P0x1b47a665364bc15c28b05f449b53354d0ceff72f": 1,
+   "P0x308861a430be4cce5502d0a12724771fc6daf216": 1,
+   "P0x605f17e88027e25e18c95be0d8011ac969426399": 1,
+   "P0x6db0fe375ccb8ac3c2a0984d678bcd99981ddcb6": 1,
+   "P0x8ea7c218d19babbbb7ae9bb95b604503b3ca5f50": 1,
+   "P0x9e20461bc2c4c980f62f1b279d71734207a6a356": 1,
+   "P0x39f49254d6eaf6b2b2549dfec4ed93cf6bae167f": 1,
+   "P0x000000e923f2a967e390ebff6e64bd17004f2df1": 1,
+   "P0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f": 1,
+   "P0xa9d062b23650c9191673d9496d9e700d37dc55f5": 1,
+   "P0x25f8087ead173b73d6e8b84329989a8eea16cf73": 1,
+   "P0x06da0fd433c1a5d7a4faa01111c044910a184553": 1,
+   "P0x99b42f2b49c395d2a77d973f6009abb5d67da343": 1,
+   "P0xb1477f5c86f3d172917f73a37ba263c9a17154e6": 1,
+   "P0x55d31f68975e446a40a2d02ffa4b0e1bfb233c2f": 1,
+   "P0x0000000000095413afc295d19edeb1ad7b71c952": 1,
+   "P0xb20806c111454533ff98303f20f94255d348bd2c": 1,
+   "P0x1b00cd4cd050ffd570403e414a3ce2052af84f97": 1,
+   "P0x5470f579a2936290603a2ef038b7a04846c11a47": 1,
+   "P0xe0aa5a7b5ed401fad628c413254adedcfc0fcacd": 1,
+   "P0x6e8e83b3a3180bb0a446a87e4ab23d4d9ce5e675": 1,
+   "P0xdac17f958d2ee523a2206206994597c13d831ec7": 1,
+   "P0x44899f923da194b5d91d7fb0d2654a84617cd60c": 1,
+   "P0xb1b2d032aa2f52347fbcfd08e5c3cc55216e8404": 1,
+   "P0xbe86f647b167567525ccaafcd6f881f1ee558216": 1,
+   "P0x666664dc6a1ac0a4f639709837f878cbd0e9bed6": 1,
+   "P0x6a091a3406e0073c3cd6340122143009adac0eda": 1,
+   "P0x767fe9edc9e0df98e07454847909b5e959d7ca0e": 1,
+   "P0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2": 1,
+   "P0xc0aee478e3658e2610c5f7a4a2e1777ce9e4f2ac": 1,
+   "P0xe0f63901130e667b21a2d3dcfb2eb28bbd0070de": 1,
+   "P0x45b6ffb13e5206dafe2cc8780e4ddc0e32496265": 1,
+   "P0x60be1e1fe41c1370adaf5d8e66f07cf1c2df2268": 1,
+   "P0x3f13c8ecdd224197ea42fa7722b765d873190f4e": 1,
+   "P0x18e779db3012d06b021c5b8abcc30ba48d4c3047": 1,
+   "P0x68ac463a7a8d4b55ab210646359726033e331eed": 1,
+   "P0xb0652e5d02b4bc9e9ae28263833ab08b639705ba": 1,
+   "P0x64aa3364f17a4d01c6f1751fd97c2bd3d7e7f1d5": 1,
+   "P0x36b799160cdc2d9809d108224d1967cc9b7d321c": 1,
+   "P0xffc4725e7d9a7c39213c9bb97d130b3441eab205": 1,
+   "P0x397ff1542f962076d0bfe58ea045ffa2d347aca0": 1,
+   "P0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48": 1,
+   "P0x43506849d7c04f9138d1a2050bbf3a0c054402dd": 1,
+   "P0x00000000d7c185343e6504e428b8f8b5ad6c91b8": 1,
+   "P0x3d3f13f2529ec3c84b2940155effbf9b39a8f3ec": 1,
+   "P0xa5f2211b9b8170f694421f2046281775e8468044": 1,
+   "P0x2839b9d378d36828777abdec8f8aa002cccfcb02": 1,
+   "P0x055475920a8c93cffb64d039a8205f7acc7722d3": 1,
+   "P0x0000000000000000000000000000000000000001": 1,
+   "P0x6b175474e89094c44da98b954eedeac495271d0f": 1
+  },
+  "n_new_objects": 575,
+  "n_e2o": 1481,
+  "n_o2o": 1314,
+  "n_logical_messages": 415,
+  "n_singleton_logical_messages": 0,
+  "n_logical_messages_with_conflicting_values": 0,
+  "conflicting_values": [],
+  "n_choreography_cases": 19
+ },
+ "export": {
+  "witness_e2o_edges": 19,
+  "ocel2_json_schema_problems": [],
+  "infsys_view": null
+ },
+ "mapping_diagnostics": {
+  "conflicting_values": []
+ },
+ "criteria": [
+  {
+   "name": "P1.7 Export reachability (core)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=575; unreachable in the exported E2O table=0; E2O to unknown objects=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "U1 Instance",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 267,
+    "choreography_cases": 19,
+    "tasks_without_exactly_one_case": 0,
+    "tasks_in_another_case_than_their_request": 0,
+    "cases_without_exactly_one_part_of": 0,
+    "cases_part_of_another_case": 0,
+    "cases_without_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U2 Task",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 267,
+    "exchange_events": 267,
+    "exchange_events_not_tasks": 0,
+    "sends_with_wrong_task_status": 0,
+    "other_local_events_as_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U3 Message identity",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "logical_messages": 415,
+    "duplicate_identifiers": 0,
+    "messages_without_exactly_one_case": 0,
+    "messages_without_events": 0,
+    "message_events_without_exactly_one_message": 0,
+    "links_of_the_wrong_kind": 0,
+    "message_events_in_another_case": 0,
+    "message_events_with_another_identifier": 0,
+    "exchange_events_without_logical_message": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U4 Endpoint coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "logical_messages": 415,
+    "several_senders": 0,
+    "declared_receiver_not_among_receives": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U5 Task roles",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 267,
+    "two_way_tasks": 148,
+    "tasks_without_exactly_one_request": 0,
+    "tasks_with_several_responses": 0,
+    "tasks_without_exactly_one_initiator": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U6 Correlation status",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "send_only": 0,
+    "receive_only": 0,
+    "uncorrelated": 0,
+    "incoherent": 0,
+    "incoherent_several_tasks": 0,
+    "no_message_events": 415
+   },
+   "examples": []
+  },
+  {
+   "name": "U7 Hierarchy",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "scopes": 67,
+    "tasks_in_several_innermost_scopes": 0,
+    "scopes_with_tasks_of_several_cases": 0,
+    "empty_scopes": 0,
+    "scopes_with_several_parents": 0,
+    "scopes_in_a_cycle": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U8 Role coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "tasks": 267,
+    "initiators_not_request_senders": 0,
+    "participants_not_request_receivers": 0,
+    "responses_not_reversing_the_roles": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction.jsonocel)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=575; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction.sqlite)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=575; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  }
+ ],
+ "structural_criteria_hold": true
+}

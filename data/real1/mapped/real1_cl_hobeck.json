@@ -1,0 +1,4680 @@
+{
+ "objectTypes": [
+  {
+   "name": "Dingo",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Rex",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "choreographyInstance",
+   "attributes": []
+  },
+  {
+   "name": "done",
+   "attributes": []
+  },
+  {
+   "name": "target_found",
+   "attributes": []
+  }
+ ],
+ "eventTypes": [
+  {
+   "name": "Dingo_done",
+   "attributes": [
+    {
+     "name": "act",
+     "type": "string"
+    },
+    {
+     "name": "case:creator",
+     "type": "string"
+    },
+    {
+     "name": "case:variant",
+     "type": "string"
+    },
+    {
+     "name": "case:variant-index",
+     "type": "string"
+    },
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "lifecycle:transition",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "org:resource",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    },
+    {
+     "name": "toParticipant",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Rex_target_found",
+   "attributes": [
+    {
+     "name": "act",
+     "type": "string"
+    },
+    {
+     "name": "case:creator",
+     "type": "string"
+    },
+    {
+     "name": "case:variant",
+     "type": "string"
+    },
+    {
+     "name": "case:variant-index",
+     "type": "string"
+    },
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "lifecycle:transition",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "org:resource",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    },
+    {
+     "name": "toParticipant",
+     "type": "string"
+    }
+   ]
+  }
+ ],
+ "objects": [
+  {
+   "id": "part::Dingo",
+   "type": "Dingo",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Dingo",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "part::Rex",
+   "type": "Rex",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Rex",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "chc::1",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::10",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::11",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::12",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::13",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::14",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::15",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::16",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::17",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::18",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::19",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::2",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::20",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::21",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::22",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::3",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::4",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::5",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::6",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::7",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::8",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::9",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "message::10::done_20",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::11::done_22",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::12::done_24",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::13::done_26",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::14::done_28",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::15::done_30",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::16::done_32",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::17::done_34",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::18::done_36",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::19::done_38",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::1::done_2",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::20::done_40",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::21::done_42",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::22::done_44",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::2::done_4",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::3::done_6",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::4::done_8",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::5::done_10",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::6::done_12",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::7::done_14",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::8::done_16",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::9::done_18",
+   "type": "done",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::10::target_found_19",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::11::target_found_21",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::12::target_found_23",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::13::target_found_25",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::14::target_found_27",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::15::target_found_29",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::16::target_found_31",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::17::target_found_33",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::18::target_found_35",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::19::target_found_37",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::1::target_found_1",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::20::target_found_39",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::21::target_found_41",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::22::target_found_43",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::2::target_found_3",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::3::target_found_5",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::4::target_found_7",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::5::target_found_9",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::6::target_found_11",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::7::target_found_13",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::8::target_found_15",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::9::target_found_17",
+   "type": "target_found",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:target"
+    }
+   ]
+  }
+ ],
+ "events": [
+  {
+   "id": "e::10::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T21:32:33.873Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_19"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::10",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::10::target_found_19",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::10::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T21:32:36.958Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_20"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::10",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::10::done_20",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::11::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T22:32:30.854Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_21"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::11",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::11::target_found_21",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::11::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T22:32:33.934Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_22"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::11",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::11::done_22",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::12::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T23:32:32.873Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_23"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::12",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::12::target_found_23",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::12::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T23:32:35.944Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_24"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::12",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::12::done_24",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::13::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T00:32:30.881Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_25"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::13",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::13::target_found_25",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::13::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T00:32:33.972Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_26"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::13",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::13::done_26",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::14::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T01:32:35.866Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_27"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::14",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::14::target_found_27",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::14::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T01:32:38.949Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_28"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::14",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::14::done_28",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::15::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T02:32:39.861Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_29"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::15",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::15::target_found_29",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::15::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T02:32:42.941Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_30"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::15",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::15::done_30",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::16::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T03:32:33.872Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_31"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::16",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::16::target_found_31",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::16::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T03:32:36.954Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_32"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::16",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::16::done_32",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::17::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T04:32:38.875Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_33"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::17",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::17::target_found_33",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::17::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T04:32:41.952Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_34"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::17",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::17::done_34",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::18::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T05:32:35.883Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_35"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::18",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::18::target_found_35",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::18::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T05:32:38.972Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_36"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::18",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::18::done_36",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::19::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T06:32:34.873Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_37"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::19",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::19::target_found_37",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::19::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T06:32:37.952Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_38"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::19",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::19::done_38",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::1::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T12:32:37.881Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_1"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::1",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::1::target_found_1",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::1::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T12:32:40.981Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_2"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::1",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::1::done_2",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::20::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T07:32:34.858Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_39"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::20",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::20::target_found_39",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::20::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T07:32:37.944Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_40"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::20",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::20::done_40",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::21::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T08:32:38.879Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_41"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::21",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::21::target_found_41",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::21::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T08:32:41.955Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_42"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::21",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::21::done_42",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::22::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-04T09:32:39.879Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_43"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::22",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::22::target_found_43",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::22::5",
+   "type": "Dingo_done",
+   "time": "2023-01-04T09:32:42.957Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_44"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::22",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::22::done_44",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::2::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T13:32:37.867Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_3"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::2",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::2::target_found_3",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::2::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T13:32:40.953Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_4"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::2",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::2::done_4",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::3::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T14:32:32.877Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_5"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::3",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::3::target_found_5",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::3::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T14:32:35.964Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_6"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::3",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::3::done_6",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::4::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T15:32:37.862Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_7"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::4",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::4::target_found_7",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::4::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T15:32:40.946Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_8"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::4",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::4::done_8",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::5::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T16:32:31.874Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_9"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::5",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::5::target_found_9",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::5::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T16:32:34.967Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_10"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::5",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::5::done_10",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::6::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T17:32:35.857Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_11"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::6",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::6::target_found_11",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::6::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T17:32:38.933Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_12"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::6",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::6::done_12",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::7::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T18:32:35.877Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_13"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::7",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::7::target_found_13",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::7::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T18:32:38.952Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_14"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::7",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::7::done_14",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::8::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T19:32:32.881Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_15"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::8",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::8::target_found_15",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::8::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T19:32:35.957Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_16"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::8",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::8::done_16",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::9::1",
+   "type": "Rex_target_found",
+   "time": "2023-01-03T20:32:31.859Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Rex"
+    },
+    {
+     "name": "org:resource",
+     "value": "Rex"
+    },
+    {
+     "name": "act",
+     "value": "Rex_target_found"
+    },
+    {
+     "name": "org:group",
+     "value": "Rex"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "target_found_17"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "target_found"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::9",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::9::target_found_17",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::9::5",
+   "type": "Dingo_done",
+   "time": "2023-01-03T20:32:34.951Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Dingo"
+    },
+    {
+     "name": "org:resource",
+     "value": "Dingo"
+    },
+    {
+     "name": "act",
+     "value": "Dingo_done"
+    },
+    {
+     "name": "org:group",
+     "value": "Dingo"
+    },
+    {
+     "name": "lifecycle:transition",
+     "value": "complete"
+    },
+    {
+     "name": "case:variant",
+     "value": "Variant 1"
+    },
+    {
+     "name": "case:variant-index",
+     "value": "1"
+    },
+    {
+     "name": "case:creator",
+     "value": "Fluxicon Disco"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Dingo"
+    },
+    {
+     "name": "toParticipant",
+     "value": "Rex"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "done_18"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "Pub/Sub"
+    },
+    {
+     "name": "msgName",
+     "value": "done"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::9",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Dingo",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Rex",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::9::done_18",
+     "qualifier": "choreo:message"
+    }
+   ]
+  }
+ ]
+}

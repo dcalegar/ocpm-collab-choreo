@@ -35,7 +35,7 @@ objects (M4) and their relations; UM8–UM12 are summarized below.
 | `export_infsys.py` | α_C: the collaboration view in the representation of InfSys, rebuilt from the core tables only (one `msg::<event>` per send or receive, with the endpoints that the event records). |
 | `export_hobeck.py` | η_H: the choreography view in the representation of Hobeck et al., as OCEL 2.0 JSON for `ocelchorvalidator`; roles and endpoints exported as stored. |
 | `map_log.py` | Maps one log. |
-| `map_all.py` | Maps every log in `data/` into `data/<dataset>/mapped/` (not versioned). |
+| `map_all.py` | Maps every log in `data/` into `data/<dataset>/mapped/` (versioned; an output over 50 MB is stored as a deterministic `.gz`, which today applies only to `bpic2013_cl.jsonocel`). |
 | `tests/` | Synthetic cases the corpus does not exercise: two-way tasks with message events, conflicting values under a reused identifier or across exchange and local events, unkeyed singletons, explicit roles; α_C against its oracle `cx.transform`; each U criterion and P1.7 on built and tampered tables (`.venv/bin/python -m pytest source/mapping/tests`). |
 
 The mapping only transforms and checks its own output. The comparison with the reference

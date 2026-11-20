@@ -1,0 +1,8770 @@
+{
+ "objectTypes": [
+  {
+   "name": "Gynecologist",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Hospital",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Laboratory",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Patient",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "admission",
+   "attributes": []
+  },
+  {
+   "name": "admission request",
+   "attributes": []
+  },
+  {
+   "name": "blood sample",
+   "attributes": []
+  },
+  {
+   "name": "choreographyInstance",
+   "attributes": []
+  },
+  {
+   "name": "disease",
+   "attributes": []
+  },
+  {
+   "name": "hospitalisation",
+   "attributes": []
+  },
+  {
+   "name": "patient analysis",
+   "attributes": []
+  },
+  {
+   "name": "prescription",
+   "attributes": []
+  },
+  {
+   "name": "results",
+   "attributes": []
+  }
+ ],
+ "eventTypes": [
+  {
+   "name": "Communicate disease",
+   "attributes": [
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Communicate the need to hospitalise",
+   "attributes": [
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Forward patient analysis results",
+   "attributes": [
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Require patient admission",
+   "attributes": [
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Send admission info",
+   "attributes": [
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Send blood sample",
+   "attributes": [
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Send prescription",
+   "attributes": [
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Send results",
+   "attributes": [
+    {
+     "name": "elemType",
+     "type": "string"
+    },
+    {
+     "name": "fromParticipant",
+     "type": "string"
+    },
+    {
+     "name": "msgInstanceId",
+     "type": "string"
+    },
+    {
+     "name": "msgName",
+     "type": "string"
+    },
+    {
+     "name": "msgProtocol",
+     "type": "string"
+    },
+    {
+     "name": "msgType",
+     "type": "string"
+    },
+    {
+     "name": "org:group",
+     "type": "string"
+    },
+    {
+     "name": "participant",
+     "type": "string"
+    }
+   ]
+  }
+ ],
+ "objects": [
+  {
+   "id": "part::Gynecologist",
+   "type": "Gynecologist",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Gynecologist",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "part::Hospital",
+   "type": "Hospital",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Hospital",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "part::Laboratory",
+   "type": "Laboratory",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Laboratory",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "part::Patient",
+   "type": "Patient",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "Patient",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "message::case_114::admission_118",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_139::admission_144",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_184::admission_189",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_189::admission_196",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_209::admission_221",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_254::admission_278",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_29::admission_35",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_314::admission_341",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_354::admission_391",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_359::admission_398",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_374::admission_416",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_379::admission_423",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_409::admission_453",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_474::admission_520",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_74::admission_80",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_99::admission_103",
+   "type": "admission",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_114::admission request_116",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_139::admission request_142",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_184::admission request_187",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_189::admission request_194",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_209::admission request_219",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_254::admission request_276",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_29::admission request_33",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_314::admission request_339",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_354::admission request_389",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_359::admission request_396",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_374::admission request_414",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_379::admission request_421",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_409::admission request_451",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_474::admission request_518",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_74::admission request_78",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_99::admission request_101",
+   "type": "admission request",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_114::blood sample_113",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_139::blood sample_139",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_184::blood sample_184",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_189::blood sample_191",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_209::blood sample_216",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_254::blood sample_273",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_29::blood sample_30",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_314::blood sample_336",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_354::blood sample_386",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_359::blood sample_393",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_374::blood sample_411",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_379::blood sample_418",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_409::blood sample_448",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_44::blood sample_48",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_474::blood sample_515",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_74::blood sample_75",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_99::blood sample_98",
+   "type": "blood sample",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "chc::case_114",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_139",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_184",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_189",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_209",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_254",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_29",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_314",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_354",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_359",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_374",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_379",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_409",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_44",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_474",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_74",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::case_99",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "message::case_114::disease_112",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_139::disease_138",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_184::disease_183",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_189::disease_190",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_209::disease_215",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_254::disease_272",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_29::disease_29",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_314::disease_335",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_354::disease_385",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_359::disease_392",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_374::disease_410",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_379::disease_417",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_409::disease_447",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_44::disease_47",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_474::disease_514",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_74::disease_74",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_99::disease_97",
+   "type": "disease",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_114::hospitalisation_115",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_139::hospitalisation_141",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_184::hospitalisation_186",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_189::hospitalisation_193",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_209::hospitalisation_218",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_254::hospitalisation_275",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_29::hospitalisation_32",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_314::hospitalisation_338",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_354::hospitalisation_388",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_359::hospitalisation_395",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_374::hospitalisation_413",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_379::hospitalisation_420",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_409::hospitalisation_450",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_474::hospitalisation_517",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_74::hospitalisation_77",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_99::hospitalisation_100",
+   "type": "hospitalisation",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_114::patient analysis_117",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    }
+   ]
+  },
+  {
+   "id": "message::case_139::patient analysis_143",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_184::patient analysis_188",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_189::patient analysis_195",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_209::patient analysis_220",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_254::patient analysis_277",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    }
+   ]
+  },
+  {
+   "id": "message::case_29::patient analysis_34",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_314::patient analysis_340",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    }
+   ]
+  },
+  {
+   "id": "message::case_354::patient analysis_390",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    }
+   ]
+  },
+  {
+   "id": "message::case_359::patient analysis_397",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_374::patient analysis_415",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    }
+   ]
+  },
+  {
+   "id": "message::case_379::patient analysis_422",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_409::patient analysis_452",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    }
+   ]
+  },
+  {
+   "id": "message::case_474::patient analysis_519",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    }
+   ]
+  },
+  {
+   "id": "message::case_74::patient analysis_79",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    }
+   ]
+  },
+  {
+   "id": "message::case_99::patient analysis_102",
+   "type": "patient analysis",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    }
+   ]
+  },
+  {
+   "id": "message::case_44::prescription_50",
+   "type": "prescription",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_114::results_114",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_139::results_140",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_184::results_185",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_189::results_192",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_209::results_217",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_254::results_274",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_29::results_31",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_314::results_337",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_354::results_387",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_359::results_394",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_374::results_412",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_379::results_419",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_409::results_449",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_44::results_49",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_474::results_516",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_74::results_76",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::case_99::results_99",
+   "type": "results",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:target"
+    }
+   ]
+  }
+ ],
+ "events": [
+  {
+   "id": "e::case_114::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:15:29.244Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_112"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_114",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_114::disease_112",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_114::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:15:35.507Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_113"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_114",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_114::blood sample_113",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_114::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:15:47.832Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_114"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_114",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_114::results_114",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_114::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:15:48.985Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_115"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_114",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_114::hospitalisation_115",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_114::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:15:56.061Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_116"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_114",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_114::admission request_116",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_114::12",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:16:11.443Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_117"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_114",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "message::case_114::patient analysis_117",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_114::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:16:23.390Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_118"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_114",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_114::admission_118",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_139::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:19:05.560Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_138"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_139",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_139::disease_138",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_139::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:19:14.575Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_139"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_139",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_139::blood sample_139",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_139::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:19:20.751Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_140"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_139",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_139::results_140",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_139::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:19:21.979Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_141"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_139",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_139::hospitalisation_141",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_139::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:19:25.316Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_142"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_139",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_139::admission request_142",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_139::11",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:19:30.062Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_143"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_139",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_139::patient analysis_143",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_139::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:20:01.983Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_144"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_139",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_139::admission_144",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_184::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:26:16.324Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_183"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_184",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_184::disease_183",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_184::03",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:26:24.714Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_184"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_184",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_184::blood sample_184",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_184::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:26:37.840Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_185"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_184",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_184::results_185",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_184::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:26:49.848Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_186"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_184",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_184::hospitalisation_186",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_184::11",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:27:02.991Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_187"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_184",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_184::admission request_187",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_184::12",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:27:08.869Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_188"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_184",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_184::patient analysis_188",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_184::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:27:21.599Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_189"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_184",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_184::admission_189",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_189::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:27:26.977Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_190"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_189",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_189::disease_190",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_189::03",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:27:37.211Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_191"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_189",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_189::blood sample_191",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_189::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:27:48.575Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_192"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_189",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_189::results_192",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_189::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:27:59.034Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_193"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_189",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_189::hospitalisation_193",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_189::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:28:07.127Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_194"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_189",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_189::admission request_194",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_189::11",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:28:13.757Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_195"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_189",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_189::patient analysis_195",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_189::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:28:48.647Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_196"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_189",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_189::admission_196",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_209::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:31:58.258Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_215"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_209",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_209::disease_215",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_209::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:32:11.173Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_216"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_209",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_209::blood sample_216",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_209::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:32:20.915Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_217"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_209",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_209::results_217",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_209::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:32:31.919Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_218"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_209",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_209::hospitalisation_218",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_209::11",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:32:46.545Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_219"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_209",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_209::admission request_219",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_209::14",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:33:02.568Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_220"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_209",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_209::patient analysis_220",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_209::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:33:07.782Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_221"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_209",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_209::admission_221",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_254::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:41:13.070Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_272"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_254",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_254::disease_272",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_254::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:41:25.102Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_273"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_254",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_254::blood sample_273",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_254::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:41:33.797Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_274"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_254",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_254::results_274",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_254::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:41:41.611Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_275"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_254",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_254::hospitalisation_275",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_254::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:41:46.542Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_276"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_254",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_254::admission request_276",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_254::14",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:42:14.247Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_277"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_254",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "message::case_254::patient analysis_277",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_254::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:42:21.716Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_278"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_254",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_254::admission_278",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_29::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:03:43.234Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_29"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_29",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_29::disease_29",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_29::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:03:55.402Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_30"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_29",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_29::blood sample_30",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_29::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:04:05.470Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_31"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_29",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_29::results_31",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_29::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:04:13.016Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_32"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_29",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_29::hospitalisation_32",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_29::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:04:19.282Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_33"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_29",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_29::admission request_33",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_29::14",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:04:45.974Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_34"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_29",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_29::patient analysis_34",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_29::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:05:00.609Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_35"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_29",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_29::admission_35",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_314::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:50:59.474Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_335"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_314",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_314::disease_335",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_314::03",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:51:08.232Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_336"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_314",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_314::blood sample_336",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_314::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:51:18.860Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_337"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_314",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_314::results_337",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_314::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:51:24.727Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_338"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_314",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_314::hospitalisation_338",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_314::11",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:51:38.556Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_339"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_314",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_314::admission request_339",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_314::12",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:51:46.818Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_340"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_314",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "message::case_314::patient analysis_340",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_314::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:51:56.456Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_341"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_314",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_314::admission_341",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_354::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:58:48.018Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_385"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_354",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_354::disease_385",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_354::03",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:58:49.832Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_386"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_354",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_354::blood sample_386",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_354::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:59:05.446Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_387"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_354",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_354::results_387",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_354::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:59:07.964Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_388"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_354",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_354::hospitalisation_388",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_354::11",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:59:15.967Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_389"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_354",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_354::admission request_389",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_354::13",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:59:26.535Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_390"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_354",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "message::case_354::patient analysis_390",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_354::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:59:37.236Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_391"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_354",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_354::admission_391",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_359::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:59:47.447Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_392"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_359",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_359::disease_392",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_359::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T12:00:02.772Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_393"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_359",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_359::blood sample_393",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_359::07",
+   "type": "Send results",
+   "time": "2021-06-17T12:00:09.796Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_394"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_359",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_359::results_394",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_359::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T12:00:20.492Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_395"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_359",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_359::hospitalisation_395",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_359::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T12:00:29.249Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_396"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_359",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_359::admission request_396",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_359::13",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T12:00:46.356Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_397"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_359",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_359::patient analysis_397",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_359::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T12:01:04.398Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_398"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_359",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_359::admission_398",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_374::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T12:03:04.958Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_410"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_374",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_374::disease_410",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_374::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T12:03:23.148Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_411"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_374",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_374::blood sample_411",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_374::07",
+   "type": "Send results",
+   "time": "2021-06-17T12:03:30.735Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_412"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_374",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_374::results_412",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_374::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T12:03:36.968Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_413"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_374",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_374::hospitalisation_413",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_374::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T12:03:41.233Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_414"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_374",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_374::admission request_414",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_374::12",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T12:04:00.823Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_415"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_374",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "message::case_374::patient analysis_415",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_374::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T12:04:14.854Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_416"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_374",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_374::admission_416",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_379::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T12:04:15.694Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_417"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_379",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_379::disease_417",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_379::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T12:04:29.340Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_418"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_379",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_379::blood sample_418",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_379::07",
+   "type": "Send results",
+   "time": "2021-06-17T12:04:36.242Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_419"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_379",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_379::results_419",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_379::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T12:04:43.716Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_420"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_379",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_379::hospitalisation_420",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_379::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T12:04:46.644Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_421"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_379",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_379::admission request_421",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_379::11",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T12:04:50.125Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_422"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_379",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_379::patient analysis_422",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_379::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T12:05:14.695Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_423"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_379",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_379::admission_423",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_409::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T12:08:13.969Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_447"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_409",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_409::disease_447",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_409::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T12:08:29.836Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_448"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_409",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_409::blood sample_448",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_409::07",
+   "type": "Send results",
+   "time": "2021-06-17T12:08:34.327Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_449"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_409",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_409::results_449",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_409::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T12:08:40.307Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_450"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_409",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_409::hospitalisation_450",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_409::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T12:08:43.856Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_451"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_409",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_409::admission request_451",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_409::15",
+   "type": "Send admission info",
+   "time": "2021-06-17T12:09:20.626Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_453"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_409",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_409::admission_453",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_409::17",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T12:09:31.921Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_452"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_409",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "message::case_409::patient analysis_452",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_44::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:06:35.562Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_47"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_44",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_44::disease_47",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_44::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:06:44.910Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_48"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_44",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_44::blood sample_48",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_44::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:06:51.008Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_49"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_44",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_44::results_49",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_44::09",
+   "type": "Send prescription",
+   "time": "2021-06-17T11:06:55.866Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "prescription_50"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "prescription"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_44",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_44::prescription_50",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_474::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T12:19:29.527Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_514"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_474",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_474::disease_514",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_474::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T12:19:48.197Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_515"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_474",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_474::blood sample_515",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_474::07",
+   "type": "Send results",
+   "time": "2021-06-17T12:19:51.700Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_516"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_474",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_474::results_516",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_474::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T12:19:57.235Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_517"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_474",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_474::hospitalisation_517",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_474::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T12:19:57.448Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_518"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_474",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_474::admission request_518",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_474::11",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T12:20:01.141Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_519"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_474",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "message::case_474::patient analysis_519",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_474::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T12:20:32.516Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_520"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_474",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_474::admission_520",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_74::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:10:14.067Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_74"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_74",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_74::disease_74",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_74::03",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:10:25.560Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_75"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_74",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_74::blood sample_75",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_74::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:10:39.513Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_76"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_74",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_74::results_76",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_74::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:10:44.642Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_77"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_74",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_74::hospitalisation_77",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_74::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:10:47.947Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_78"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_74",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_74::admission request_78",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_74::11",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:10:56.759Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_79"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_74",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "message::case_74::patient analysis_79",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_74::16",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:11:25.701Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_80"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_74",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_74::admission_80",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_99::00",
+   "type": "Communicate disease",
+   "time": "2021-06-17T11:13:33.303Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Patient"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Patient"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "disease_97"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Patient"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "disease"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_99",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_99::disease_97",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_99::04",
+   "type": "Send blood sample",
+   "time": "2021-06-17T11:13:45.463Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "blood sample_98"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "blood sample"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_99",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_99::blood sample_98",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_99::07",
+   "type": "Send results",
+   "time": "2021-06-17T11:13:53.338Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "results_99"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Laboratory"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "results"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_99",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Laboratory",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_99::results_99",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_99::09",
+   "type": "Communicate the need to hospitalise",
+   "time": "2021-06-17T11:13:55.558Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "hospitalisation_100"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "hospitalisation"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_99",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_99::hospitalisation_100",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_99::10",
+   "type": "Require patient admission",
+   "time": "2021-06-17T11:14:00.202Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission request_101"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission request"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_99",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_99::admission request_101",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_99::11",
+   "type": "Forward patient analysis results",
+   "time": "2021-06-17T11:14:01.547Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "patient analysis_102"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Gynecologist"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "patient analysis"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_99",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Gynecologist",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "message::case_99::patient analysis_102",
+     "qualifier": "choreo:message"
+    }
+   ]
+  },
+  {
+   "id": "e::case_99::15",
+   "type": "Send admission info",
+   "time": "2021-06-17T11:14:11.887Z",
+   "attributes": [
+    {
+     "name": "elemType",
+     "value": "SendTask"
+    },
+    {
+     "name": "participant",
+     "value": "Hospital"
+    },
+    {
+     "name": "fromParticipant",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgInstanceId",
+     "value": "admission_103"
+    },
+    {
+     "name": "msgType",
+     "value": "send"
+    },
+    {
+     "name": "org:group",
+     "value": "Hospital"
+    },
+    {
+     "name": "msgProtocol",
+     "value": "P2P"
+    },
+    {
+     "name": "msgName",
+     "value": "admission"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::case_99",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::Hospital",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::Patient",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::case_99::admission_103",
+     "qualifier": "choreo:message"
+    }
+   ]
+  }
+ ]
+}

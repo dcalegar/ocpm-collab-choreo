@@ -40,6 +40,17 @@ import unified as u
 
 logger = logging.getLogger("map_log")
 
+REPO = Path(__file__).resolve().parents[2]
+
+
+def _repo_relative(path: str) -> str:
+    """An input path relative to the repository root when it lies inside it, so
+    that the versioned `_checks.json` files do not depend on the clone location."""
+    try:
+        return Path(path).resolve().relative_to(REPO).as_posix()
+    except ValueError:
+        return str(path)
+
 
 # ---------------------------------------------------------------------------
 # Export (serialization artifacts only)
@@ -140,7 +151,7 @@ def write_outputs(res: u.UnifiedResult, out: str) -> Dict[str, Any]:
         crits.append(criteria.p1_7_file("alpha_C", out + "_infsys.sqlite", view.events_df,
                                         view.objects_df, view_rel, view.o2o_df))
     report = {
-        "inputs": res.source.inputs,
+        "inputs": [_repo_relative(p) for p in res.source.inputs],
         "stats": res.stats,
         "export": {"witness_e2o_edges": len(rel) - len(res.relations_df),
                    "ocel2_json_schema_problems": schema[:25],

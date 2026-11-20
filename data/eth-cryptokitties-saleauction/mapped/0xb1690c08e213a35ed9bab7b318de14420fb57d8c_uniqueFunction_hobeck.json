@@ -1,0 +1,629 @@
+{
+ "objectTypes": [
+  {
+   "name": "0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "EOA",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "KittyCore",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "bid call",
+   "attributes": [
+    {
+     "name": "_tokenId",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "cancelAuction call",
+   "attributes": [
+    {
+     "name": "_tokenId",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "choreographyInstance",
+   "attributes": []
+  },
+  {
+   "name": "deposit call",
+   "attributes": [
+    {
+     "name": "uint256",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "deposit call response",
+   "attributes": []
+  },
+  {
+   "name": "subchoreographyInstance",
+   "attributes": [
+    {
+     "name": "name",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "transfer call",
+   "attributes": [
+    {
+     "name": "_to",
+     "type": "string"
+    },
+    {
+     "name": "_tokenId",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "transfer call response",
+   "attributes": []
+  }
+ ],
+ "eventTypes": [
+  {
+   "name": "Request bid [0xb1690c08e213a35ed9bab7b318de14420fb57d8c]",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "Request cancelAuction [0xb1690c08e213a35ed9bab7b318de14420fb57d8c]",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "deposit [0x672ec49f7f7eac25c3a2e651f67f579bb5da8936]",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "deposit [0xba52c75764d6f594735dc735be7f1830cdf58ddf]",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "type": "string"
+    }
+   ]
+  },
+  {
+   "name": "transfer [KittyCore]",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "type": "string"
+    }
+   ]
+  }
+ ],
+ "objects": [
+  {
+   "id": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+   "type": "0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "part::0x672ec49f7f7eac25c3a2e651f67f579bb5da8936",
+   "type": "EOA",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "0x672ec49f7f7eac25c3a2e651f67f579bb5da8936",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "part::0xba52c75764d6f594735dc735be7f1830cdf58ddf",
+   "type": "EOA",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "0xba52c75764d6f594735dc735be7f1830cdf58ddf",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "part::0x06012c8cf97bead5deae237070f9587f8e7a266d",
+   "type": "KittyCore",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "0x06012c8cf97bead5deae237070f9587f8e7a266d",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ]
+  },
+  {
+   "id": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::req\\:root",
+   "type": "bid call",
+   "attributes": [
+    {
+     "name": "_tokenId",
+     "value": "1001",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "part::0x672ec49f7f7eac25c3a2e651f67f579bb5da8936",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::req\\:root",
+   "type": "cancelAuction call",
+   "attributes": [
+    {
+     "name": "_tokenId",
+     "value": "1150",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "part::0xba52c75764d6f594735dc735be7f1830cdf58ddf",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "chc::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "chc::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f",
+   "type": "choreographyInstance"
+  },
+  {
+   "id": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::req\\:0_1",
+   "type": "deposit call",
+   "attributes": [
+    {
+     "name": "uint256",
+     "value": "0x",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0xba52c75764d6f594735dc735be7f1830cdf58ddf",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::req\\:0_2",
+   "type": "deposit call",
+   "attributes": [
+    {
+     "name": "uint256",
+     "value": "0x",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0x672ec49f7f7eac25c3a2e651f67f579bb5da8936",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::res\\:0_1",
+   "type": "deposit call response",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::0xba52c75764d6f594735dc735be7f1830cdf58ddf",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::res\\:0_2",
+   "type": "deposit call response",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::0x672ec49f7f7eac25c3a2e651f67f579bb5da8936",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "sub::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::root",
+   "type": "subchoreographyInstance",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "cancelAuction [0xb1690c08e213a35ed9bab7b318de14420fb57d8c]",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ],
+   "relationships": []
+  },
+  {
+   "id": "sub::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::root",
+   "type": "subchoreographyInstance",
+   "attributes": [
+    {
+     "name": "name",
+     "value": "bid [0xb1690c08e213a35ed9bab7b318de14420fb57d8c]",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ],
+   "relationships": []
+  },
+  {
+   "id": "message::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::req\\:0_1",
+   "type": "transfer call",
+   "attributes": [
+    {
+     "name": "_tokenId",
+     "value": "1150",
+     "time": "1970-01-01T00:00:00Z"
+    },
+    {
+     "name": "_to",
+     "value": "ba52c75764d6F594735dc735Be7F1830CDf58dDf",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0x06012c8cf97bead5deae237070f9587f8e7a266d",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::req\\:0_3",
+   "type": "transfer call",
+   "attributes": [
+    {
+     "name": "_tokenId",
+     "value": "1001",
+     "time": "1970-01-01T00:00:00Z"
+    },
+    {
+     "name": "_to",
+     "value": "672eC49F7f7EaC25C3A2E651F67F579BB5Da8936",
+     "time": "1970-01-01T00:00:00Z"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0x06012c8cf97bead5deae237070f9587f8e7a266d",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::res\\:0_1",
+   "type": "transfer call response",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::0x06012c8cf97bead5deae237070f9587f8e7a266d",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:target"
+    }
+   ]
+  },
+  {
+   "id": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::res\\:0_3",
+   "type": "transfer call response",
+   "attributes": [],
+   "relationships": [
+    {
+     "objectId": "part::0x06012c8cf97bead5deae237070f9587f8e7a266d",
+     "qualifier": "choreo:source"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:target"
+    }
+   ]
+  }
+ ],
+ "events": [
+  {
+   "id": "x::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::0",
+   "type": "Request cancelAuction [0xb1690c08e213a35ed9bab7b318de14420fb57d8c]",
+   "time": "2017-11-23T20:28:58.000Z",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "value": "0"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::0xba52c75764d6f594735dc735be7f1830cdf58ddf",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::req\\:root",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "sub::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::root",
+     "qualifier": "choreo:contained-by"
+    }
+   ]
+  },
+  {
+   "id": "x::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::1",
+   "type": "transfer [KittyCore]",
+   "time": "2017-11-23T20:28:58.001Z",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "value": "1"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::0x06012c8cf97bead5deae237070f9587f8e7a266d",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::req\\:0_1",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "message::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::res\\:0_1",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "sub::0x03c2d6249416e041947ed896b63cd556b4a66391fb1114c2fb9123f4910066d2::root",
+     "qualifier": "choreo:contained-by"
+    }
+   ]
+  },
+  {
+   "id": "x::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::0",
+   "type": "Request bid [0xb1690c08e213a35ed9bab7b318de14420fb57d8c]",
+   "time": "2017-11-23T18:46:13.000Z",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "value": "0"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::0x672ec49f7f7eac25c3a2e651f67f579bb5da8936",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::req\\:root",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "sub::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::root",
+     "qualifier": "choreo:contained-by"
+    }
+   ]
+  },
+  {
+   "id": "x::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::1",
+   "type": "deposit [0xba52c75764d6f594735dc735be7f1830cdf58ddf]",
+   "time": "2017-11-23T18:46:13.001Z",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "value": "1"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::0xba52c75764d6f594735dc735be7f1830cdf58ddf",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::req\\:0_1",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::res\\:0_1",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "sub::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::root",
+     "qualifier": "choreo:contained-by"
+    }
+   ]
+  },
+  {
+   "id": "x::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::2",
+   "type": "deposit [0x672ec49f7f7eac25c3a2e651f67f579bb5da8936]",
+   "time": "2017-11-23T18:46:13.002Z",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "value": "2"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::0x672ec49f7f7eac25c3a2e651f67f579bb5da8936",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::req\\:0_2",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::res\\:0_2",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "sub::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::root",
+     "qualifier": "choreo:contained-by"
+    }
+   ]
+  },
+  {
+   "id": "x::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::3",
+   "type": "transfer [KittyCore]",
+   "time": "2017-11-23T18:46:13.003Z",
+   "attributes": [
+    {
+     "name": "trace_order",
+     "value": "3"
+    }
+   ],
+   "relationships": [
+    {
+     "objectId": "chc::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f",
+     "qualifier": "choreo:instance"
+    },
+    {
+     "objectId": "part::0xb1690c08e213a35ed9bab7b318de14420fb57d8c",
+     "qualifier": "choreo:initiator"
+    },
+    {
+     "objectId": "part::0x06012c8cf97bead5deae237070f9587f8e7a266d",
+     "qualifier": "choreo:participant"
+    },
+    {
+     "objectId": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::req\\:0_3",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "message::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::res\\:0_3",
+     "qualifier": "choreo:message"
+    },
+    {
+     "objectId": "sub::0x5c8a04e3174fed51f8cbe8f8ec77b6d5714343c3ebc6225840c5f69f0b23555f::root",
+     "qualifier": "choreo:contained-by"
+    }
+   ]
+  }
+ ]
+}

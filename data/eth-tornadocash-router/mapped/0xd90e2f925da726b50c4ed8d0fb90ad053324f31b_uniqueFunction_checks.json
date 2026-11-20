@@ -1,0 +1,221 @@
+{
+ "inputs": [
+  "data/eth-tornadocash-router/hobeck/0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction.json"
+ ],
+ "stats": {
+  "profile": {
+   "internal_tasks": false,
+   "message_events": false,
+   "exchange_events": true,
+   "correlation": true,
+   "hierarchy": true
+  },
+  "n_events": 85,
+  "n_local_events": 0,
+  "n_exchange_events": 85,
+  "n_tasks": 85,
+  "n_two_way_tasks": 61,
+  "n_objects": 185,
+  "n_objects_by_type": {
+   "Message": 146,
+   "SubChoreographyCase": 13,
+   "CollaborationCase": 2,
+   "ChoreographyCase": 2,
+   "P0xd90e2f925da726b50c4ed8d0fb90ad053324f31b": 1,
+   "P0xd8f1eb586ecb93745392ee254a028f1f67e1437e": 1,
+   "P0x2038d51a98967f2c9443e2ca35642abb3e63169e": 1,
+   "P0x0000000000000000000000000000000000000008": 1,
+   "P0x0000000000000000000000000000000000000007": 1,
+   "P0x0000000000000000000000000000000000000006": 1,
+   "P0xce172ce1f20ec0b3728c9965470eaf994a03557a": 1,
+   "P0x77777feddddffc19ff86db637967013e6c6a116c": 1,
+   "P0xba178126c28f50ee60322a82f5ebcd6b3711e101": 1,
+   "P0x5efda50f22d34f262c29268506c5fa42cb56a1ce": 1,
+   "P0x9c97be37840f0e754bb7adb1b16fd0954a2ba248": 1,
+   "P0x704ee657bc29d05debb086ef2e1093a691c389aa": 1,
+   "P0xf4b067dd14e95bab89be928c07cb22e3c94e0daa": 1,
+   "P0x5f6c97c6ad7bdd0ae7e0dd4ca33a4ed3fdabd4d7": 1,
+   "P0x84b0c75c1f6211450fec7289c32d717adadd702a": 1,
+   "P0x58e8dcc13be9780fc42e8723d8ead4cf46943df2": 1,
+   "P0x864df9cd806d58341f13602103bf853066ff962a": 1,
+   "P0x83584f83f26af4edda9cbe8c730bc87c364b28fe": 1,
+   "P0x47ce0c6ed5b0ce3d3a51fdb1c52dc66a7c3c2936": 1,
+   "P0x2573bac39ebe2901b4389cd468f2872cf7767faf": 1,
+   "P0xb20c66c4de72433f3ce747b58b86830c459ca911": 1,
+   "P0x5b3f656c80e8ddb9ec01dd9018815576e9238c29": 1
+  },
+  "n_new_objects": 185,
+  "n_e2o": 486,
+  "n_o2o": 451,
+  "n_logical_messages": 146,
+  "n_singleton_logical_messages": 0,
+  "n_logical_messages_with_conflicting_values": 0,
+  "conflicting_values": [],
+  "n_choreography_cases": 2
+ },
+ "export": {
+  "witness_e2o_edges": 2,
+  "ocel2_json_schema_problems": [],
+  "infsys_view": null
+ },
+ "mapping_diagnostics": {
+  "conflicting_values": []
+ },
+ "criteria": [
+  {
+   "name": "P1.7 Export reachability (core)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=185; unreachable in the exported E2O table=0; E2O to unknown objects=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "U1 Instance",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 85,
+    "choreography_cases": 2,
+    "tasks_without_exactly_one_case": 0,
+    "tasks_in_another_case_than_their_request": 0,
+    "cases_without_exactly_one_part_of": 0,
+    "cases_part_of_another_case": 0,
+    "cases_without_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U2 Task",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 85,
+    "exchange_events": 85,
+    "exchange_events_not_tasks": 0,
+    "sends_with_wrong_task_status": 0,
+    "other_local_events_as_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U3 Message identity",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "logical_messages": 146,
+    "duplicate_identifiers": 0,
+    "messages_without_exactly_one_case": 0,
+    "messages_without_events": 0,
+    "message_events_without_exactly_one_message": 0,
+    "links_of_the_wrong_kind": 0,
+    "message_events_in_another_case": 0,
+    "message_events_with_another_identifier": 0,
+    "exchange_events_without_logical_message": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U4 Endpoint coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "logical_messages": 146,
+    "several_senders": 0,
+    "declared_receiver_not_among_receives": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U5 Task roles",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 85,
+    "two_way_tasks": 61,
+    "tasks_without_exactly_one_request": 0,
+    "tasks_with_several_responses": 0,
+    "tasks_without_exactly_one_initiator": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U6 Correlation status",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "correct": 0,
+    "correct_multicast": 0,
+    "send_only": 0,
+    "receive_only": 0,
+    "uncorrelated": 0,
+    "incoherent": 0,
+    "incoherent_several_tasks": 0,
+    "no_message_events": 146
+   },
+   "examples": []
+  },
+  {
+   "name": "U7 Hierarchy",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "scopes": 13,
+    "tasks_in_several_innermost_scopes": 0,
+    "scopes_with_tasks_of_several_cases": 0,
+    "empty_scopes": 0,
+    "scopes_with_several_parents": 0,
+    "scopes_in_a_cycle": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U8 Role coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "tasks": 85,
+    "initiators_not_request_senders": 0,
+    "participants_not_request_receivers": 0,
+    "responses_not_reversing_the_roles": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction.jsonocel)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=185; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, 0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction.sqlite)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=185; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  }
+ ],
+ "structural_criteria_hold": true
+}

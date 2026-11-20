@@ -1,0 +1,318 @@
+{
+ "inputs": [
+  "data/real3/pena/collectivelog_real3_collab.xes"
+ ],
+ "stats": {
+  "profile": {
+   "internal_tasks": true,
+   "message_events": true,
+   "exchange_events": false,
+   "correlation": true,
+   "hierarchy": false
+  },
+  "n_events": 1818,
+  "n_local_events": 1818,
+  "n_exchange_events": 0,
+  "n_tasks": 653,
+  "n_two_way_tasks": 0,
+  "n_objects": 989,
+  "n_objects_by_type": {
+   "Message": 492,
+   "OrchestrationCase": 294,
+   "CollaborationCase": 100,
+   "ChoreographyCase": 100,
+   "User": 1,
+   "Thermostat": 1,
+   "Controller": 1
+  },
+  "n_new_objects": 592,
+  "n_e2o": 9303,
+  "n_o2o": 2151,
+  "n_logical_messages": 492,
+  "n_singleton_logical_messages": 0,
+  "n_logical_messages_with_conflicting_values": 0,
+  "conflicting_values": [],
+  "n_choreography_cases": 100
+ },
+ "export": {
+  "witness_e2o_edges": 0,
+  "ocel2_json_schema_problems": [],
+  "infsys_view": {
+   "stats": {
+    "n_events": 1818,
+    "n_objects": 1647,
+    "n_objects_by_type": {
+     "Message": 1250,
+     "OrchestrationCase": 294,
+     "CollaborationCase": 100,
+     "User": 1,
+     "Thermostat": 1,
+     "Controller": 1
+    },
+    "n_e2o": 6704,
+    "n_o2o": 4325,
+    "n_messages": 1250,
+    "n_messages_missing_sender": 0,
+    "n_messages_missing_receiver": 13,
+    "n_cases": 100,
+    "n_participant_types": 3
+   },
+   "witness_e2o_edges": 0
+  }
+ },
+ "mapping_diagnostics": {
+  "conflicting_values": []
+ },
+ "criteria": [
+  {
+   "name": "P1.1 Totality",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "source events=1818, ocel events=1818; missing event ids=0; activity mismatches=0; timestamp mismatches=0; participant mismatches=0; elemType mismatches=0; residual (M8) attribute mismatches=0; source events with collab:participant undefined (violates the total-function precondition of Definition app-r1)=0; source events with collab:elemType absent or outside {task, SendTask, ReceiveTask}=0; source 'task' events with a defined fromParticipant/toParticipant (violates the partial-function domain of Definition app-r1, silently dropped by transform())=0."
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.2 Per-case partition",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "CC objects=100; set mismatches=0; dangling in_collaboration-targets=0; caseId disagreements=0."
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.2b Per-case order (identifier order equals prec_L, incl. tie-break)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "cases checked=100; cases with an identifier-order deviation from prec_L=0."
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.3 Message well-formedness",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "messages=1250; not exactly-one send-xor-receive: 0; send/receive events with no Message relation: 0; non-communication events with a Message relation: 0; events whose send/receive qualifier contradicts the source elemType: 0; events related to more than one Message: 0; exchanged_in disagreements with the related event's case: 0; from/to O2O vs sender/receiver: 0; sender/receiver vs event fromParticipant/toParticipant: 0; event participant disagreements: 0; messages missing sender (source never recorded 'from'): 0; messages missing receiver (source never recorded 'to'): 13; inconsistent partial state (attribute/relation disagree on definedness): 0; from/to O2O multiplicity violations (>1 edge on one side): 0; communication events missing their participant attribute (fails P1.1): 0; endpoint representations (event/Message/O2O) disagreeing with the source value: 0"
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.4 OrchestrationCase coherence",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "events missing in_orchestration=0; in_orchestration wrong target=0; events with >1 in_orchestration edge=0; in_orchestration/in_collaboration mismatches=0; orchestration cases !=1 for_participant=0; for_participant name disagreements=0; for_participant type disagreements=0; OrchestrationCase caseId/participant identity disagreements=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.5 No orphan objects",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=1647; orphans=0; dangling E2O event ids=0; dangling E2O object targets=0; dangling O2O targets=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.6 Participant coherence",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "events checked=1818; direct/indirect mismatches=0; missing one side=0; events with >1 distinct 'in_participant' edge target=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (alpha_C)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=1647; unreachable in the exported E2O table=0; E2O to unknown objects=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=989; unreachable in the exported E2O table=0; E2O to unknown objects=0"
+   },
+   "examples": []
+  },
+  {
+   "name": "U1 Instance",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 653,
+    "choreography_cases": 100,
+    "tasks_without_exactly_one_case": 0,
+    "tasks_in_another_case_than_their_request": 0,
+    "cases_without_exactly_one_part_of": 0,
+    "cases_part_of_another_case": 0,
+    "cases_without_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U2 Task",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 653,
+    "exchange_events": 0,
+    "exchange_events_not_tasks": 0,
+    "sends_with_wrong_task_status": 0,
+    "other_local_events_as_tasks": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U3 Message identity",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "logical_messages": 492,
+    "duplicate_identifiers": 0,
+    "messages_without_exactly_one_case": 0,
+    "messages_without_events": 0,
+    "message_events_without_exactly_one_message": 0,
+    "links_of_the_wrong_kind": 0,
+    "message_events_in_another_case": 0,
+    "message_events_with_another_identifier": 0,
+    "exchange_events_without_logical_message": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U4 Endpoint coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "logical_messages": 492,
+    "several_senders": 0,
+    "declared_receiver_not_among_receives": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U5 Task roles",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "tasks": 653,
+    "two_way_tasks": 0,
+    "tasks_without_exactly_one_request": 0,
+    "tasks_with_several_responses": 0,
+    "tasks_without_exactly_one_initiator": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U6 Correlation status",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "correct": 401,
+    "correct_multicast": 0,
+    "send_only": 13,
+    "receive_only": 0,
+    "uncorrelated": 0,
+    "incoherent": 78,
+    "incoherent_several_tasks": 78,
+    "no_message_events": 0
+   },
+   "examples": [
+    "message::case_103::env_info_124",
+    "message::case_103::temperature_125",
+    "message::case_119::env_info_143",
+    "message::case_119::temperature_144",
+    "message::case_127::env_info_154"
+   ]
+  },
+  {
+   "name": "U7 Hierarchy",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "scopes": 0,
+    "tasks_in_several_innermost_scopes": 0,
+    "scopes_with_tasks_of_several_cases": 0,
+    "empty_scopes": 0,
+    "scopes_with_several_parents": 0,
+    "scopes_in_a_cycle": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "U8 Role coherence",
+   "kind": "diagnostic",
+   "ok": true,
+   "counts": {
+    "tasks": 653,
+    "initiators_not_request_senders": 0,
+    "participants_not_request_receivers": 0,
+    "responses_not_reversing_the_roles": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, real3_cl.jsonocel)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=989; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (core, real3_cl.sqlite)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=989; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  },
+  {
+   "name": "P1.7 Export reachability (alpha_C, real3_cl_infsys.sqlite)",
+   "kind": "structural",
+   "ok": true,
+   "counts": {
+    "detail": "objects=1647; unreachable in the exported E2O table=0; E2O to unknown objects=0",
+    "events_missing_in_file": 0,
+    "events_added_in_file": 0,
+    "objects_missing_in_file": 0,
+    "objects_added_in_file": 0,
+    "e2o_missing_in_file": 0,
+    "e2o_added_in_file": 0,
+    "o2o_missing_in_file": 0,
+    "o2o_added_in_file": 0
+   },
+   "examples": []
+  }
+ ],
+ "structural_criteria_hold": true
+}

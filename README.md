@@ -68,8 +68,10 @@ python3.10 -m venv .venv-predict
 .venv-predict/bin/pip install --no-deps -e ../ocpm-collab-ppm
 ```
 
-Run the experiments in this order. `map_all.py` writes `data/<dataset>/mapped/`, which
-is not versioned, and every experiment reads it:
+Run the experiments in this order. `map_all.py` writes `data/<dataset>/mapped/`, and
+every experiment reads it. The folder is versioned, so its contents can be inspected
+without running the mapping; the one output over 50 MB, `bpic2013_cl.jsonocel`, is
+stored as `bpic2013_cl.jsonocel.gz`:
 
 ```bash
 cd source/mapping && ../../.venv/bin/python map_all.py

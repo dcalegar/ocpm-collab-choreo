@@ -5,6 +5,9 @@ InfSys (Calegari et al., `CalegariDPR26`) and by Hobeck et al. (`HobeckMMW27`). 
 dataset has its own folder. Inside it, one subfolder per provenance holds the files
 exactly as that source publishes them (copied on 2026-11-12, unmodified; the XES inputs of
 Hobeck et al. were added on 2026-11-17). The logs are used in these original formats.
+The `mapped/` subfolder is not a provenance: it holds the outputs of the unified mapping,
+written by `source/mapping/map_all.py` (see
+[`../source/mapping/README.md`](../source/mapping/README.md)).
 
 Each log is kept once. When two sources publish the same log, or one log is contained in
 another, only the copy the papers use is kept; the provenance notes list what was dropped
