@@ -8,11 +8,15 @@ adapters produce each of these representations.
 
 Companion repository of a paper in preparation for the Fifth International Workshop on
 Collaboration Mining for Distributed Systems (COMINDS 2027), held with ICPM 2027.
+The companion document [`docs/unified-representation.pdf`](docs/unified-representation.pdf)
+details the representation beyond the paper: the rules of the unified mapping, the
+adapters, the evaluation, and the consistency criteria.
 
 ## Layout
 
 | Path | Content |
 |---|---|
+| `docs/` | Companion document of the paper (`unified-representation.pdf`). |
 | `data/` | Event logs used as examples: 9 collaborative XES logs, BPIC 2013, and 12 Ethereum logs, in their original formats, with the object-centric logs that InfSys and Hobeck et al. produced from them. See [`data/README.md`](data/README.md) for provenance and for the input/reference pairs. |
 | `source/` | The mapping from the original log formats to OCEL 2.0, and the experiments that compare its output with the reference object-centric logs in `data/` (in progress). |
 
