@@ -34,7 +34,7 @@ MSG_NAME_KEYS = ("msgName", "msgFlow")
 MSG_TYPE_KEY = "msgType"           # send / receive, in the raw logs
 ORG_GROUP_KEY = "org:group"        # executing participant, in the raw logs
 
-# Fixed names under which M8 keeps the consumed collab:* keys; M9 uses the same.
+# Fixed names under which UM7 (M8) keeps the consumed collab:* keys; UM8 uses the same.
 RENAMED_COLLAB_KEYS = {
     cx.ELEMTYPE_KEY: "elemType",
     cx.PARTICIPANT_KEY: "participant",

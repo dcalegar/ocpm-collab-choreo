@@ -13,8 +13,8 @@ paper (Section 4, Table `tab:tasks-collab`) without modification:
   message, so InfSys's message counts and message activities become task counts and
   task activities;
 - the initiator and participants of a task are its stored roles (`initiator`,
-  `participant`, M12), and the sender and receivers of its request message are the
-  stored endpoints of that `Message` (`source`, `target`, M10), as in
+  `participant`, UM11), and the sender and receivers of its request message are the
+  stored endpoints of that `Message` (`source`, `target`, UM9), as in
   `mapping/index.py` (`Index.roles`, `Index.endpoints`). Neither is derived from the
   other; in a ChL they agree (U8).
 
@@ -50,7 +50,7 @@ from common import read_sqlite  # noqa: E402
 
 from tasks.model import Event, Execution, ObjectCentricLog  # noqa: E402  (InfSys)
 
-# Vocabulary of the unified representation (mapping/unified.py, M6-M12). Repeated
+# Vocabulary of the unified representation (mapping/unified.py, UM5-UM11). Repeated
 # here instead of imported, because importing the mapping pulls in its pm4py version.
 OT_CHC = "ChoreographyCase"
 OT_MESSAGE = "Message"

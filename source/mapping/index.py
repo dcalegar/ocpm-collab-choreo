@@ -7,12 +7,12 @@ mapping. Events and objects are classified by their relations:
 
 - local events: events with `in_collaboration` (M6);
 - exchange events: all other events;
-- sends / receives: events with `send` / `receive` to a logical `Message` (M11);
-- tasks: events with `request` (M12).
+- sends / receives: events with `send` / `receive` to a logical `Message` (UM10);
+- tasks: events with `request` (UM11).
 
 The endpoints of a logical message are its stored `source` / `target`
-relations (M10), and the roles of a task its stored `initiator` /
-`participant` relations (M12). Neither is derived from the other; the
+relations (UM9), and the roles of a task its stored `initiator` /
+`participant` relations (UM11). Neither is derived from the other; the
 criteria U4 and U8 compare them.
 """
 
@@ -67,16 +67,16 @@ class Index:
         return self.of_type(u.OT_MESSAGE)
 
     def message_events(self, m: str) -> Tuple[List[str], List[str]]:
-        """The send and receive events of a logical message (M11)."""
+        """The send and receive events of a logical message (UM10)."""
         return sorted(self.events_of(m, cx.Q_SEND)), sorted(self.events_of(m, cx.Q_RECEIVE))
 
     def endpoints(self, m: str) -> Tuple[List[str], List[str]]:
         """The stored senders and receivers (participant oids) of a logical
-        message (M10)."""
+        message (UM9)."""
         return self.o2o_targets(m, u.Q_SOURCE), self.o2o_targets(m, u.Q_TARGET)
 
     def roles(self, t: str) -> Tuple[List[str], List[str]]:
-        """The stored initiators and participants of a task (M12)."""
+        """The stored initiators and participants of a task (UM11)."""
         return self.targets(t, u.Q_INITIATOR), self.targets(t, u.Q_PARTICIPANT)
 
     def participant_name(self, oid: str) -> str:

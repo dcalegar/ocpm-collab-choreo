@@ -146,7 +146,7 @@ def write_outputs(res: u.UnifiedResult, out: str) -> Dict[str, Any]:
                    "ocel2_json_schema_problems": schema[:25],
                    "infsys_view": infsys_view},
         "mapping_diagnostics": {
-            # values that a logical message cannot hold at once (first kept, M10)
+            # values that a logical message cannot hold at once (first kept, UM9)
             "conflicting_values": res.stats["conflicting_values"],
         },
         "criteria": criteria.as_json(crits),

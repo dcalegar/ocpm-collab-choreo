@@ -1,20 +1,22 @@
-"""The neutral unified mapping mu_U (rules M1-M13).
+"""The unified mapping mu_U (rules UM1-UM12).
 
 The implementation calls the InfSys mapping for the local, non-message part
-of M1-M8.  Its per-observation ``Message`` objects and their relations are
-removed from the core; M10-M11 replace them with one logical ``Message`` per
-case-local correlation key and direct ``send``/``receive`` E2O relations.
+of M1-M8 (rules UM1-UM7).  Its per-observation ``Message`` objects and their
+relations are removed from the core; UM9-UM10 replace them with one logical
+``Message`` per case-local correlation key and direct ``send``/``receive`` E2O
+relations.  UM1 and UM2 also create the case and participant objects that only
+exchange events record.
 The untouched InfSys result remains attached to :class:`UnifiedResult` only as
 the test oracle of the adapter alpha_C (`export_infsys.py`); no output or
 criterion reads it.
 
 | Rule | Adds |
 |---|---|
-| M9 | one event per exchange event, with its activity, timestamp, and attributes; no `in_orchestration` or `in_participant` relation |
-| M10 | one logical `Message` per case and key; every unkeyed send, receive, request, or response gets its own singleton; `source` / `target` / `exchanged_in` O2O |
-| M11 | direct `send` / `receive` E2O from local message events to the logical `Message` |
-| M12 | the choreography task (the exchange event, or the send if no exchange event records the message), `request` / `response`, `initiator` / `participant`, and `in_choreography` E2O; `part_of` O2O from its `ChoreographyCase` to the `CollaborationCase` |
-| M13 | one `SubChoreographyCase` per recorded scope execution, `contained_by` (E2O) from each task to its innermost scope, `contains` (O2O) to directly nested scopes |
+| UM8 | one event per exchange event, with its activity, timestamp, and attributes; no `in_orchestration` or `in_participant` relation |
+| UM9 | one logical `Message` per case and key; every unkeyed send, receive, request, or response gets its own singleton; `source` / `target` / `exchanged_in` O2O |
+| UM10 | direct `send` / `receive` E2O from local message events to the logical `Message` |
+| UM11 | the choreography task (the exchange event, or the send if no exchange event records the message), `request` / `response`, `initiator` / `participant`, and `in_choreography` E2O; `part_of` O2O from its `ChoreographyCase` to the `CollaborationCase` |
+| UM12 | one `SubChoreographyCase` per recorded scope execution, `contained_by` (E2O) from each task to its innermost scope, `contains` (O2O) to directly nested scopes |
 
 The rules represent the source data as recorded: a reused identifier gives one
 logical message with several sends, while every unkeyed observation gets a
@@ -39,13 +41,13 @@ COL_EID, COL_OID, COL_OID2 = cx.COL_EID, cx.COL_OID, cx.COL_OID2
 COL_ACT, COL_TS, COL_TYPE, COL_Q = (cx.COL_ACTIVITY, cx.COL_TIMESTAMP,
                                     cx.COL_OTYPE, cx.COL_QUALIFIER)
 
-# Object types added or reconstructed by M10-M13.
+# Object types added or reconstructed by UM9-UM12.
 OT_MESSAGE = cx.OT_MESSAGE
 OT_CHC = "ChoreographyCase"
 OT_SUB = "SubChoreographyCase"
 NEW_OBJECT_TYPES = (OT_MESSAGE, OT_CHC, OT_SUB)
 
-# Qualifiers added by M9-M13.
+# Qualifiers added by UM8-UM12.
 Q_IN_CHOREOGRAPHY = "in_choreography"
 Q_REQUEST = "request"
 Q_RESPONSE = "response"
@@ -113,7 +115,7 @@ class _Msg:
     case: str
     key: Optional[str]
     # Each name and content value carries the position (time, event id) of the
-    # event that records it, so that the first one in event order is kept (M10).
+    # event that records it, so that the first one in event order is kept (UM9).
     names: List[Tuple[Tuple[pd.Timestamp, str], str]] = field(default_factory=list)
     content: Dict[str, List[Tuple[Tuple[pd.Timestamp, str], Any]]] = field(
         default_factory=dict)
@@ -160,7 +162,7 @@ def profile(src: SourceLog) -> Dict[str, bool]:
 
 
 def map_log(src: SourceLog) -> UnifiedResult:
-    """Apply mu_U (M1-M13) to a source log."""
+    """Apply mu_U (UM1-UM12) to a source log."""
     activities = [x.activity for x in src.exchange]
     if src.local is not None:
         activities += list(src.local[cx.ACTIVITY_KEY].unique())
@@ -225,7 +227,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
         o2o_rows.append({COL_OID: a, COL_OID2: b, COL_Q: q})
 
     def participant(p: str) -> str:
-        """The M2 participant object of p, created if M1-M8 did not."""
+        """The UM2 participant object of p, created here if M1-M8 did not create it."""
         oid = cx._participant_id(p)
         if oid not in ob_rows:
             attrs = {"name": p}
@@ -239,7 +241,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
         ensure(oid, cx.OT_CC, {"caseId": case})   # M1 convention
         return oid
 
-    # ---- M9: exchange events -----------------------------------------------
+    # ---- UM8: exchange events -----------------------------------------------
     by_case: Dict[str, List[ExchangeEvent]] = defaultdict(list)
     for x in src.exchange:
         by_case[x.case].append(x)
@@ -257,7 +259,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
             ev_rows.append(row)
             exchange.append((eid, x))
 
-    # ---- M10: logical messages ---------------------------------------------
+    # ---- UM9: logical messages ---------------------------------------------
     msgs: Dict[str, _Msg] = {}
 
     def logical(case: str, key: Optional[str], carrier: str) -> _Msg:
@@ -274,7 +276,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
     task_of: Dict[str, List[Tuple[str, str]]] = {}   # eid -> request/response
     task_roles: Dict[str, Tuple[Tuple[str, ...], Tuple[str, ...]]] = {}
     local_task_initiators: Dict[str, Tuple[str, ...]] = {}
-    exchange_recorded = set()   # logical messages recorded by an exchange event (M12)
+    exchange_recorded = set()   # logical messages recorded by an exchange event (UM11)
     for eid, x in exchange:
         at = (_utc(x.timestamp), eid)
         req = logical(x.case, x.key, eid)
@@ -321,7 +323,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
             if executing:
                 m.receivers.append(executing)
         if elem == cx.ELEM_SEND and m.oid not in exchange_recorded:
-            task_of[eid] = [(Q_REQUEST, m.oid)]  # M12: the send is the task
+            task_of[eid] = [(Q_REQUEST, m.oid)]  # UM11: the send is the task
             local_task_initiators[eid] = (executing,) if executing else ()
 
     # A send carrier gets every receiver asserted for its request message,
@@ -355,7 +357,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
                                   "kept": str(vs[0]), "values": distinct})
         ensure(m.oid, OT_MESSAGE, attrs)
 
-    # ---- M11: direct message events and stored endpoints -------------------
+    # ---- UM10: direct message events and stored endpoints -------------------
     for m in msgs.values():
         for eid in m.sends:
             e2o(eid, m.oid, cx.Q_SEND)
@@ -367,7 +369,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
             o2o(m.oid, participant(p), Q_TARGET)
         o2o(m.oid, collaboration_case(m.case), Q_EXCHANGED_IN)
 
-    # ---- M12: choreography tasks and instances ------------------------------
+    # ---- UM11: choreography tasks and instances ------------------------------
     case_of_task = {eid: case_of_event.get(eid) for eid in task_of}
     case_of_task.update({eid: x.case for eid, x in exchange})
     for case in dict.fromkeys(case_of_task[e] for e in sorted(task_of)):
@@ -383,7 +385,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
             e2o(eid, participant(p), Q_PARTICIPANT)
         e2o(eid, chc_id(case_of_task[eid]), Q_IN_CHOREOGRAPHY)
 
-    # ---- M13: sub-choreographies --------------------------------------------
+    # ---- UM12: sub-choreographies --------------------------------------------
     for eid, x in exchange:
         parent = None
         for scope in x.scope_path:
@@ -402,7 +404,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
     clash = {t for t in ptypes.types if t in NEW_OBJECT_TYPES
              or cx._pm4py_table_name(t) in {cx._pm4py_table_name(n) for n in NEW_OBJECT_TYPES}}
     if clash:
-        raise ValueError(f"participant types {sorted(clash)} clash with M10-M13 types")
+        raise ValueError(f"participant types {sorted(clash)} clash with UM9-UM12 types")
     events_df = pd.DataFrame(ev_rows)
     if not events_df.empty:
         events_df[COL_TS] = pd.to_datetime(events_df[COL_TS], utc=True)

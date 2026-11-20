@@ -127,7 +127,7 @@ def test_conflicting_content_is_reported_not_lost():
     (9, "from exchange", ("from exchange", "from send")),  # the exchange at 10:04 comes first
 ])
 def test_conflicting_names_keep_the_first_in_event_order(send_minute, kept, values):
-    """M10: the first value in event order is kept, across exchange and local
+    """UM9: the first value in event order is kept, across exchange and local
     events, whichever kind the mapping reads first."""
     send = local_event("Send", send_minute, cx.ELEM_SEND, "A", "k", to="B")
     send["msgName"] = "from send"

@@ -4,7 +4,7 @@
   alpha_C(mu_U(L)), the collaboration view rebuilt from the core
   (`export_infsys.py`); P1.7 (export reachability) on the E2O table handed to
   the exporters, for the serialized core and for alpha_C(mu_U(L)).
-- U1-U8: the criteria for what M9-M13 add (paper, Section 3.3). They read the
+- U1-U8: the criteria for what UM8-UM12 add (paper, Section 3.3). They read the
   log through `index.Index`, so they apply to any log in the representation.
 
 Structural criteria (U1-U3, U5, U7) must hold; a violation is an
@@ -32,7 +32,7 @@ import unified as u
 STRUCTURAL, DIAGNOSTIC = "structural", "diagnostic"
 MESSAGE_ROLES = (cx.Q_SEND, cx.Q_RECEIVE, u.Q_REQUEST, u.Q_RESPONSE)
 EXPECTED_LINK = {cx.ELEM_SEND: cx.Q_SEND, cx.ELEM_RECEIVE: cx.Q_RECEIVE}
-FROM_ATTR, TO_ATTR = "fromParticipant", "toParticipant"   # M8 / M9 event attributes
+FROM_ATTR, TO_ATTR = "fromParticipant", "toParticipant"   # UM7 / UM8 event attributes
 EXECUTING_ATTR = "participant"                            # M8: who executes a local event
 
 
@@ -80,7 +80,7 @@ def u1_instance(ix: Index) -> Criterion:
         if len(parents) != 1 or ix.objects[parents[0]][cx.COL_OTYPE] != cx.OT_CC:
             bad_part.append(c)
         elif ix.objects[parents[0]].get(u.A_CASE) != ix.objects[c].get(u.A_CASE):
-            other_parent.append(c)      # M12: part of the CollaborationCase of its case
+            other_parent.append(c)      # UM11: part of the CollaborationCase of its case
         if not ix.events_of(c, u.Q_IN_CHOREOGRAPHY):
             empty.append(c)
     counts = {"tasks": len(ix.tasks()), "choreography_cases": len(ix.of_type(u.OT_CHC)),
@@ -185,7 +185,7 @@ def _endpoint_findings(ix: Index, m: str) -> Dict[str, bool]:
     name, those that an exchange event names for its request or its response,
     and the executing participant of each receive); each must be among those
     that the receives observe, when there are any. A receive observes only
-    its executing participant (M10), not the receiver it names, which is one
+    its executing participant (UM9), not the receiver it names, which is one
     more claim. An additional receive is a valid multicast."""
     sends, receives = ix.message_events(m)
     senders, receivers = ix.endpoints(m)

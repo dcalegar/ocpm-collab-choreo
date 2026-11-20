@@ -16,7 +16,7 @@ the InfSys checks and exporters apply unchanged.
 | `exchanged_in` of `msg::<event>` | `in_collaboration` of the event | per observation |
 
 Exchange events, logical messages, choreography and sub-choreography cases,
-and the relations added by M10-M13 (`source`, `target`, `request`, `response`,
+and the relations added by UM9-UM12 (`source`, `target`, `request`, `response`,
 `initiator`, `participant`, `in_choreography`, `contained_by`, `contains`) are
 removed. The endpoints of an observation are read from its own event, not
 from the aggregated `source` / `target` of its logical message, which may
@@ -88,7 +88,7 @@ def export(events_df: pd.DataFrame, objects_df: pd.DataFrame,
                 and objects[r[COL_OID]][COL_TYPE] == cx.OT_OC]
     keep |= {r[COL_OID2] for r in o2o_rows}
     # An object of the core without relations comes from M1-M8 (every object
-    # that M10-M13 add is related), e.g. a participant recorded only as the
+    # that UM9-UM12 add is related), e.g. a participant recorded only as the
     # endpoint of a task event, which M8 does not preserve.
     related = ({r[COL_OID] for r in e2o} | {r[COL_OID] for r in o2o}
                | {r[COL_OID2] for r in o2o})

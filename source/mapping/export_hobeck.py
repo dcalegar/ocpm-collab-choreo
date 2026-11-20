@@ -10,8 +10,8 @@ disagreement between them (U8) survives the export.
 | `choreographyInstance`, `choreo:instance` | `ChoreographyCase`, `in_choreography` | renaming; `part_of` is not exported |
 | `subchoreographyInstance`, `choreo:contained-by`, `choreo:contains` | `SubChoreographyCase`, `contained_by`, `contains` | renaming |
 | `choreo:message` | `request` and `response` | both logical messages |
-| `choreo:source`, `choreo:target` | `source`, `target` of the logical message (M10), including the response endpoints | prefixing |
-| `choreo:initiator`, `choreo:participant` | `initiator`, `participant` of the task (M12) | prefixing |
+| `choreo:source`, `choreo:target` | `source`, `target` of the logical message (UM9), including the response endpoints | prefixing |
+| `choreo:initiator`, `choreo:participant` | `initiator`, `participant` of the task (UM11) | prefixing |
 
 Only tasks, their instances, scopes, logical messages, and participants are
 exported. Object types that Def. 2 leaves free are chosen as follows: a message

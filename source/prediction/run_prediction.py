@@ -75,7 +75,7 @@ CHL_LOGS = ["artificial1", "artificial5", "healthcare", "real1", "real2", "real3
             "real4", "real5", "smartagriculture"]
 
 CHOREOGRAPHY_SCHEMA = Schema(ot_cc=cv.OT_CHC, ot_message=cv.OT_MESSAGE)
-# E2O relations to log-wide participant objects: task roles (M12), the direct edge of M6,
+# E2O relations to log-wide participant objects: task roles (UM11), the direct edge of UM5,
 # and export witnesses that reuse an endpoint qualifier.
 ROLE_QUALIFIERS = (cv.Q_INITIATOR, cv.Q_PARTICIPANT, "in_participant",
                    cv.Q_SOURCE, cv.Q_TARGET, "from", "to")

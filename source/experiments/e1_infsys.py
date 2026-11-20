@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""E1: the unified mapping reproduces InfSys (conservativity).
+"""E1: the unified mapping reproduces InfSys (exact reconstruction).
 
 For each log that InfSys maps (Artificial1, Artificial5, Healthcare, Real4, and
 BPIC 2013), the collaboration view alpha_C(mu_U(L)) that the mapping writes
 (`<out>_infsys.sqlite`, see `export_infsys.py`) must equal the OCEL that InfSys
 published (`data/<n>/infsys/*.sqlite`). It is checked on the collaboration
 profile (CL) and, where a ChL exists, on the complete profile (CL + ChL), so
-the additions of M9-M13 are shown not to change the InfSys part. alpha_C
+the additions of UM8-UM12 are shown not to change the InfSys part. alpha_C
 rebuilds the per-event messages that the core omits, so the comparison reads
 the view as written, without any projection.
 

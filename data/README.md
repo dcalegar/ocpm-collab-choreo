@@ -49,8 +49,10 @@ Table 2 of `HobeckMMW27` and in the ocelchor README.
 
 Of Peña et al.'s nine collaborative logs, InfSys uses four and Hobeck et al. use seven.
 Only Healthcare and Real4 are shared. Each dataset folder holds the object-centric log
-that each work produced from it. These logs are the references for the new mapping: from
-the same input, its output should be semantically similar to them.
+that each work produced from it. These logs are the references for the unified mapping:
+from the same input, its InfSys view equals the InfSys log (E1) and its export to
+Hobeck et al.'s representation is equivalent to theirs (E2); see
+[`../source/experiments/`](../source/experiments/README.md).
 
 | Log | InfSys | Hobeck et al. | InfSys OCEL (`infsys/`) | Hobeck et al.'s input (`hobeck/`) | Hobeck et al.'s OCEL (`hobeck/`) |
 |---|:-:|:-:|---|---|---|
@@ -186,7 +188,7 @@ single `unlock` transaction that Hobeck et al. use as the running example (Fig. 
 ## References
 
 BibTeX keys refer to `bibliography.bib` in the paper repository
-(`dcalegar/ICPM27Cominds-PredCoreo`). The three entries
+(`dcalegar/ICPM27Cominds-PredCoreo`). The two entries
 marked *(not in bib)* would have to be added before citing them.
 
 | Key | Reference |
@@ -198,6 +200,6 @@ marked *(not in bib)* would have to be added before citing them.
 | `gitlabcollab` | Peña, Delgado, Calegari. BPMN 2.0 collaborative process discovery ProM plugin (2022). <https://gitlab.fing.edu.uy/open-coal/bpmncollaborativepm> |
 | `gitlabchoreo` | Andrade, Delgado, Calegari. BPMN 2.0 choreography process discovery ProM plugin (2023). <https://gitlab.fing.edu.uy/open-coal/bpmnchoreographypm> |
 | `DelgadoCER25` | A. Delgado, D. Calegari, C. Espino, N. Ribero. Predictive process monitoring for collaborative business processes: concepts and application. Discover Analytics 3(1), 5 (2025). doi:10.1007/s44257-025-00031-8. Tool: <https://gitlab.fing.edu.uy/open-coal/predict-collab> |
-| *(not in bib)* | F. Corradini, B. Re, L. Rossi, F. Tiezzi. A technique for collaboration discovery. BPMDS 2022, LNBIP 450, pp. 63–78 (2022). doi:10.1007/978-3-031-07475-2_5 |
+| `Lorenzo22` | F. Corradini, B. Re, L. Rossi, F. Tiezzi. A technique for collaboration discovery. BPMDS 2022, LNBIP 450, pp. 63–78 (2022). doi:10.1007/978-3-031-07475-2_5 |
 | *(not in bib)* | F. Corradini, L. Luzi, A. Marcelletti, A. Morichetta, B. Re. Extracting and decoding internal transactions in EVM-based blockchains. PerCom Workshops 2026, pp. 1–6. IEEE (2026). Data: <https://github.com/AlessandroMarcellettiUnicam1/BlockchainDataset> |
 | *(not in bib)* | W. Steeman. BPI Challenge 2013, incidents [dataset]. 4TU.ResearchData (2013). doi:10.4121/uuid:500573e6-accc-4b0c-9576-aa5468b10cee |

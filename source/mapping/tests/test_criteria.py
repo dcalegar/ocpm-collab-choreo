@@ -163,7 +163,7 @@ def test_u4_u6_response_receiver_that_the_exchange_event_declares(response_recei
 def test_u4_u6_receiver_named_by_a_receive_is_not_observed():
     """The exchange event declares C as the receiver of its response; the
     receive is executed by A and still names toParticipant=C. Only the
-    executing participant is observed (M10), so C remains a U4 finding."""
+    executing participant is observed (UM9), so C remains a U4 finding."""
     log = cl(local_event("Get answer", 5, cx.ELEM_RECEIVE, "A", "r", frm="B", to="C"))
     log.exchange = [ExchangeEvent("c1", "Call", T("2020-01-01 10:00"), 0, "A", ("B",), "q",
                                   response_key="r", response_receivers=("C",))]

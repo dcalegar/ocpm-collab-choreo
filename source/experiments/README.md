@@ -5,9 +5,14 @@ object-centric logs of InfSys and Hobeck et al., and check its consistency. They
 outputs of `map_all.py` in `data/<dataset>/mapped/` and never change the mapping. The
 input/reference pairs are listed in `../../data/README.md`.
 
+E1, E2, and E2b are numbered as in the companion document
+([`docs/unified-representation.pdf`](../../docs/unified-representation.pdf)). The paper
+(Section 5) reports the round trip E2b within E2, E3 as the consistency experiment, and
+E4 as its prediction example.
+
 | Script | Experiment | Inputs → references | Result |
 |---|---|---|---|
-| `e1_infsys.py` | **E1.** The collaboration view α_C(μ_U(L)) that the mapping writes (`<out>_infsys.sqlite`) equals the InfSys OCEL (conservativity) | `pena/*_collab.xes` (collaboration and complete profiles) of Artificial1, Artificial5, Healthcare, Real4, and the BPIC 2013 CL → `infsys/*.sqlite` | `results/e1_infsys.{md,json}` |
+| `e1_infsys.py` | **E1.** The collaboration view α_C(μ_U(L)) that the mapping writes (`<out>_infsys.sqlite`) equals the InfSys OCEL (exact reconstruction) | `pena/*_collab.xes` (collaboration and complete profiles) of Artificial1, Artificial5, Healthcare, Real4, and the BPIC 2013 CL → `infsys/*.sqlite` | `results/e1_infsys.{md,json}` |
 | `e2_hobeck.py` | **E2.** The export η_H of the unified output is equivalent to Hobeck et al.'s OCEL, from the same input | `hobeck/collectivelog_<n>_uniqueInteraction.xes` of the 7 collaborative logs → `hobeck/<n>_uniqueInteraction_ocel.json`; `hobeck/<stem>.json` of the 13 Ethereum files → `hobeck/<stem>_ocel.json` | `results/e2_hobeck.{md,json}` |
 | `e2b_roundtrip.py` | **E2b.** Round trip η_H(μ_U(ι_H(H))) ≅ H: every OCEL H of Hobeck et al. is read back into the unified representation by the reverse adapter ι_H (`reverse_hobeck.py`), mapped, exported, and compared with H as in E2; μ_U(ι_H(H)) must also satisfy the structural criteria | the 20 OCEL logs of Hobeck et al. (7 from `xescol2ocelchor`, 13 from `trace2ocelchor`) | `results/e2b_roundtrip.{md,json}` |
 | `e3_consistency.py` | **E3.** Consistency per profile: P1.1–P1.7 and U1–U8 on every output; C0–C16 (`ocelchorvalidator`, unmodified) on every η_H export, cross-checked on Hobeck et al.'s references | the 48 outputs (9 scenarios × 3 profiles, 7 Hobeck XES, BPIC 2013, 13 Ethereum files) | `results/e3_consistency.{md,json}` |
