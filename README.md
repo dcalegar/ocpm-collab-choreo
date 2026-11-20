@@ -1,9 +1,10 @@
 # ocpm-collab-choreo
 
 Unified object-centric representation of collaborative and choreography event data,
-exemplified for predictive process monitoring. It extends the collaborative mapping to
-OCEL 2.0 of Calegari et al. (InfSys, `CalegariDPR26`) with the choreography
-representation of Hobeck et al. (`HobeckMMW27`).
+exemplified for predictive process monitoring. It combines the collaborative mapping to
+OCEL 2.0 of Calegari et al. (InfSys, `CalegariDPR26`) and the choreography
+representation of Hobeck et al. (`HobeckMMW27`) in a neutral core, from which two
+adapters produce each of these representations.
 
 Companion repository of a paper in preparation for the Fifth International Workshop on
 Collaboration Mining for Distributed Systems (COMINDS 2027), held with ICPM 2027.

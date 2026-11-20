@@ -2,58 +2,58 @@
 
 ## A. Criteria of the representation
 
-U6 columns count logical messages; U4 counts logical messages with any endpoint disagreement.
+U6 columns count logical messages; U4 counts endpoint disagreements of logical messages, and U8 role disagreements of tasks.
 
-| Output | Profile | Structural ok | Tasks | Logical msgs | U6 correct | of which multicast | U6 absent | U6 incoherent | U6 no message events | U4 findings |
-|---|---|---|---|---|---|---|---|---|---|---|
-| artificial1_cl | collaboration | yes | 200 | 200 | 200 | 0 | 0 | 0 | 0 | 0 |
-| artificial1_chl | choreography | yes | 200 | 200 | 0 | 0 | 0 | 0 | 200 | 0 |
-| artificial1_complete | complete | yes | 200 | 200 | 200 | 0 | 0 | 0 | 0 | 0 |
-| artificial5_cl | collaboration | yes | 530 | 530 | 486 | 0 | 44 | 0 | 0 | 0 |
-| artificial5_chl | choreography | yes | 530 | 530 | 0 | 0 | 0 | 0 | 530 | 0 |
-| artificial5_complete | complete | yes | 530 | 530 | 486 | 0 | 44 | 0 | 0 | 0 |
-| bpic2013_cl | collaboration | yes | 4051 | 4051 | 4051 | 0 | 0 | 0 | 0 | 0 |
-| beanstalk_attack | hierarchical choreography | yes | 489 | 703 | 0 | 0 | 0 | 0 | 703 | 0 |
-| 0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d_uniqueFunction | hierarchical choreography | yes | 18 | 21 | 0 | 0 | 0 | 0 | 21 | 0 |
-| 0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction | hierarchical choreography | yes | 204 | 302 | 0 | 0 | 0 | 0 | 302 | 0 |
-| 0xb1690c08e213a35ed9bab7b318de14420fb57d8c_uniqueFunction | hierarchical choreography | yes | 6 | 10 | 0 | 0 | 0 | 0 | 10 | 0 |
-| 0x00000000219ab540356cbb839cbe05303d7705fa_uniqueFunction | hierarchical choreography | yes | 9 | 17 | 0 | 0 | 0 | 0 | 17 | 0 |
-| 0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction | hierarchical choreography | yes | 21 | 31 | 0 | 0 | 0 | 0 | 31 | 0 |
-| 0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03_uniqueFunction | hierarchical choreography | yes | 12 | 13 | 0 | 0 | 0 | 0 | 13 | 0 |
-| 0x556b9306565093c855aea9ae92a594704c2cd59e_uniqueFunction | hierarchical choreography | yes | 241 | 361 | 0 | 0 | 0 | 0 | 361 | 0 |
-| 0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction | hierarchical choreography | yes | 267 | 415 | 0 | 0 | 0 | 0 | 415 | 0 |
-| 0x5e_cd49912 | hierarchical choreography | yes | 4 | 5 | 0 | 0 | 0 | 0 | 5 | 0 |
-| 0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction | hierarchical choreography | yes | 35 | 47 | 0 | 0 | 0 | 0 | 47 | 0 |
-| 0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction | hierarchical choreography | yes | 85 | 146 | 0 | 0 | 0 | 0 | 146 | 0 |
-| 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc_uniqueFunction | hierarchical choreography | yes | 61 | 88 | 0 | 0 | 0 | 0 | 88 | 0 |
-| healthcare_cl | collaboration | yes | 550 | 550 | 524 | 0 | 26 | 0 | 0 | 0 |
-| healthcare_chl | choreography | yes | 550 | 550 | 0 | 0 | 0 | 0 | 550 | 0 |
-| healthcare_complete | complete | yes | 550 | 550 | 524 | 0 | 26 | 0 | 0 | 0 |
-| healthcare_hobeck | collaboration | yes | 116 | 116 | 107 | 0 | 9 | 0 | 0 | 0 |
-| real1_cl | collaboration | yes | 44 | 44 | 44 | 0 | 0 | 0 | 0 | 0 |
-| real1_chl | choreography | yes | 44 | 44 | 0 | 0 | 0 | 0 | 44 | 0 |
-| real1_complete | complete | yes | 44 | 44 | 44 | 0 | 0 | 0 | 0 | 0 |
-| real1_hobeck | collaboration | yes | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 0 |
-| real2_cl | collaboration | yes | 869 | 500 | 401 | 0 | 0 | 99 | 0 | 0 |
-| real2_chl | choreography | yes | 869 | 500 | 0 | 0 | 0 | 99 | 401 | 0 |
-| real2_complete | complete | yes | 869 | 500 | 401 | 0 | 0 | 99 | 0 | 0 |
-| real2_hobeck | collaboration | yes | 842 | 480 | 385 | 0 | 0 | 95 | 0 | 0 |
-| real3_cl | collaboration | yes | 653 | 492 | 401 | 0 | 13 | 78 | 0 | 0 |
-| real3_chl | choreography | yes | 653 | 492 | 0 | 0 | 0 | 78 | 414 | 0 |
-| real3_complete | complete | yes | 653 | 492 | 401 | 0 | 13 | 78 | 0 | 0 |
-| real3_hobeck | collaboration | yes | 472 | 321 | 240 | 0 | 8 | 73 | 0 | 0 |
-| real4_cl | collaboration | yes | 400 | 400 | 400 | 0 | 0 | 0 | 0 | 0 |
-| real4_chl | choreography | yes | 400 | 400 | 0 | 0 | 0 | 0 | 400 | 0 |
-| real4_complete | complete | yes | 400 | 400 | 400 | 0 | 0 | 0 | 0 | 0 |
-| real4_hobeck | collaboration | yes | 4 | 4 | 4 | 0 | 0 | 0 | 0 | 0 |
-| real5_cl | collaboration | yes | 345 | 345 | 345 | 0 | 0 | 0 | 0 | 0 |
-| real5_chl | choreography | yes | 345 | 345 | 0 | 0 | 0 | 0 | 345 | 0 |
-| real5_complete | complete | yes | 345 | 345 | 345 | 0 | 0 | 0 | 0 | 0 |
-| real5_hobeck | collaboration | yes | 15 | 15 | 15 | 0 | 0 | 0 | 0 | 0 |
-| smartagriculture_cl | collaboration | yes | 114 | 102 | 95 | 9 | 2 | 5 | 0 | 0 |
-| smartagriculture_chl | choreography | yes | 114 | 100 | 0 | 0 | 0 | 5 | 95 | 0 |
-| smartagriculture_complete | complete | yes | 114 | 102 | 95 | 9 | 2 | 5 | 0 | 0 |
-| smartagriculture_hobeck | collaboration | yes | 114 | 102 | 95 | 9 | 2 | 5 | 0 | 0 |
+| Output | Profile | Structural ok | Tasks | Logical msgs | U6 correct | of which multicast | U6 send-only | U6 receive-only | U6 uncorrelated | U6 incoherent | U6 no message events | U4 findings | U8 findings |
+|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
+| artificial1_cl | collaboration | yes | 200 | 200 | 200 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| artificial1_chl | choreography | yes | 200 | 200 | 0 | 0 | 0 | 0 | 0 | 0 | 200 | 0 | 0 |
+| artificial1_complete | complete | yes | 200 | 200 | 200 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| artificial5_cl | collaboration | yes | 530 | 530 | 486 | 0 | 44 | 0 | 0 | 0 | 0 | 0 | 0 |
+| artificial5_chl | choreography | yes | 530 | 530 | 0 | 0 | 0 | 0 | 0 | 0 | 530 | 0 | 0 |
+| artificial5_complete | complete | yes | 530 | 530 | 486 | 0 | 44 | 0 | 0 | 0 | 0 | 0 | 0 |
+| bpic2013_cl | collaboration | yes | 4051 | 4051 | 4051 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| beanstalk_attack | hierarchical choreography | yes | 489 | 703 | 0 | 0 | 0 | 0 | 0 | 0 | 703 | 0 | 0 |
+| 0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d_uniqueFunction | hierarchical choreography | yes | 18 | 21 | 0 | 0 | 0 | 0 | 0 | 0 | 21 | 0 | 0 |
+| 0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction | hierarchical choreography | yes | 204 | 302 | 0 | 0 | 0 | 0 | 0 | 0 | 302 | 0 | 0 |
+| 0xb1690c08e213a35ed9bab7b318de14420fb57d8c_uniqueFunction | hierarchical choreography | yes | 6 | 10 | 0 | 0 | 0 | 0 | 0 | 0 | 10 | 0 | 0 |
+| 0x00000000219ab540356cbb839cbe05303d7705fa_uniqueFunction | hierarchical choreography | yes | 9 | 17 | 0 | 0 | 0 | 0 | 0 | 0 | 17 | 0 | 0 |
+| 0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction | hierarchical choreography | yes | 21 | 31 | 0 | 0 | 0 | 0 | 0 | 0 | 31 | 0 | 0 |
+| 0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03_uniqueFunction | hierarchical choreography | yes | 12 | 13 | 0 | 0 | 0 | 0 | 0 | 0 | 13 | 0 | 0 |
+| 0x556b9306565093c855aea9ae92a594704c2cd59e_uniqueFunction | hierarchical choreography | yes | 241 | 361 | 0 | 0 | 0 | 0 | 0 | 0 | 361 | 0 | 0 |
+| 0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction | hierarchical choreography | yes | 267 | 415 | 0 | 0 | 0 | 0 | 0 | 0 | 415 | 0 | 0 |
+| 0x5e_cd49912 | hierarchical choreography | yes | 4 | 5 | 0 | 0 | 0 | 0 | 0 | 0 | 5 | 0 | 0 |
+| 0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction | hierarchical choreography | yes | 35 | 47 | 0 | 0 | 0 | 0 | 0 | 0 | 47 | 0 | 0 |
+| 0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction | hierarchical choreography | yes | 85 | 146 | 0 | 0 | 0 | 0 | 0 | 0 | 146 | 0 | 0 |
+| 0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc_uniqueFunction | hierarchical choreography | yes | 61 | 88 | 0 | 0 | 0 | 0 | 0 | 0 | 88 | 0 | 0 |
+| healthcare_cl | collaboration | yes | 550 | 550 | 524 | 0 | 26 | 0 | 0 | 0 | 0 | 0 | 0 |
+| healthcare_chl | choreography | yes | 550 | 550 | 0 | 0 | 0 | 0 | 0 | 0 | 550 | 0 | 0 |
+| healthcare_complete | complete | yes | 550 | 550 | 524 | 0 | 26 | 0 | 0 | 0 | 0 | 0 | 0 |
+| healthcare_hobeck | collaboration | yes | 116 | 116 | 107 | 0 | 9 | 0 | 0 | 0 | 0 | 0 | 0 |
+| real1_cl | collaboration | yes | 44 | 44 | 44 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| real1_chl | choreography | yes | 44 | 44 | 0 | 0 | 0 | 0 | 0 | 0 | 44 | 0 | 0 |
+| real1_complete | complete | yes | 44 | 44 | 44 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| real1_hobeck | collaboration | yes | 2 | 2 | 2 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| real2_cl | collaboration | yes | 869 | 500 | 401 | 0 | 0 | 0 | 0 | 99 | 0 | 0 | 0 |
+| real2_chl | choreography | yes | 869 | 500 | 0 | 0 | 0 | 0 | 0 | 99 | 401 | 0 | 0 |
+| real2_complete | complete | yes | 869 | 500 | 401 | 0 | 0 | 0 | 0 | 99 | 0 | 0 | 0 |
+| real2_hobeck | collaboration | yes | 842 | 480 | 385 | 0 | 0 | 0 | 0 | 95 | 0 | 0 | 0 |
+| real3_cl | collaboration | yes | 653 | 492 | 401 | 0 | 13 | 0 | 0 | 78 | 0 | 0 | 0 |
+| real3_chl | choreography | yes | 653 | 492 | 0 | 0 | 0 | 0 | 0 | 78 | 414 | 0 | 0 |
+| real3_complete | complete | yes | 653 | 492 | 401 | 0 | 13 | 0 | 0 | 78 | 0 | 0 | 0 |
+| real3_hobeck | collaboration | yes | 472 | 321 | 240 | 0 | 8 | 0 | 0 | 73 | 0 | 0 | 0 |
+| real4_cl | collaboration | yes | 400 | 400 | 400 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| real4_chl | choreography | yes | 400 | 400 | 0 | 0 | 0 | 0 | 0 | 0 | 400 | 0 | 0 |
+| real4_complete | complete | yes | 400 | 400 | 400 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| real4_hobeck | collaboration | yes | 4 | 4 | 4 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| real5_cl | collaboration | yes | 345 | 345 | 345 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| real5_chl | choreography | yes | 345 | 345 | 0 | 0 | 0 | 0 | 0 | 0 | 345 | 0 | 0 |
+| real5_complete | complete | yes | 345 | 345 | 345 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| real5_hobeck | collaboration | yes | 15 | 15 | 15 | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| smartagriculture_cl | collaboration | yes | 114 | 102 | 95 | 9 | 0 | 2 | 0 | 5 | 0 | 0 | 0 |
+| smartagriculture_chl | choreography | yes | 114 | 100 | 0 | 0 | 0 | 0 | 0 | 5 | 95 | 0 | 0 |
+| smartagriculture_complete | complete | yes | 114 | 102 | 95 | 9 | 0 | 2 | 0 | 5 | 0 | 0 | 12 |
+| smartagriculture_hobeck | collaboration | yes | 114 | 102 | 95 | 9 | 0 | 2 | 0 | 5 | 0 | 0 | 0 |
 
 ## B. C0–C16 (ocelchorvalidator) on the export eta_H (violations/checked)
 
@@ -105,7 +105,7 @@ U6 columns count logical messages; U4 counts logical messages with any endpoint 
 | real5_hobeck | collaboration | 0/15 | 0/15 | 0/15 | 0/15 | 0/15 | 0/15 | 0/15 | 0/15 | 0/15 | 0/15 | 0/15 | 0/15 | 0/0 | 0/0 | 0/0 | 0/12 | 0/0 |
 | smartagriculture_cl | collaboration | 0/114 | 0/114 | 0/114 | 28/114 | 0/114 | 0/114 | 28/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/0 | 0/0 | 0/0 | 9/104 | 0/0 |
 | smartagriculture_chl | choreography | 0/114 | 0/114 | 0/114 | 16/114 | 0/114 | 0/114 | 16/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/0 | 0/0 | 0/0 | 9/104 | 0/0 |
-| smartagriculture_complete | complete | 0/114 | 0/114 | 0/114 | 28/114 | 0/114 | 0/114 | 28/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/0 | 0/0 | 0/0 | 9/104 | 0/0 |
+| smartagriculture_complete | complete | 0/114 | 12/114 | 0/114 | 16/114 | 0/114 | 0/114 | 28/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/0 | 0/0 | 0/0 | 9/104 | 0/0 |
 | smartagriculture_hobeck | collaboration | 0/114 | 0/114 | 0/114 | 28/114 | 0/114 | 0/114 | 28/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/114 | 0/0 | 0/0 | 0/0 | 9/104 | 0/0 |
 
 ## C. Cross-check: C0–C16 on Hobeck et al.'s reference OCEL

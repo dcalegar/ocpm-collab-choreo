@@ -1,4 +1,4 @@
-# E1: reproduction of InfSys (pi_C(mu+(L)) = InfSys OCEL)
+# E1: reproduction of InfSys (alpha_C(mu_U(L)) = InfSys OCEL)
 
 | Log | Profile | Equal | Events (ours/ref) | Objects | E2O | O2O | Events differing | Only trailing space |
 |---|---|---|---|---|---|---|---|---|

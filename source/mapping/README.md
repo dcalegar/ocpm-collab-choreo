@@ -1,15 +1,22 @@
 # mapping/: unified mapping from the original log formats to OCEL 2.0
 
-The unified mapping μ⁺ populates the unified representation of the paper (Section 3) from
+The unified mapping μ_U populates the unified representation of the paper (Section 3) from
 the logs in `../../data/`, read in their original formats. No intermediate file format is
-used: each reader builds an in-memory `SourceLog`, and μ⁺ maps it.
+used: each reader builds an in-memory `SourceLog`, and μ_U maps it.
 
 ```
-original file ──reader (sources.py)──▶ SourceLog ──μ⁺ (unified.py)──▶ OCEL 2.0 tables
+original file ──reader (sources.py)──▶ SourceLog ──μ_U (unified.py)──▶ core (OCEL 2.0 tables)
                                                          │
-                                 criteria.py (P1.x, U1–U7) ◀──┤
+                                 criteria.py (P1.x, U1–U8) ◀──┤
+                          export_infsys.py (α_C, InfSys) ◀──┤
                          export_hobeck.py (η_H, Hobeck et al.) ◀──┘
 ```
+
+The core follows the BPMN concepts that both views share: one logical `Message` per
+case-local correlation key, related directly to its send and receive events, and
+choreography tasks related to their initiator and participants. Each prior
+representation is produced by an adapter: α_C rebuilds the representation of InfSys
+exactly (α_C(μ_U(L)) = μ(L_C), E1), and η_H exports that of Hobeck et al. (E2, E2b).
 
 ## Modules
 
@@ -17,13 +24,14 @@ original file ──reader (sources.py)──▶ SourceLog ──μ⁺ (unified.
 |---|---|
 | `infsys.py` | Imports the InfSys mapping μ (M1–M8, P1.1–P1.7), `src/mapping/collab_xes_to_ocel.py` of `ocpm-collab-ppm`, unchanged. |
 | `sources.py` | Readers of the original formats (table below). They rename and regroup, and never repair. |
-| `unified.py` | μ⁺: M1–M8 by calling the InfSys `transform()` on the local events, then M9–M13. |
-| `index.py` | Lookups over any log in the representation: classification of events, derived sender and receivers of a logical message. |
-| `criteria.py` | P1.1–P1.6 (InfSys implementation, on the local part), P1.7 (on the exported E2O table), and U1–U7. |
-| `export_hobeck.py` | η_H: the choreography view in the representation of Hobeck et al., as OCEL 2.0 JSON for `ocelchorvalidator`. |
+| `unified.py` | μ_U: M1–M8 by calling the InfSys `transform()` on the local events, without its per-event messages, then M9–M13. |
+| `index.py` | Lookups over any log in the representation: classification of events, the send and receive events of a logical message, its stored endpoints (`source`, `target`), and the stored roles of a task (`initiator`, `participant`). |
+| `criteria.py` | P1.1–P1.6 (InfSys implementation, on α_C(μ_U(L))), P1.7 (on the exported E2O tables of the core and of α_C), and U1–U8. |
+| `export_infsys.py` | α_C: the collaboration view in the representation of InfSys, rebuilt from the core tables only (one `msg::<event>` per send or receive, with the endpoints that the event records). |
+| `export_hobeck.py` | η_H: the choreography view in the representation of Hobeck et al., as OCEL 2.0 JSON for `ocelchorvalidator`; roles and endpoints exported as stored. |
 | `map_log.py` | Maps one log. |
 | `map_all.py` | Maps every log in `data/` into `data/<dataset>/mapped/` (not versioned). |
-| `tests/` | Synthetic cases the corpus does not exercise: two-way tasks with message events, conflicting values under a reused identifier, correlation of return messages (`.venv/bin/python -m pytest source/mapping/tests`). |
+| `tests/` | Synthetic cases the corpus does not exercise: two-way tasks with message events, conflicting values under a reused identifier, unkeyed singletons, explicit roles; α_C against its oracle `cx.transform`; each U criterion and P1.7 on built and tampered tables (`.venv/bin/python -m pytest source/mapping/tests`). |
 
 The mapping only transforms and checks its own output. The comparison with the reference
 logs of InfSys and Hobeck et al. belongs to `../experiments/`.
@@ -49,7 +57,7 @@ logs of InfSys and Hobeck et al. belongs to `../experiments/`.
   reader takes the executing participant from `org:group` and the kind of event from
   `msgType` (`send` → `SendTask`, `receive` → `ReceiveTask`, absent → `task`). The
   counterparty of a send or receive is not recorded, so it stays undefined. The receivers
-  of a message then come from its correlated receives (M11).
+  of a message then come from its correlated receives (M10).
 - **Ethereum traces** are read and interpreted with the code of `trace2ocelchor`,
   imported unmodified: its parser (DELEGATECALL rewrite, address normalization) and its
   naming helpers (event types, participant roles, message names and content, timestamps).
@@ -68,9 +76,9 @@ logs of InfSys and Hobeck et al. belongs to `../experiments/`.
 | Rule | Adds |
 |---|---|
 | M9 | One event per exchange event (id `x::<case>::<i>`), with its activity, timestamp, and attributes; `collab:*` keys renamed as in M8. No `in_collaboration`, `in_orchestration`, or `in_participant`. |
-| M10 | One `ChoreographyMessage` per identifier and case (`cm::<case>::<id>`, attributes `caseId`, `msgInstanceId`, `msgName`, content). A send or exchange event without identifier gets its own (`cm::@<event>`); a receive without identifier links to none. If the carriers of one logical message record different names or contents (a reused identifier), the first value in event order is kept and all values are reported under `mapping_diagnostics` in `_checks.json`. |
-| M11 | `sent_as` / `received_as` (O2O) to the `Message` of each send / receive with the identifier. `from` / `to` (O2O) only when the logical message has no message events. |
-| M12 | Task = the exchange event, or the send if no exchange event records the message, as request or as response. `request` / `response` (E2O) to the logical messages; `in_choreography` (E2O) to `ChoreographyCase` (`chc::<case>`), which is `part_of` the `CollaborationCase`. Case and participant objects are created by the M1/M2 conventions when M1–M8 did not create them. |
+| M10 | One logical `Message` per identifier and case (`message::<case>::<id>`, attributes `caseId`, `msgInstanceId`, `msgName`, content). Every unkeyed message that an event carries gets its own singleton (`message::@<event>`, and `message::@<event>::response` for the response of a two-way exchange event). `exchanged_in` (O2O) to the `CollaborationCase`; `source` / `target` (O2O) to every sender and receiver that a carrier records. If the carriers of one logical message record different names or contents (a reused identifier), the first value in event order is kept and all values are reported under `mapping_diagnostics` in `_checks.json`. |
+| M11 | `send` / `receive` (E2O) from each send / receive to its logical `Message`. The per-event `Message` objects of M4 are not part of the core; α_C rebuilds them. |
+| M12 | Task = the exchange event, or the send if no exchange event records the message, as request or as response. `request` / `response` (E2O) to the logical messages; `initiator` / `participant` (E2O) to the roles that the exchange event records, or else the sender and receivers of its request (for a send carrier: its executing participant and all receivers of its message); `in_choreography` (E2O) to `ChoreographyCase` (`chc::<case>`), which is `part_of` the `CollaborationCase`. Case and participant objects are created by the M1/M2 conventions when M1–M8 did not create them. |
 | M13 | One `SubChoreographyCase` per scope execution (`sub::<case>::<scope>`), `contained_by` (E2O) from each task to its innermost scope, `contains` (O2O) to directly nested scopes. |
 
 Participant objects created by M12 for Ethereum keep the role assigned by
@@ -78,11 +86,14 @@ Participant objects created by M12 for Ethereum keep the role assigned by
 
 ## Export details (serialization only)
 
-- **Witness edges.** pm4py's exporters drop objects without an E2O relation. The InfSys
-  witnesses are added as in InfSys; then each remaining O2O-only object (e.g., the
-  `CollaborationCase` of a choreography-only log, outer scopes, logical messages that are
-  only received) gets one E2O edge that reuses the O2O qualifier. Criteria other than P1.7
-  are evaluated without them.
+- **Outputs.** `map_log.py` writes the core (`<out>.jsonocel`, `<out>.sqlite`), the α_C
+  view when the log has local events (`<out>_infsys.sqlite`), the η_H export
+  (`<out>_hobeck.json`), and the criteria (`<out>_checks.json`).
+- **Witness edges.** pm4py's exporters drop objects without an E2O relation. Each
+  O2O-only object of the core (e.g., the `CollaborationCase` of a choreography-only log,
+  outer scopes) gets one E2O edge that reuses the O2O qualifier, computed on the core
+  tables only. α_C adds its own witnesses on its view, exactly as InfSys does. Criteria
+  other than P1.7 are evaluated without them.
 - **Unnamed attributes.** The pm4py SQLite exporter rejects empty column names, which
   unnamed ABI parameters of 8 Ethereum logs produce (already so in Hobeck et al.'s logs).
   In the pm4py exports only, an empty attribute name becomes `unnamed`; `_hobeck.json`

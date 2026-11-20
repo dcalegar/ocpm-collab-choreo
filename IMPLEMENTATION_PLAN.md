@@ -14,7 +14,7 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
 - [x] Punto 3: índices, serialización y criterios.
 - [x] Punto 4: adaptadores Hobeck.
 - [x] Punto 5: predicción.
-- [ ] Punto 6: experimentos y documentación.
+- [x] Punto 6: experimentos y documentación.
 
 ## 1. Actualizar el modelo fuente y el núcleo
 
@@ -232,6 +232,32 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
 - Regenerar outputs no versionados y resultados versionados.
 - Actualizar los README y `mapping_unified_analysis.tex` solamente después de
   completar la revalidación.
+
+### Resultado del punto 6 y validación final
+
+- Secuencia de validación final (con ocelchor en `edbb6c1` y ocpm-collab-ppm en
+  `98d5e697`, ambos sin modificar): 70 pruebas de mapping/experimentos pasan;
+  pruebas de predicción, 18 en `.venv` y 26 en `.venv-predict` (una omitida en
+  cada uno); `map_all.py` produce las 48 salidas sin ningún criterio
+  estructural fallido; E1, E2, E2b, E3 y E4 terminan con código 0.
+- E1: igualdad en los 9 casos leyendo `<out>_infsys.sqlite`. E2: 20/20
+  equivalentes. E2b: 20/20 aprobados. E3: estructurales en las 48 salidas;
+  U4/U6 como en el diseño anterior; C0--C16 igual que antes salvo
+  `smartagriculture_complete` (C1 0→12, C3 28→16, C6 28), con el cruce contra
+  las referencias de Hobeck igual. E4: diez tareas de extremo a extremo.
+- Verificación contra `mapping_unified_analysis.tex`: M1--M13, identificadores,
+  $\alpha_C$, $\eta_H$, $\iota_H$, criterios y filtro de E4 coinciden con el
+  texto. En las 48 salidas no hay `msg::` ni vocabulario legacy en el núcleo,
+  la vista $\alpha_C$ no contiene elementos del núcleo, los únicos testigos del
+  núcleo son los 806 `CollaborationCase` de logs solo de coreografía, y 707 de
+  las 1.452 tareas Ethereum son bidireccionales. Dos afirmaciones del documento
+  no se cumplían y se corrigieron: U8/C1 se reportan en el perfil completo de
+  Smart Agriculture (12 tareas), y en el corpus ningún scope necesita testigo.
+- Documentación: README del repositorio, `source/`, `mapping/`, `experiments/` y
+  `prediction/`. En `ICPM27Cominds-PredCoreo` (rama `neutral-core`):
+  `mapping_unified_analysis.tex` con los resultados, y en el artículo se quitan
+  las marcas `\rerun{}` y se corrigen las dos afirmaciones sobre C1/U8 (13
+  páginas, igual que antes); se recompilan ambos PDF.
 
 ## Validación final
 

@@ -8,10 +8,10 @@ functions run on it.
 
 | File | Content |
 |---|---|
-| `choreo_view.py` | Reads the choreography tasks of an OCEL 2.0 SQLite log (one per event with `request`, grouped by `ChoreographyCase`, with the sender and receivers of its request message), and builds two neutral views: the sender view (`actor` = sender) and the involvement view of a participant p (`actor` = p exactly on the tasks that involve p). |
+| `choreo_view.py` | Reads the choreography tasks of an OCEL 2.0 SQLite log (one per event with `request`, grouped by `ChoreographyCase`), with their stored roles (`initiator`, `participant`) and the stored endpoints of the request `Message` (`source`, `target`), and builds two neutral views: the sender view (`actor` = initiator) and the involvement view of a participant p (`actor` = p exactly on the tasks whose roles include p). The message endpoints give `msg_from` / `msg_to`. |
 | `tasks_chor.py` | The restated tasks: kind (direct or redefined), InfSys key, and view; the collapsed and lost tasks, which are not computed; `label_rows`, which calls the InfSys `compute_label_rows` on the right view. |
-| `run_prediction.py` | Runs one ChL log through `evaluation.rq3_pipeline.run_one_log` of InfSys (OCPA features, persisted folds, grouped 5-fold CV, random forest, baseline), once per view, with `ChoreographyCase` as leading type. Only the InfSys label reader is replaced, for the duration of the call; OCPA reads the SQLite file itself, and the InfSys alignment oracle checks that both sides see the same events. Takes the participant and the activity of the parameterized tasks as arguments, and writes `../experiments/results/e4_prediction_<dataset>.{md,json}` and the folds in `folds/`. |
-| `tests/` | Synthetic log with hand-computed targets for the ten tasks, endpoint derivation, the involvement view, the unconditional collapses, and a cross-check with `mapping/index.py` on the mapped ChL of Artificial5; runner checks that run no log (reader replacement and restoration, runs and skipped tasks per given parameter, rejection of parameters absent from the log, schema, output format). |
+| `run_prediction.py` | Runs one ChL log through `evaluation.rq3_pipeline.run_one_log` of InfSys (OCPA features, persisted folds, grouped 5-fold CV, random forest, baseline), once per view, with `ChoreographyCase` as leading type and `Message` as message type. Only the InfSys label reader is replaced, for the duration of the call; OCPA reads a temporary copy of the SQLite file without the role relations (see the notes), and the InfSys alignment oracle checks that both sides see the same events. Takes the participant and the activity of the parameterized tasks as arguments, and writes `../experiments/results/e4_prediction_<dataset>.{md,json}` and the folds in `folds/`. |
+| `tests/` | Synthetic log with hand-computed targets for the ten tasks, roles and endpoints read independently, the involvement view, the unconditional collapses, and a cross-check with `mapping/index.py` on the mapped ChL of Artificial5; runner checks that run no log (reader replacement and restoration, runs and skipped tasks per given parameter, rejection of parameters absent from the log, schema, output format), the role filter, and the executions of OCPA on the Healthcare ChL with and without it. |
 
 | Task | Kind | View |
 |---|---|---|
@@ -24,7 +24,14 @@ Notes:
 - Every task is a send in the neutral model (`is_send=True`), so the InfSys message
   counts and message activities become task counts and task activities.
 - A task without a recorded receiver (44 in the ChL of Artificial5, 26 in Healthcare)
-  involves only its sender.
+  involves only its initiator.
+- OCPA adds every event of every reached object to a process execution, so the task
+  roles to the shared participant objects would connect all cases (each of the 100
+  executions of the Healthcare ChL would contain all 550 tasks). As InfSys does for
+  `in_participant`, `run_prediction.py` hands OCPA a temporary copy without the
+  `initiator` and `participant` E2O relations (and without witness edges that reuse
+  `source` / `target`), keeping one row per object; then the executions have 5.5 tasks
+  on average. `ocpm-collab-ppm` is not modified.
 - The parameters are part of the task, so they are given, never chosen from the data:
   the participant of NE-NMPa, NV-NMPa, NV-PaT, and OB-P (`--participant`) and the
   activity of OB-M (`--activity`). Without a parameter, its tasks are skipped and
