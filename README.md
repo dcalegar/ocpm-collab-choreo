@@ -12,6 +12,13 @@ The companion document [`docs/unified-representation.pdf`](docs/unified-represen
 details the representation beyond the paper: the rules of the unified mapping, the
 adapters, the evaluation, and the consistency criteria.
 
+## Authors
+
+- Andrea Delgado, Universidad de la República, Uruguay ([ORCID 0000-0003-4749-9366](https://orcid.org/0000-0003-4749-9366))
+- Daniel Calegari, Universidad ORT Uruguay, Uruguay ([ORCID 0000-0001-9506-7619](https://orcid.org/0000-0001-9506-7619))
+- Richard Hobeck, Technical University of Berlin, Germany ([ORCID 0000-0001-5242-2510](https://orcid.org/0000-0001-5242-2510))
+- Alessandro Marcelletti, University of Camerino, Italy ([ORCID 0000-0003-1192-6696](https://orcid.org/0000-0003-1192-6696))
+
 ## Layout
 
 | Path | Content |
