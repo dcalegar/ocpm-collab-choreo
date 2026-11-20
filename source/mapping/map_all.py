@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Map every log in `data/` to the unified representation.
 
-Writes `data/<dataset>/mapped/<name>{.jsonocel,.sqlite,_hobeck.json,_checks.json}`
+Writes `data/<dataset>/mapped/<name>{.jsonocel,.sqlite,_infsys.sqlite,_hobeck.json,_checks.json}`
 (see `map_log.py`) and `data/mapped_summary.json`. The `mapped/` folders are
 regenerable and are not versioned.
 

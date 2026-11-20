@@ -10,7 +10,7 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
 ## Estado
 
 - [x] Punto 1: modelo fuente y construcción del núcleo neutral.
-- [ ] Punto 2: adaptador InfSys $\alpha_C$.
+- [x] Punto 2: adaptador InfSys $\alpha_C$.
 - [ ] Punto 3: índices, serialización y criterios.
 - [ ] Punto 4: adaptadores Hobeck.
 - [ ] Punto 5: predicción.
@@ -72,6 +72,43 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
   para exigir igualdad de tablas con `cx.transform`.
 - Reconstruir `from`/`to` por observación a partir de los atributos preservados
   en cada evento, no a partir del endpoint agregado del mensaje lógico.
+
+### Resultado del punto 2
+
+- `source/mapping/export_infsys.py` implementa $\alpha_C$ sobre las cuatro
+  tablas del núcleo y devuelve un `cx.TransformResult`, de modo que P1.1--P1.6
+  y los exportadores InfSys se aplican sin cambios en el punto 3.
+- Selección: eventos con `in_collaboration`; E2O `in_collaboration`,
+  `in_orchestration` e `in_participant`; O2O `part_of`/`for_participant` de los
+  `OrchestrationCase`; objetos alcanzados desde ellos y objetos del núcleo sin
+  ninguna relación. Estos últimos solo pueden provenir de M1--M8 (p. ej., un
+  participante registrado como endpoint de un evento `task`, que M8 no
+  preserva), porque todo objeto agregado por M10--M13 está relacionado.
+- Cada E2O `send`/`receive` de un evento local da un `msg::<evento>` con
+  `sender`/`receiver` y `from`/`to` tomados de `fromParticipant`/`toParticipant`
+  del propio evento, y `exchanged_in` desde su `in_collaboration`. τ se
+  reconstruye registrando los participantes retenidos en orden y se exige que
+  coincida con el tipo almacenado.
+- `map_log.write_outputs` persiste `<out>_infsys.sqlite` con los testigos de
+  exportación de InfSys calculados sobre la vista, solo si hay eventos locales,
+  y registra sus estadísticas en `export.infsys_view` de `_checks.json`.
+- Corrección en el núcleo: `map_log` extendía en el lugar el `ParticipantTypes`
+  de `UnifiedResult.infsys`; ahora trabaja sobre una copia, de modo que el
+  oráculo queda intacto.
+- Validación al cerrar el punto: 47 pruebas de mapping/experimentos pasan (25
+  nuevas en `tests/test_export_infsys.py`: igualdad con `cx.transform` en
+  tablas, dtypes, estadísticas y τ; independencia de `UnifiedResult.infsys`;
+  endpoints por observación; vista vacía sin eventos locales; SQLite igual a la
+  exportación InfSys). En memoria, $\alpha_C(\mu_U(L))$ es igual a
+  `cx.transform` en las 29 ejecuciones XES con eventos locales del corpus.
+  Los `<out>_infsys.sqlite` regenerados son iguales a las 9 referencias InfSys
+  de E1 sin proyección (Real4, con la normalización documentada de E1).
+- Pendiente para el punto 3: `export_relations()` y P1 siguen usando
+  `UnifiedResult.infsys`; E1 sigue leyendo la proyección del núcleo. U2 y U3
+  fallan en los perfiles con eventos de mensaje ya desde el punto 1, porque
+  `Index` aún no lee las E2O directas. No se ejecutaron las pruebas de
+  predicción (no hay `.venv-predict`) ni los logs Ethereum (no hay clon de
+  ocelchor).
 
 ## 3. Actualizar índices, serialización y criterios
 

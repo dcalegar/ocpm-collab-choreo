@@ -24,6 +24,7 @@ kept and every value is reported in `stats["conflicting_values"]`.
 
 from __future__ import annotations
 
+import copy
 from collections import defaultdict
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional, Tuple
@@ -170,7 +171,8 @@ def map_log(src: SourceLog) -> UnifiedResult:
     case_of_event: Dict[str, str] = {}
     if src.local is not None:
         res = cx.transform(src.local)
-        ptypes = res.participant_types
+        # tau of the core extends that of M1-M8; a copy keeps res untouched.
+        ptypes = copy.deepcopy(res.participant_types)
         ev_rows = res.events_df.to_dict("records")
         raw_objects = {r[COL_OID]: r for r in res.objects_df.to_dict("records")}
         raw_e2o = res.relations_df.to_dict("records")

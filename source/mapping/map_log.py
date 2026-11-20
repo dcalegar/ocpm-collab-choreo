@@ -5,6 +5,8 @@ Outputs, for an output base `<out>`:
 
 - `<out>.jsonocel` and `<out>.sqlite`: mu+(L) in OCEL 2.0, written with the
   InfSys exporters (pm4py);
+- `<out>_infsys.sqlite`: the collaboration view exported to the
+  representation of InfSys (alpha_C), when the log has local events;
 - `<out>_hobeck.json`: the choreography view exported to the representation
   of Hobeck et al. (eta_H), for `ocelchorvalidator`;
 - `<out>_checks.json`: statistics, profile, and criteria P1.1-P1.7, U1-U7.
@@ -31,6 +33,7 @@ import pandas as pd
 from infsys import cx
 import criteria
 import export_hobeck
+import export_infsys
 from index import index_of
 import sources
 import unified as u
@@ -122,11 +125,20 @@ def write_outputs(res: u.UnifiedResult, out: str) -> Dict[str, Any]:
     cx.write_ocel2_sqlite(ocel, out + ".sqlite")
     schema = cx.validate_jsonocel(out + ".jsonocel")
     export_hobeck.write(export_hobeck.export(ix), out + "_hobeck.json")
+    view = export_infsys.of(res)
+    infsys_view = None
+    if len(view.events_df):
+        view_rel = export_infsys.write_sqlite(view, out + "_infsys.sqlite")
+        infsys_view = {"stats": view.stats,
+                       "witness_e2o_edges": len(view_rel) - len(view.relations_df)}
+    else:
+        Path(out + "_infsys.sqlite").unlink(missing_ok=True)
     report = {
         "inputs": res.source.inputs,
         "stats": res.stats,
         "export": {"witness_e2o_edges": len(rel) - len(res.relations_df),
-                   "ocel2_json_schema_problems": schema[:25]},
+                   "ocel2_json_schema_problems": schema[:25],
+                   "infsys_view": infsys_view},
         "mapping_diagnostics": {
             # values that a logical message cannot hold at once (first kept, M10)
             "conflicting_values": res.stats["conflicting_values"],
