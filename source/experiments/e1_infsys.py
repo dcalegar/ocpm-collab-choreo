@@ -2,16 +2,13 @@
 """E1: the unified mapping reproduces InfSys (conservativity).
 
 For each log that InfSys maps (Artificial1, Artificial5, Healthcare, Real4, and
-BPIC 2013), the collaboration projection pi_C of the unified output must equal
-the OCEL that InfSys published (`data/<n>/infsys/*.sqlite`). It is checked on
-the collaboration profile (CL) and, where a ChL exists, on the complete profile
-(CL + ChL), so the additions of M9-M13 are shown not to change the InfSys part.
-
-pi_C removes, by structure only:
-- the events without `in_collaboration` (exchange events, M9);
-- the objects of the types added by M10-M13;
-- the E2O relations with a qualifier added by M12-M13 or to a removed object or
-  from a removed event, and the O2O relations that touch a removed object.
+BPIC 2013), the collaboration view alpha_C(mu_U(L)) that the mapping writes
+(`<out>_infsys.sqlite`, see `export_infsys.py`) must equal the OCEL that InfSys
+published (`data/<n>/infsys/*.sqlite`). It is checked on the collaboration
+profile (CL) and, where a ChL exists, on the complete profile (CL + ChL), so
+the additions of M9-M13 are shown not to change the InfSys part. alpha_C
+rebuilds the per-event messages that the core omits, so the comparison reads
+the view as written, without any projection.
 
 Both files are compared as sets: events (id, type, time, attributes), objects
 (id, type, attributes), E2O, and O2O, read from the SQLite files. The only
@@ -26,21 +23,6 @@ from __future__ import annotations
 from typing import Any, Dict
 
 from common import DATA, INFSYS_LOGS, md_table, read_sqlite, require, write_results
-import unified as u
-
-NEW_QUALIFIERS = {u.Q_IN_CHOREOGRAPHY, u.Q_REQUEST, u.Q_RESPONSE, u.Q_CONTAINED_BY}
-
-
-def project(log: Dict[str, Any]) -> Dict[str, Any]:
-    local = {e for e, _, q in log["e2o"] if q == "in_collaboration"}
-    keep_o = {o for o, r in log["objects"].items() if r["type"] not in u.NEW_OBJECT_TYPES}
-    return {
-        "events": {e: r for e, r in log["events"].items() if e in local},
-        "objects": {o: r for o, r in log["objects"].items() if o in keep_o},
-        "e2o": {(e, o, q) for e, o, q in log["e2o"]
-                if e in local and o in keep_o and q not in NEW_QUALIFIERS},
-        "o2o": {(a, b, q) for a, b, q in log["o2o"] if a in keep_o and b in keep_o},
-    }
 
 
 def compare(ours: Dict[str, Any], ref: Dict[str, Any]) -> Dict[str, Any]:
@@ -85,12 +67,12 @@ def main() -> int:
     for n in INFSYS_LOGS:
         ref = DATA / n / "infsys" / f"collectivelog_{n}_collab.sqlite"
         for p in ("cl", "complete"):
-            cases.append((n, p, DATA / n / "mapped" / f"{n}_{p}.sqlite", ref))
-    cases.append(("bpic2013", "cl", DATA / "bpic2013" / "mapped" / "bpic2013_cl.sqlite",
+            cases.append((n, p, DATA / n / "mapped" / f"{n}_{p}_infsys.sqlite", ref))
+    cases.append(("bpic2013", "cl", DATA / "bpic2013" / "mapped" / "bpic2013_cl_infsys.sqlite",
                   DATA / "bpic2013" / "infsys" / "BPI2013_incidents_collaborative.sqlite"))
     results, rows = {}, []
     for n, p, ours, ref in cases:
-        r = compare(project(read_sqlite(require(ours))), read_sqlite(require(ref)))
+        r = compare(read_sqlite(require(ours)), read_sqlite(require(ref)))
         results[f"{n}_{p}"] = r
         rows.append([n, p, "yes" if r["equal"] else "**no**",
                      "{}/{}".format(*r["events"]), "{}/{}".format(*r["objects"]),
@@ -98,7 +80,7 @@ def main() -> int:
                      r["events_differing"], r["events_with_trailing_space_only"]])
     md_note = ("\nEqual: after the documented normalization (trailing non-breaking space in two "
                "Real4 activity names of the InfSys copy).\n")
-    md = ("# E1: reproduction of InfSys (pi_C(mu+(L)) = InfSys OCEL)\n\n"
+    md = ("# E1: reproduction of InfSys (alpha_C(mu_U(L)) = InfSys OCEL)\n\n"
           + md_table(["Log", "Profile", "Equal", "Events (ours/ref)", "Objects", "E2O", "O2O",
                       "Events differing", "Only trailing space"], rows) + "\n" + md_note)
     write_results("e1_infsys", results, md)

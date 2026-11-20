@@ -1,15 +1,17 @@
 """Consistency criteria of the unified representation.
 
-- P1.1-P1.6: the InfSys criteria, evaluated by the InfSys implementation on the
-  local events and the output of M1-M8; P1.7 (export reachability) on the
-  E2O table handed to the exporters, including the new objects.
-- U1-U7: the criteria for what M9-M13 add (paper, Section 3.3). They read the
+- P1.1-P1.6: the InfSys criteria, evaluated by the InfSys implementation on
+  alpha_C(mu_U(L)), the collaboration view rebuilt from the core
+  (`export_infsys.py`); P1.7 (export reachability) on the E2O table handed to
+  the exporters, for the serialized core and for alpha_C(mu_U(L)).
+- U1-U8: the criteria for what M9-M13 add (paper, Section 3.3). They read the
   log through `index.Index`, so they apply to any log in the representation.
 
 Structural criteria (U1-U3, U5, U7) must hold; a violation is an
-implementation error. Diagnostic criteria (U4, U6) report the quality of the
-source data as counts and never fail. C0-C16 of Hobeck et al. are checked by
-their validator on the exported view (`export_hobeck.py`).
+implementation error. Diagnostic criteria (U4, U6, U8) report the quality of
+the source data and the agreement between its claims as counts, and never
+fail. C0-C16 of Hobeck et al. are checked by their validator on the exported
+view (`export_hobeck.py`).
 """
 
 from __future__ import annotations
@@ -18,11 +20,16 @@ from collections import Counter
 from dataclasses import asdict, dataclass, field
 from typing import Any, Dict, List, Optional
 
+import pandas as pd
+
 from infsys import cx
 from index import Index
 import unified as u
 
 STRUCTURAL, DIAGNOSTIC = "structural", "diagnostic"
+MESSAGE_ROLES = (cx.Q_SEND, cx.Q_RECEIVE, u.Q_REQUEST, u.Q_RESPONSE)
+EXPECTED_LINK = {cx.ELEM_SEND: cx.Q_SEND, cx.ELEM_RECEIVE: cx.Q_RECEIVE}
+FROM_ATTR, TO_ATTR = "fromParticipant", "toParticipant"   # M8 / M9 event attributes
 
 
 @dataclass
@@ -37,6 +44,21 @@ class Criterion:
 def _crit(name, kind, counts, examples, violations=()):
     ok = kind == DIAGNOSTIC or not any(counts[k] for k in violations)
     return Criterion(name, kind, ok, counts, examples[:5])
+
+
+def _clean(v: Any) -> Optional[str]:
+    if v is None or v != v:
+        return None
+    s = str(v).strip()
+    return s or None
+
+
+def _attr(ix: Index, e: str, k: Optional[str]) -> Optional[str]:
+    return _clean(ix.events[e].get(k)) if k else None
+
+
+def _carriers(ix: Index, m: str) -> set:
+    return {e for q in MESSAGE_ROLES for e in ix.events_of(m, q)}
 
 
 def u1_instance(ix: Index) -> Criterion:
@@ -65,6 +87,8 @@ def u1_instance(ix: Index) -> Criterion:
 
 
 def u2_task(ix: Index) -> Criterion:
+    """Each mapped exchange has one task carrier: its exchange event when
+    present, otherwise its send, whose request is its own message."""
     tasks = set(ix.tasks())
     exchange = ix.exchange_events()
     recorded = {m for x in exchange for q in (u.Q_REQUEST, u.Q_RESPONSE)
@@ -74,11 +98,10 @@ def u2_task(ix: Index) -> Criterion:
     for e in ix.events:
         if not ix.is_local(e):
             continue
-        sends = ix.targets(e, cx.Q_SEND)
-        if sends:
-            cms = ix.o2o_sources(sends[0], u.Q_SENT_AS)
-            should = not (set(cms) & recorded)
-            if should != (e in tasks):
+        sent = ix.targets(e, cx.Q_SEND)
+        if sent:
+            should = not (set(sent) & recorded)
+            if should != (e in tasks) or (e in tasks and ix.targets(e, u.Q_REQUEST) != sent):
                 send_wrong.append(e)
         elif e in tasks:
             other.append(e)
@@ -92,143 +115,155 @@ def u2_task(ix: Index) -> Criterion:
 
 
 def u3_message_identity(ix: Index, key_attr: Optional[str]) -> Criterion:
-    cms = ix.of_type(u.OT_CM)
-    keys = Counter((ix.objects[c].get(u.A_CASE), ix.objects[c].get(u.A_KEY))
-                   for c in cms if ix.objects[c].get(u.A_KEY) is not None)
+    """Every correlation key of a case gives one logical message, exchanged in
+    its CollaborationCase; every send or receive relates to exactly one
+    logical message of its own case, the one of its key, or its own singleton
+    when it has none."""
+    msgs = ix.messages()
+    keys = Counter((ix.objects[m].get(u.A_CASE), _clean(ix.objects[m].get(u.A_KEY)))
+                   for m in msgs if _clean(ix.objects[m].get(u.A_KEY)) is not None)
     dup = [f"{k}" for k, n in keys.items() if n > 1]
-    links = Counter(m for c in cms for m, q in ix.o2o.get(c, [])
-                    if q in (u.Q_SENT_AS, u.Q_RECEIVED_AS))
-    multi = [m for m, n in links.items() if n > 1]
-    wrong_kind, unlinked, wrong_key = [], [], []
+    cc_of: Dict[str, Optional[str]] = {}
+    bad_case_link, no_carrier = [], []
+    for m in msgs:
+        ccs = ix.o2o_targets(m, u.Q_EXCHANGED_IN)
+        cc_of[m] = ccs[0] if len(ccs) == 1 else None
+        if (len(ccs) != 1 or ix.objects[ccs[0]][cx.COL_OTYPE] != cx.OT_CC
+                or ix.objects[ccs[0]].get(u.A_CASE) != ix.objects[m].get(u.A_CASE)):
+            bad_case_link.append(m)
+        if not _carriers(ix, m):
+            no_carrier.append(m)
+    not_one, wrong_kind, wrong_case, wrong_key = [], [], [], []
     for e in ix.events:
-        for q, link in ((cx.Q_SEND, u.Q_SENT_AS), (cx.Q_RECEIVE, u.Q_RECEIVED_AS)):
-            for m in ix.targets(e, q):
-                srcs = [c for c, qq in ix.o2o_in.get(m, []) if qq in (u.Q_SENT_AS, u.Q_RECEIVED_AS)]
-                if any(qq != link for c, qq in ix.o2o_in.get(m, [])
-                       if qq in (u.Q_SENT_AS, u.Q_RECEIVED_AS)):
-                    wrong_kind.append(m)
-                key = None
-                if key_attr:
-                    v = ix.events[e].get(key_attr)
-                    key = None if v is None or v != v or str(v).strip() == "" else str(v).strip()
-                if key is None and q == cx.Q_RECEIVE:
-                    if srcs:
-                        wrong_key.append(m)
-                    continue
-                if not srcs:
-                    unlinked.append(m)
-                elif key is not None and any(ix.objects[c].get(u.A_KEY) != key for c in srcs):
-                    wrong_key.append(m)
+        links = [(m, q) for m, q in ix.e2o.get(e, []) if q in (cx.Q_SEND, cx.Q_RECEIVE)]
+        expected = EXPECTED_LINK.get(ix.events[e].get("elemType")) if ix.is_local(e) else None
+        if expected is None:
+            if links:
+                wrong_kind.append(e)        # a send/receive relation of another event
+            continue
+        if len(links) != 1:
+            not_one.append(e)
+            continue
+        m, q = links[0]
+        if q != expected or ix.objects.get(m, {}).get(cx.COL_OTYPE) != u.OT_MESSAGE:
+            wrong_kind.append(e)
+            continue
+        if cc_of.get(m) not in ix.targets(e, cx.Q_IN_COLLABORATION):
+            wrong_case.append(e)
+        if key_attr:
+            key, mkey = _attr(ix, e, key_attr), _clean(ix.objects[m].get(u.A_KEY))
+            if (key != mkey) or (key is None and _carriers(ix, m) != {e}):
+                wrong_key.append(e)
     no_request = [x for x in ix.exchange_events() if not ix.targets(x, u.Q_REQUEST)]
-    counts = {"logical_messages": len(cms), "duplicate_identifiers": len(dup),
-              "messages_linked_more_than_once": len(multi),
+    counts = {"logical_messages": len(msgs), "duplicate_identifiers": len(dup),
+              "messages_without_exactly_one_case": len(bad_case_link),
+              "messages_without_events": len(no_carrier),
+              "message_events_without_exactly_one_message": len(not_one),
               "links_of_the_wrong_kind": len(wrong_kind),
-              "keyed_or_sent_messages_not_linked": len(unlinked),
-              "messages_linked_to_another_identifier": len(wrong_key),
+              "message_events_in_another_case": len(wrong_case),
+              "message_events_with_another_identifier": len(wrong_key),
               "exchange_events_without_logical_message": len(no_request)}
     return _crit("U3 Message identity", STRUCTURAL, counts,
-                 dup + multi + wrong_kind + unlinked + wrong_key + no_request,
+                 dup + bad_case_link + no_carrier + not_one + wrong_kind + wrong_case
+                 + wrong_key + no_request,
                  [k for k in counts if k != "logical_messages"])
 
 
-def _endpoint_findings(ix: Index, cm: str) -> Dict[str, bool]:
-    """Disagreements among the recorded endpoints of a logical message."""
-    sends, receives = ix.message_events(cm)
-    local = sends + receives
-    out = {"sender": False, "receiver": False, "exchange": False}
-    senders, receivers = ix.endpoints(cm)
-    if len(senders) > 1:
-        out["sender"] = True
-    if local and receives:
-        observed = {p for m in receives for p in ix.o2o_targets(m, cx.Q_TO)}
-        recorded = {p for m in sends for p in ix.o2o_targets(m, cx.Q_TO)}
-        if recorded - observed:
-            out["receiver"] = True
-    if local:
-        names_s = {ix.participant_name(p) for p in senders}
-        names_r = {ix.participant_name(p) for p in receivers}
-        for x in ix.events_of(cm, u.Q_REQUEST):
-            if ix.is_local(x):
-                continue
-            ev = ix.events[x]
-            f, t = ev.get("fromParticipant"), ev.get("toParticipant")
-            if (isinstance(f, str) and f not in names_s) or \
-               (isinstance(t, str) and t not in names_r):
-                out["exchange"] = True
+def _endpoint_findings(ix: Index, m: str) -> Dict[str, bool]:
+    """Disagreements among the claims of the carriers of a logical message.
+    The stored senders join every sender claim (the executing participant of
+    each send, the sender named by each receive or exchange event). The
+    receivers that sends and request-carrying exchange events declare must be
+    among those that the receives observe, when there are any; an additional
+    receive is a valid multicast."""
+    sends, receives = ix.message_events(m)
+    senders, _ = ix.endpoints(m)
+    out = {"sender": len(senders) > 1, "receiver": False}
+    if receives:
+        observed = {_attr(ix, r, TO_ATTR) for r in receives} - {None}
+        declared = {_attr(ix, s, TO_ATTR) for s in sends}
+        declared |= {_attr(ix, x, TO_ATTR) for x in ix.events_of(m, u.Q_REQUEST)
+                     if not ix.is_local(x)}
+        out["receiver"] = bool(declared - {None} - observed)
     return out
 
 
 def u4_endpoint_coherence(ix: Index) -> Criterion:
     c = Counter()
     ex = []
-    for cm in ix.of_type(u.OT_CM):
-        f = _endpoint_findings(ix, cm)
-        for k, v in f.items():
-            if v:
-                c[k] += 1
-                ex.append(cm)
-    counts = {"logical_messages": len(ix.of_type(u.OT_CM)),
+    for m in ix.messages():
+        f = _endpoint_findings(ix, m)
+        if f["sender"]:
+            c["sender"] += 1
+        if f["receiver"]:
+            c["receiver"] += 1
+        if any(f.values()):
+            ex.append(m)
+    counts = {"logical_messages": len(ix.messages()),
               "several_senders": c["sender"],
-              "recorded_receiver_not_among_receives": c["receiver"],
-              "exchange_event_endpoints_disagree": c["exchange"]}
+              "declared_receiver_not_among_receives": c["receiver"]}
     return _crit("U4 Endpoint coherence", DIAGNOSTIC, counts, ex)
 
 
 def u5_task_roles(ix: Index) -> Criterion:
-    bad_req, bad_resp, not_reversed = [], [], []
+    bad_req, bad_resp, bad_init = [], [], []
     for t in ix.tasks():
-        req, resp = ix.targets(t, u.Q_REQUEST), ix.targets(t, u.Q_RESPONSE)
-        if len(req) != 1:
+        if len(ix.targets(t, u.Q_REQUEST)) != 1:
             bad_req.append(t)
-        if len(resp) > 1:
+        if len(ix.targets(t, u.Q_RESPONSE)) > 1:
             bad_resp.append(t)
-        if len(req) == 1 and len(resp) == 1:
-            s1, r1 = ix.endpoints(req[0])
-            s2, r2 = ix.endpoints(resp[0])
-            if set(s2) != set(r1) or set(r2) != set(s1):
-                not_reversed.append(t)
+        if len(ix.roles(t)[0]) != 1:
+            bad_init.append(t)
     counts = {"tasks": len(ix.tasks()),
               "two_way_tasks": sum(bool(ix.targets(t, u.Q_RESPONSE)) for t in ix.tasks()),
               "tasks_without_exactly_one_request": len(bad_req),
               "tasks_with_several_responses": len(bad_resp),
-              "responses_not_reversing_the_request": len(not_reversed)}
-    return _crit("U5 Task roles", STRUCTURAL, counts, bad_req + bad_resp + not_reversed,
+              "tasks_without_exactly_one_initiator": len(bad_init)}
+    return _crit("U5 Task roles", STRUCTURAL, counts, bad_req + bad_resp + bad_init,
                  ["tasks_without_exactly_one_request", "tasks_with_several_responses",
-                  "responses_not_reversing_the_request"])
+                  "tasks_without_exactly_one_initiator"])
+
+
+U6_CLASSES = ("correct", "correct_multicast", "send_only", "receive_only", "uncorrelated",
+              "incoherent", "incoherent_several_tasks", "no_message_events")
 
 
 def u6_correlation_status(ix: Index) -> Criterion:
     """A logical message is incoherent when several tasks carry it (a reused
     identifier, visible in every profile, also without message events), when
-    it has several sends, or when its endpoints disagree."""
+    it has several sends, or when its endpoints disagree (U4). Otherwise one
+    with message events is correct (one send, at least one receive; several
+    receives are a multicast), send-only or receive-only when it lacks one
+    side, and uncorrelated when it has no identifier (an unkeyed singleton,
+    whose counterpart cannot be identified). One without message events has
+    no correlation status."""
     c = Counter()
     ex = []
-    for cm in ix.of_type(u.OT_CM):
-        sends, receives = ix.message_events(cm)
-        carriers = set(ix.events_of(cm, u.Q_REQUEST)) | set(ix.events_of(cm, u.Q_RESPONSE))
-        if len(carriers) > 1:
+    for m in ix.messages():
+        sends, receives = ix.message_events(m)
+        tasks = set(ix.events_of(m, u.Q_REQUEST)) | set(ix.events_of(m, u.Q_RESPONSE))
+        if len(tasks) > 1:
             c["incoherent"] += 1
             c["incoherent_several_tasks"] += 1
-            ex.append(cm)
+            ex.append(m)
             continue
         if not sends and not receives:
             c["no_message_events"] += 1
             continue
-        f = _endpoint_findings(ix, cm)
-        if len(sends) > 1 or f["sender"] or f["receiver"]:
+        if len(sends) > 1 or any(_endpoint_findings(ix, m).values()):
             c["incoherent"] += 1
-            ex.append(cm)
-        elif not sends or not receives:
-            c["absent"] += 1
-            c["absent_no_send" if not sends else "absent_no_receive"] += 1
+            ex.append(m)
+        elif _clean(ix.objects[m].get(u.A_KEY)) is None:
+            c["uncorrelated"] += 1
+        elif not sends:
+            c["receive_only"] += 1
+        elif not receives:
+            c["send_only"] += 1
         else:
             c["correct"] += 1
             if len(receives) > 1:
                 c["correct_multicast"] += 1
-    counts = {k: c[k] for k in ("correct", "correct_multicast", "absent", "absent_no_send",
-                                "absent_no_receive", "incoherent",
-                                "incoherent_several_tasks", "no_message_events")}
-    return _crit("U6 Correlation status", DIAGNOSTIC, counts, ex)
+    return _crit("U6 Correlation status", DIAGNOSTIC, {k: c[k] for k in U6_CLASSES}, ex)
 
 
 def u7_hierarchy(ix: Index) -> Criterion:
@@ -279,21 +314,63 @@ def u7_hierarchy(ix: Index) -> Criterion:
                  [k for k in counts if k != "scopes"])
 
 
+def u8_role_coherence(ix: Index) -> Criterion:
+    """The initiators of a task are the senders of its request and its
+    participants the receivers; a response is sent by the participants to the
+    initiators. Roles and endpoints are both stored, so they are compared,
+    not derived from each other."""
+    bad_init, bad_part, not_reversed = [], [], []
+    for t in ix.tasks():
+        initiators, participants = (set(r) for r in ix.roles(t))
+        req, resp = ix.targets(t, u.Q_REQUEST), ix.targets(t, u.Q_RESPONSE)
+        if len(req) == 1:
+            senders, receivers = ix.endpoints(req[0])
+            if initiators != set(senders):
+                bad_init.append(t)
+            if participants != set(receivers):
+                bad_part.append(t)
+        if len(resp) == 1:
+            senders, receivers = ix.endpoints(resp[0])
+            if set(senders) != participants or set(receivers) != initiators:
+                not_reversed.append(t)
+    counts = {"tasks": len(ix.tasks()),
+              "initiators_not_request_senders": len(bad_init),
+              "participants_not_request_receivers": len(bad_part),
+              "responses_not_reversing_the_roles": len(not_reversed)}
+    return _crit("U8 Role coherence", DIAGNOSTIC, counts, bad_init + bad_part + not_reversed)
+
+
 def unified_criteria(ix: Index, key_attr: Optional[str]) -> List[Criterion]:
     return [u1_instance(ix), u2_task(ix), u3_message_identity(ix, key_attr),
             u4_endpoint_coherence(ix), u5_task_roles(ix), u6_correlation_status(ix),
-            u7_hierarchy(ix)]
+            u7_hierarchy(ix), u8_role_coherence(ix)]
 
 
-def infsys_criteria(res: "u.UnifiedResult", export_relations_df) -> List[Criterion]:
-    """P1.1-P1.6 on the local part (InfSys implementation); P1.7 on the
-    exported E2O table of the whole log."""
+def p1_7(label: str, objects_df: pd.DataFrame, export_relations_df: pd.DataFrame) -> Criterion:
+    """P1.7 on one serialization, which also rejects an exported E2O relation
+    to an object that the serialization does not contain (e.g., a witness
+    edge computed on other tables)."""
+    c = cx.check_export_reachability(objects_df, export_relations_df)
+    known = set(objects_df[cx.COL_OID]) if len(objects_df) else set()
+    dangling = (sorted(set(export_relations_df[cx.COL_OID]) - known)
+                if len(export_relations_df) else [])
+    detail = c.detail + f"; E2O to unknown objects={len(dangling)}" + (
+        f"; e.g. {dangling[:5]}" if dangling else "")
+    return Criterion(f"{c.name} ({label})", STRUCTURAL, bool(c.passed) and not dangling,
+                     {"detail": detail})
+
+
+def infsys_criteria(res: "u.UnifiedResult", core_export_relations: pd.DataFrame,
+                    view: Optional["cx.TransformResult"] = None,
+                    view_export_relations: Optional[pd.DataFrame] = None) -> List[Criterion]:
+    """P1.1-P1.6 on alpha_C(mu_U(L)) when the log has local events; P1.7 on the
+    exported E2O table of alpha_C(mu_U(L)) and of the core."""
     out = []
-    if res.infsys is not None:
-        for c in cx.run_consistency_checks(res.source.local, res.infsys):
+    if view is not None and len(view.events_df):
+        for c in cx.run_consistency_checks(res.source.local, view):
             out.append(Criterion(c.name, STRUCTURAL, bool(c.passed), {"detail": c.detail}))
-    p17 = cx.check_export_reachability(res.objects_df, export_relations_df)
-    out.append(Criterion(p17.name, STRUCTURAL, bool(p17.passed), {"detail": p17.detail}))
+        out.append(p1_7("alpha_C", view.objects_df, view_export_relations))
+    out.append(p1_7("core", res.objects_df, core_export_relations))
     return out
 
 

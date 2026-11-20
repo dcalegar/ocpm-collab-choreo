@@ -11,7 +11,7 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
 
 - [x] Punto 1: modelo fuente y construcción del núcleo neutral.
 - [x] Punto 2: adaptador InfSys $\alpha_C$.
-- [ ] Punto 3: índices, serialización y criterios.
+- [x] Punto 3: índices, serialización y criterios.
 - [ ] Punto 4: adaptadores Hobeck.
 - [ ] Punto 5: predicción.
 - [ ] Punto 6: experimentos y documentación.
@@ -131,6 +131,41 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
   deben reconstruirse. E1 debe leer exclusivamente `<out>_infsys.sqlite`.
 - Hacer que P1.7 rechace cualquier E2O cuyo objeto no exista, además de comprobar
   alcance, para detectar inmediatamente testigos legacy inválidos.
+
+### Resultado del punto 3
+
+- `Index` lee los send/receive de un mensaje por E2O directas
+  (`message_events`), sus endpoints por `source`/`target` almacenados
+  (`endpoints`) y los roles de una tarea por `initiator`/`participant`
+  (`roles`); ninguno se deriva de otro.
+- Criterios según la tabla de `mapping_unified_analysis.tex`: U2 exige además
+  que el request de un send-tarea sea su propio mensaje; U3 controla claves
+  duplicadas, un único `exchanged_in` del caso, mensajes sin eventos,
+  exactamente un mensaje por send/receive, tipo del enlace según `elemType`,
+  caso y clave del mensaje, y singletons propios para eventos sin clave; U4
+  compara los emisores almacenados y los receptores que declaran sends y
+  eventos de intercambio con los observados por los receives; U5 exige un
+  único iniciador (la inversión de la response pasa a U8); U6 distingue
+  correct/multicast, send-only, receive-only, uncorrelated, incoherent y sin
+  eventos de mensaje; U8 (nuevo, diagnóstico) compara roles con endpoints.
+- P1.1--P1.6 se evalúan sobre $\alpha_C(\mu_U(L))$; P1.7 se evalúa sobre el
+  núcleo y sobre $\alpha_C$, y rechaza E2O hacia objetos inexistentes.
+- `map_log.export_relations()` calcula testigos solo sobre el núcleo;
+  `export_infsys.export_relations()` calcula los de la vista.
+- Se eliminaron `OT_CM`, `Q_FROM`, `Q_TO`, `Q_SENT_AS` y `Q_RECEIVED_AS` de
+  `unified.py` (la predicción tiene sus propias constantes, punto 5).
+- E1 lee `<out>_infsys.sqlite` sin proyección; E3 lee las claves nuevas de
+  U4/U6/U8.
+- Validación: 67 pruebas de mapping/experimentos pasan (20 nuevas en
+  `tests/test_criteria.py`). En las 35 salidas XES, todo criterio estructural
+  se cumple; U4 y U6 coinciden con el diseño anterior (los 2 `absent` de Smart
+  Agriculture son receive-only); E1 da igualdad en los 9 casos.
+- Hallazgo: U8 reporta 12 tareas en `smartagriculture_complete` (las Pub/Sub
+  `drone_WEED_POSITION`): el evento de intercambio de la ChL nombra un receptor
+  como `participant`, mientras que los dos receives observados dan dos
+  `target`. El análisis afirma que U8 se cumple por construcción salvo en logs
+  importados por $\iota_H$; esta afirmación no vale en el perfil completo con
+  multicast.
 
 ## 4. Actualizar los adaptadores Hobeck
 

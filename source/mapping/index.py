@@ -7,12 +7,13 @@ mapping. Events and objects are classified by their relations:
 
 - local events: events with `in_collaboration` (M6);
 - exchange events: all other events;
-- sends / receives: events with `send` / `receive` (M6);
+- sends / receives: events with `send` / `receive` to a logical `Message` (M11);
 - tasks: events with `request` (M12).
 
-The sender and receiver of a logical message are derived (M11): from the
-`from` / `to` endpoints of its `Message` objects when it has message events,
-and from its own `from` / `to` relations otherwise.
+The endpoints of a logical message are its stored `source` / `target`
+relations (M10), and the roles of a task its stored `initiator` /
+`participant` relations (M12). Neither is derived from the other; the
+criteria U4 and U8 compare them.
 """
 
 from __future__ import annotations
@@ -61,22 +62,22 @@ class Index:
     def exchange_events(self) -> List[str]:
         return sorted(e for e in self.events if not self.is_local(e))
 
-    # ---- logical messages -----------------------------------------------
-    def message_events(self, cm: str) -> Tuple[List[str], List[str]]:
-        """The Message objects of the sends and receives of a logical message."""
-        return self.o2o_targets(cm, u.Q_SENT_AS), self.o2o_targets(cm, u.Q_RECEIVED_AS)
+    # ---- logical messages and task roles ---------------------------------
+    def messages(self) -> List[str]:
+        return self.of_type(u.OT_MESSAGE)
 
-    def endpoints(self, cm: str) -> Tuple[List[str], List[str]]:
-        """Derived senders and receivers (participant oids) of a logical message."""
-        sends, receives = self.message_events(cm)
-        local = sends + receives
-        if local:
-            senders = [p for m in local for p in self.o2o_targets(m, cx.Q_FROM)]
-            receivers = [p for m in local for p in self.o2o_targets(m, cx.Q_TO)]
-        else:
-            senders = self.o2o_targets(cm, u.Q_FROM)
-            receivers = self.o2o_targets(cm, u.Q_TO)
-        return list(dict.fromkeys(senders)), list(dict.fromkeys(receivers))
+    def message_events(self, m: str) -> Tuple[List[str], List[str]]:
+        """The send and receive events of a logical message (M11)."""
+        return sorted(self.events_of(m, cx.Q_SEND)), sorted(self.events_of(m, cx.Q_RECEIVE))
+
+    def endpoints(self, m: str) -> Tuple[List[str], List[str]]:
+        """The stored senders and receivers (participant oids) of a logical
+        message (M10)."""
+        return self.o2o_targets(m, u.Q_SOURCE), self.o2o_targets(m, u.Q_TARGET)
+
+    def roles(self, t: str) -> Tuple[List[str], List[str]]:
+        """The stored initiators and participants of a task (M12)."""
+        return self.targets(t, u.Q_INITIATOR), self.targets(t, u.Q_PARTICIPANT)
 
     def participant_name(self, oid: str) -> str:
         return str(self.objects[oid].get("name", oid))

@@ -5,7 +5,8 @@ of M1-M8.  Its per-observation ``Message`` objects and their relations are
 removed from the core; M10-M11 replace them with one logical ``Message`` per
 case-local correlation key and direct ``send``/``receive`` E2O relations.
 The untouched InfSys result remains attached to :class:`UnifiedResult` only as
-a transition/reference value for the future alpha_C adapter.
+the test oracle of the adapter alpha_C (`export_infsys.py`); no output or
+criterion reads it.
 
 | Rule | Adds |
 |---|---|
@@ -44,10 +45,6 @@ OT_CHC = "ChoreographyCase"
 OT_SUB = "SubChoreographyCase"
 NEW_OBJECT_TYPES = (OT_MESSAGE, OT_CHC, OT_SUB)
 
-# Temporary source-compatibility alias.  No ChoreographyMessage objects are
-# emitted; consumers are migrated in later implementation steps.
-OT_CM = OT_MESSAGE
-
 # Qualifiers added by M9-M13.
 Q_IN_CHOREOGRAPHY = "in_choreography"
 Q_REQUEST = "request"
@@ -60,12 +57,6 @@ Q_TARGET = "target"
 Q_EXCHANGED_IN = cx.Q_EXCHANGED_IN
 Q_PART_OF = cx.Q_PART_OF
 Q_CONTAINS = "contains"
-
-# Compatibility names for modules migrated in later plan steps.  They resolve
-# to the neutral endpoint vocabulary; sent_as/received_as remain deliberately
-# unused by the core.
-Q_FROM, Q_TO = Q_SOURCE, Q_TARGET
-Q_SENT_AS, Q_RECEIVED_AS = "sent_as", "received_as"
 
 # Object attributes of the new objects (bookkeeping).
 A_CASE = "caseId"

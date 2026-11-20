@@ -148,12 +148,19 @@ def of(res: "u.UnifiedResult") -> "cx.TransformResult":
     return export(res.events_df, res.objects_df, res.relations_df, res.o2o_df)
 
 
-def write_sqlite(view: "cx.TransformResult", path: str) -> pd.DataFrame:
-    """Persist the view as InfSys does (`cx.convert`): its own export
-    witnesses, computed on the view, then the pm4py SQLite exporter. Returns
-    the E2O table handed to the exporter."""
-    rel = cx._add_export_reachability_witnesses(view.objects_df, view.relations_df,
-                                                view.o2o_df)
+def export_relations(view: "cx.TransformResult") -> pd.DataFrame:
+    """The E2O table handed to the pm4py exporters: the view's own export
+    witnesses, computed on the view exactly as InfSys does (`cx.convert`),
+    never on the core."""
+    return cx._add_export_reachability_witnesses(view.objects_df, view.relations_df,
+                                                 view.o2o_df)
+
+
+def write_sqlite(view: "cx.TransformResult", path: str,
+                 rel: Optional[pd.DataFrame] = None) -> pd.DataFrame:
+    """Persist the view with the pm4py SQLite exporter, as InfSys does.
+    Returns the E2O table handed to the exporter."""
+    rel = export_relations(view) if rel is None else rel
     cx.write_ocel2_sqlite(cx.build_ocel_object(view.events_df, view.objects_df, rel,
                                                view.o2o_df), path)
     return rel

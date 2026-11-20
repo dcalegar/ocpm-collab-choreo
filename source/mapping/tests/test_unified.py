@@ -91,7 +91,7 @@ def test_two_way_exchange_gives_one_task():
     assert ("message::c1::q1", "part::B", u.Q_TARGET) in o2o
     assert ("message::c1::r1", "part::B", u.Q_SOURCE) in o2o
     assert ("message::c1::r1", "part::A", u.Q_TARGET) in o2o
-    assert not any(q in (u.Q_SENT_AS, u.Q_RECEIVED_AS) for _, _, q in o2o)
+    assert not any(q in ("sent_as", "received_as", "from", "to") for _, _, q in o2o)
 
 
 def test_u2_detects_a_response_send_as_task():

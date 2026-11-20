@@ -9,7 +9,7 @@ Outputs, for an output base `<out>`:
   representation of InfSys (alpha_C), when the log has local events;
 - `<out>_hobeck.json`: the choreography view exported to the representation
   of Hobeck et al. (eta_H), for `ocelchorvalidator`;
-- `<out>_checks.json`: statistics, profile, and criteria P1.1-P1.7, U1-U7.
+- `<out>_checks.json`: statistics, profile, and criteria P1.1-P1.7, U1-U8.
 
 Examples:
 
@@ -46,18 +46,15 @@ logger = logging.getLogger("map_log")
 # ---------------------------------------------------------------------------
 
 def export_relations(res: u.UnifiedResult) -> pd.DataFrame:
-    """The E2O table handed to the pm4py exporters. pm4py drops every object
-    without an E2O relation, so objects reachable only through O2O get one
-    witness E2O edge that reuses the O2O qualifier (as the InfSys mapping does
-    for participants): first the InfSys witnesses, computed on the InfSys
-    tables exactly as InfSys does, then, until no orphan remains, an edge from
-    an event of a reachable O2O neighbour. Witnesses are not part of the
-    representation; the criteria are evaluated without them."""
+    """The E2O table of the core handed to the pm4py exporters. pm4py drops
+    every object without an E2O relation, so each object reachable only
+    through O2O gets one witness E2O edge that reuses the O2O qualifier, from
+    an event of a reachable O2O neighbour, until no orphan remains. The
+    witnesses are computed on the core tables only; those of alpha_C are
+    computed on its own view (`export_infsys.export_relations`). Witnesses are
+    not part of the representation; the criteria are evaluated without them,
+    except P1.7."""
     rel = res.relations_df
-    if res.infsys is not None:
-        w = cx._add_export_reachability_witnesses(
-            res.infsys.objects_df, res.infsys.relations_df, res.infsys.o2o_df)
-        rel = pd.concat([rel, w.iloc[len(res.infsys.relations_df):]], ignore_index=True)
     otype = dict(zip(res.objects_df[cx.COL_OID], res.objects_df[cx.COL_OTYPE]))
     some_event = {}
     for r in rel.to_dict("records"):
@@ -115,8 +112,10 @@ def _name_unnamed(df: pd.DataFrame) -> pd.DataFrame:
 def write_outputs(res: u.UnifiedResult, out: str) -> Dict[str, Any]:
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     rel = export_relations(res)
+    view = export_infsys.of(res)
+    view_rel = export_infsys.export_relations(view) if len(view.events_df) else None
     ix = index_of(res)
-    crits = criteria.infsys_criteria(res, rel) + criteria.unified_criteria(
+    crits = criteria.infsys_criteria(res, rel, view, view_rel) + criteria.unified_criteria(
         ix, res.source.key_attr)
     events_df, objects_df = _name_unnamed(res.events_df), _name_unnamed(res.objects_df)
     ocel = cx.build_ocel_object(events_df, objects_df, rel, res.o2o_df)
@@ -125,10 +124,9 @@ def write_outputs(res: u.UnifiedResult, out: str) -> Dict[str, Any]:
     cx.write_ocel2_sqlite(ocel, out + ".sqlite")
     schema = cx.validate_jsonocel(out + ".jsonocel")
     export_hobeck.write(export_hobeck.export(ix), out + "_hobeck.json")
-    view = export_infsys.of(res)
     infsys_view = None
-    if len(view.events_df):
-        view_rel = export_infsys.write_sqlite(view, out + "_infsys.sqlite")
+    if view_rel is not None:
+        export_infsys.write_sqlite(view, out + "_infsys.sqlite", view_rel)
         infsys_view = {"stats": view.stats,
                        "witness_e2o_edges": len(view_rel) - len(view.relations_df)}
     else:
