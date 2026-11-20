@@ -67,7 +67,14 @@ class Scope:
 @dataclass
 class ExchangeEvent:
     """An event that records a whole message (a choreography task), with the
-    request message and, for a two-way task, the response message."""
+    request message and, for a two-way task, the response message.
+
+    ``sender``/``receivers`` are the request endpoints.  The optional role
+    and response-endpoint tuples preserve independent source assertions.  A
+    value of ``None`` means that the source does not state that assertion, so
+    the unified mapping uses the BPMN fallback (request endpoints as task
+    roles, and reversed request endpoints as response endpoints).  An empty
+    tuple is an explicit empty assertion and is therefore not replaced."""
     case: str
     activity: str
     timestamp: pd.Timestamp
@@ -80,6 +87,10 @@ class ExchangeEvent:
     response_key: Optional[str] = None
     response_name: Optional[str] = None
     response_content: Dict[str, Any] = field(default_factory=dict)
+    initiators: Optional[Tuple[str, ...]] = None
+    participants: Optional[Tuple[str, ...]] = None
+    response_senders: Optional[Tuple[str, ...]] = None
+    response_receivers: Optional[Tuple[str, ...]] = None
     scope_path: Tuple[Scope, ...] = ()  # enclosing scopes, outermost first
     attributes: Dict[str, Any] = field(default_factory=dict)
 

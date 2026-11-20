@@ -1,23 +1,23 @@
-"""The unified mapping mu+ (rules M1-M13).
+"""The neutral unified mapping mu_U (rules M1-M13).
 
-M1-M8 are the InfSys rules, applied unchanged by calling the InfSys
-implementation (`infsys.cx.transform`) on the local events of the log.
-M9-M13 then add the exchange events, the logical messages, the choreography
-view, and the hierarchy. They add events, objects, and relations, but never
-change or remove those of M1-M8, so removing the additions gives back the
-InfSys output (conservativity, checked in the experiments).
+The implementation calls the InfSys mapping for the local, non-message part
+of M1-M8.  Its per-observation ``Message`` objects and their relations are
+removed from the core; M10-M11 replace them with one logical ``Message`` per
+case-local correlation key and direct ``send``/``receive`` E2O relations.
+The untouched InfSys result remains attached to :class:`UnifiedResult` only as
+a transition/reference value for the future alpha_C adapter.
 
 | Rule | Adds |
 |---|---|
 | M9 | one event per exchange event, with its activity, timestamp, and attributes; no `in_orchestration` or `in_participant` relation |
-| M10 | one `ChoreographyMessage` per message identifier and case; a send or exchange event without identifier gets its own |
-| M11 | `sent_as` / `received_as` (O2O) to the `Message` of each send / receive with that identifier; `from` / `to` (O2O) only for logical messages without message events |
-| M12 | the choreography task (the exchange event, or the send if no exchange event records the message as request or response), `request` / `response` (E2O) to its logical messages, `in_choreography` (E2O) to one `ChoreographyCase` per case with tasks, `part_of` (O2O) to the `CollaborationCase`; case and participant objects when M1-M8 did not create them |
+| M10 | one logical `Message` per case and key; every unkeyed send, receive, request, or response gets its own singleton; `source` / `target` / `exchanged_in` O2O |
+| M11 | direct `send` / `receive` E2O from local message events to the logical `Message` |
+| M12 | the choreography task (the exchange event, or the send if no exchange event records the message), `request` / `response`, `initiator` / `participant`, and `in_choreography` E2O; `part_of` O2O from its `ChoreographyCase` to the `CollaborationCase` |
 | M13 | one `SubChoreographyCase` per recorded scope execution, `contained_by` (E2O) from each task to its innermost scope, `contains` (O2O) to directly nested scopes |
 
 The rules represent the source data as recorded: a reused identifier gives one
-logical message with several sends; a receive without identifier links to no
-logical message. A logical message holds one value per attribute: when its
+logical message with several sends, while every unkeyed observation gets a
+distinct singleton. A logical message holds one value per attribute: when its
 carriers record different names or contents, the first value in event order is
 kept and every value is reported in `stats["conflicting_values"]`.
 """
@@ -37,21 +37,34 @@ COL_EID, COL_OID, COL_OID2 = cx.COL_EID, cx.COL_OID, cx.COL_OID2
 COL_ACT, COL_TS, COL_TYPE, COL_Q = (cx.COL_ACTIVITY, cx.COL_TIMESTAMP,
                                     cx.COL_OTYPE, cx.COL_QUALIFIER)
 
-# Object types added by M10-M13.
-OT_CM = "ChoreographyMessage"
+# Object types added or reconstructed by M10-M13.
+OT_MESSAGE = cx.OT_MESSAGE
 OT_CHC = "ChoreographyCase"
 OT_SUB = "SubChoreographyCase"
-NEW_OBJECT_TYPES = (OT_CM, OT_CHC, OT_SUB)
+NEW_OBJECT_TYPES = (OT_MESSAGE, OT_CHC, OT_SUB)
+
+# Temporary source-compatibility alias.  No ChoreographyMessage objects are
+# emitted; consumers are migrated in later implementation steps.
+OT_CM = OT_MESSAGE
 
 # Qualifiers added by M9-M13.
 Q_IN_CHOREOGRAPHY = "in_choreography"
 Q_REQUEST = "request"
 Q_RESPONSE = "response"
+Q_INITIATOR = "initiator"
+Q_PARTICIPANT = "participant"
 Q_CONTAINED_BY = "contained_by"
-Q_SENT_AS = "sent_as"
-Q_RECEIVED_AS = "received_as"
-Q_FROM, Q_TO, Q_PART_OF = cx.Q_FROM, cx.Q_TO, cx.Q_PART_OF
+Q_SOURCE = "source"
+Q_TARGET = "target"
+Q_EXCHANGED_IN = cx.Q_EXCHANGED_IN
+Q_PART_OF = cx.Q_PART_OF
 Q_CONTAINS = "contains"
+
+# Compatibility names for modules migrated in later plan steps.  They resolve
+# to the neutral endpoint vocabulary; sent_as/received_as remain deliberately
+# unused by the core.
+Q_FROM, Q_TO = Q_SOURCE, Q_TARGET
+Q_SENT_AS, Q_RECEIVED_AS = "sent_as", "received_as"
 
 # Object attributes of the new objects (bookkeeping).
 A_CASE = "caseId"
@@ -71,12 +84,12 @@ def exchange_event_id(case: str, idx: int, width: int) -> str:
     return f"x::{case}::{str(idx).zfill(width)}"
 
 
-def cm_id(case: str, key: str) -> str:
-    return f"cm::{_esc(case)}::{_esc(key)}"
+def message_id(case: str, key: str) -> str:
+    return f"message::{_esc(case)}::{_esc(key)}"
 
 
-def singleton_cm_id(eid: str) -> str:
-    return f"cm::@{eid}"
+def singleton_message_id(eid: str) -> str:
+    return f"message::@{eid}"
 
 
 def chc_id(case: str) -> str:
@@ -89,7 +102,7 @@ def sub_id(case: str, scope: str) -> str:
 
 @dataclass
 class UnifiedResult:
-    """The four OCEL tables of mu+(L), before export, plus the InfSys result
+    """The four OCEL tables of mu_U(L), before export, plus the InfSys result
     of M1-M8 on the local events (None when the log has none)."""
     source: SourceLog
     events_df: pd.DataFrame
@@ -109,15 +122,16 @@ class _Msg:
     key: Optional[str]
     names: List[str] = field(default_factory=list)
     content: Dict[str, List[Any]] = field(default_factory=dict)  # attribute -> values, in order
-    sends: List[str] = field(default_factory=list)      # Message oids
-    receives: List[str] = field(default_factory=list)   # Message oids
-    senders: List[str] = field(default_factory=list)    # recorded by exchange events
+    sends: List[str] = field(default_factory=list)      # event ids
+    receives: List[str] = field(default_factory=list)   # event ids
+    senders: List[str] = field(default_factory=list)    # all recorded assertions
     receivers: List[str] = field(default_factory=list)
 
 
 def has_response(x: ExchangeEvent) -> bool:
     """Whether an exchange event records a return message (two-way task)."""
-    return x.response_key is not None or bool(x.response_name) or bool(x.response_content)
+    return (x.response_key is not None or bool(x.response_name) or bool(x.response_content)
+            or x.response_senders is not None or x.response_receivers is not None)
 
 
 def profile(src: SourceLog) -> Dict[str, bool]:
@@ -145,25 +159,53 @@ def profile(src: SourceLog) -> Dict[str, bool]:
 
 
 def map_log(src: SourceLog) -> UnifiedResult:
-    """Apply mu+ (M1-M13) to a source log."""
+    """Apply mu_U (M1-M13) to a source log."""
     activities = [x.activity for x in src.exchange]
     if src.local is not None:
         activities += list(src.local[cx.ACTIVITY_KEY].unique())
     cx._check_activity_table_collisions(set(activities))
 
-    # ---- M1-M8: the InfSys mapping, unchanged ---------------------------
+    # ---- M1-M8 local base; omit the per-observation message part --------
+    local_msgs = []
+    case_of_event: Dict[str, str] = {}
     if src.local is not None:
         res = cx.transform(src.local)
         ptypes = res.participant_types
         ev_rows = res.events_df.to_dict("records")
-        ob_rows = {r[COL_OID]: r for r in res.objects_df.to_dict("records")}
-        e2o_rows = res.relations_df.to_dict("records")
-        o2o_rows = res.o2o_df.to_dict("records")
+        raw_objects = {r[COL_OID]: r for r in res.objects_df.to_dict("records")}
+        raw_e2o = res.relations_df.to_dict("records")
+        raw_o2o = res.o2o_df.to_dict("records")
+
+        case_of_cc = {oid: r.get(A_CASE) for oid, r in raw_objects.items()
+                      if r[COL_TYPE] == cx.OT_CC}
+        for r in raw_e2o:
+            if r[COL_Q] == cx.Q_IN_COLLABORATION:
+                case_of_event[r[COL_EID]] = case_of_cc[r[COL_OID]]
+        for r in sorted(ev_rows, key=lambda row: row[COL_EID]):
+            elem = r.get("elemType")
+            if elem not in (cx.ELEM_SEND, cx.ELEM_RECEIVE):
+                continue
+            name = next((clean(r.get(k)) for k in src.name_attrs
+                         if clean(r.get(k)) is not None), None)
+            local_msgs.append((
+                r[COL_EID], case_of_event[r[COL_EID]], elem,
+                clean(r.get(src.key_attr)), name,
+                clean(r.get("participant")), clean(r.get("fromParticipant")),
+                clean(r.get("toParticipant"))))
+
+        legacy_messages = {oid for oid, row in raw_objects.items()
+                           if row[COL_TYPE] == cx.OT_MESSAGE}
+        ob_rows = {oid: row for oid, row in raw_objects.items()
+                   if oid not in legacy_messages}
+        e2o_rows = [r for r in raw_e2o if r[COL_OID] not in legacy_messages]
+        o2o_rows = [r for r in raw_o2o
+                    if r[COL_OID] not in legacy_messages
+                    and r[COL_OID2] not in legacy_messages]
     else:
         res = None
         ptypes = cx.ParticipantTypes()
         ev_rows, ob_rows, e2o_rows, o2o_rows = [], {}, [], []
-    infsys_objects = set(ob_rows)
+    base_objects = set(ob_rows)
 
     def ensure(oid: str, otype: str, attrs: Dict[str, Any]) -> None:
         if oid not in ob_rows:
@@ -195,24 +237,6 @@ def map_log(src: SourceLog) -> UnifiedResult:
         ensure(oid, cx.OT_CC, {"caseId": case})   # M1 convention
         return oid
 
-    # ---- local message events of M1-M8 ------------------------------------
-    case_of_event: Dict[str, str] = {}
-    case_of_cc = {oid: r.get("caseId") for oid, r in ob_rows.items()
-                  if r[COL_TYPE] == cx.OT_CC}
-    for r in e2o_rows:
-        if r[COL_Q] == cx.Q_IN_COLLABORATION:
-            case_of_event[r[COL_EID]] = case_of_cc[r[COL_OID]]
-    message_of_event = {r[COL_EID]: r[COL_OID] for r in e2o_rows
-                        if r[COL_Q] in (cx.Q_SEND, cx.Q_RECEIVE)}
-    local_msgs = []   # (eid, case, elem, key, name, message oid), in id order
-    for r in sorted(ev_rows, key=lambda r: r[COL_EID]):
-        if r.get("elemType") in (cx.ELEM_SEND, cx.ELEM_RECEIVE):
-            name = next((clean(r.get(k)) for k in src.name_attrs
-                         if clean(r.get(k)) is not None), None)
-            local_msgs.append((r[COL_EID], case_of_event[r[COL_EID]], r["elemType"],
-                               clean(r.get(src.key_attr)), name,
-                               message_of_event[r[COL_EID]]))
-
     # ---- M9: exchange events -----------------------------------------------
     by_case: Dict[str, List[ExchangeEvent]] = defaultdict(list)
     for x in src.exchange:
@@ -235,7 +259,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
     msgs: Dict[str, _Msg] = {}
 
     def logical(case: str, key: Optional[str], carrier: str) -> _Msg:
-        oid = cm_id(case, key) if key is not None else singleton_cm_id(carrier)
+        oid = message_id(case, key) if key is not None else singleton_message_id(carrier)
         if oid not in msgs:
             msgs[oid] = _Msg(oid, case, key)
         return msgs[oid]
@@ -245,7 +269,9 @@ def map_log(src: SourceLog) -> UnifiedResult:
             if v is not None:              # an empty string is content; None is absent
                 m.content.setdefault(k, []).append(v)
 
-    task_of: Dict[str, List[Tuple[str, str, Optional[str]]]] = {}   # eid -> request/response
+    task_of: Dict[str, List[Tuple[str, str]]] = {}   # eid -> request/response
+    task_roles: Dict[str, Tuple[Tuple[str, ...], Tuple[str, ...]]] = {}
+    local_task_initiators: Dict[str, Tuple[str, ...]] = {}
     exchange_recorded = set()   # logical messages recorded by an exchange event (M12)
     for eid, x in exchange:
         req = logical(x.case, x.key, eid)
@@ -255,6 +281,10 @@ def map_log(src: SourceLog) -> UnifiedResult:
         if x.sender:
             req.senders.append(x.sender)
         req.receivers.extend(x.receivers)
+        request_senders = (x.sender,) if x.sender else ()
+        initiators = x.initiators if x.initiators is not None else request_senders
+        participants = x.participants if x.participants is not None else x.receivers
+        task_roles[eid] = (initiators, participants)
         exchange_recorded.add(req.oid)
         roles = [(Q_REQUEST, req.oid)]
         if has_response(x):
@@ -263,21 +293,40 @@ def map_log(src: SourceLog) -> UnifiedResult:
                 resp.names.append(x.response_name)
             add_content(resp, x.response_content)
             exchange_recorded.add(resp.oid)
-            if x.sender:                       # a response reverses the request
-                resp.receivers.append(x.sender)
-            resp.senders.extend(x.receivers)
+            response_senders = (x.receivers if x.response_senders is None
+                                else x.response_senders)
+            response_receivers = (request_senders if x.response_receivers is None
+                                  else x.response_receivers)
+            resp.senders.extend(response_senders)
+            resp.receivers.extend(response_receivers)
             roles.append((Q_RESPONSE, resp.oid))
         task_of[eid] = roles
 
-    for eid, case, elem, key, name, moid in local_msgs:
-        if key is None and elem == cx.ELEM_RECEIVE:
-            continue                             # nothing to correlate with
+    for eid, case, elem, key, name, executing, frm, to in local_msgs:
         m = logical(case, key, eid)
         if name:
             m.names.append(name)
-        (m.sends if elem == cx.ELEM_SEND else m.receives).append(moid)
+        (m.sends if elem == cx.ELEM_SEND else m.receives).append(eid)
+        if elem == cx.ELEM_SEND:
+            if executing:
+                m.senders.append(executing)
+            if to:
+                m.receivers.append(to)
+        else:
+            if frm:
+                m.senders.append(frm)
+            if executing:
+                m.receivers.append(executing)
         if elem == cx.ELEM_SEND and m.oid not in exchange_recorded:
             task_of[eid] = [(Q_REQUEST, m.oid)]  # M12: the send is the task
+            local_task_initiators[eid] = (executing,) if executing else ()
+
+    # A send carrier gets every receiver asserted for its request message,
+    # including participants known only through correlated receive events and
+    # additional multicast receives.
+    for eid, initiators in local_task_initiators.items():
+        request_oid = task_of[eid][0][1]
+        task_roles[eid] = (initiators, tuple(dict.fromkeys(msgs[request_oid].receivers)))
 
     # A logical message holds one value per attribute. When its carriers record
     # different names or contents (e.g., a reused identifier), the first value
@@ -299,19 +348,19 @@ def map_log(src: SourceLog) -> UnifiedResult:
             if len(distinct) > 1:
                 conflicts.append({"logical_message": m.oid, "attribute": k,
                                   "kept": str(vs[0]), "values": distinct})
-        ensure(m.oid, OT_CM, attrs)
+        ensure(m.oid, OT_MESSAGE, attrs)
 
-    # ---- M11: links to message events; endpoints only without them ---------
+    # ---- M11: direct message events and stored endpoints -------------------
     for m in msgs.values():
-        for moid in m.sends:
-            o2o(m.oid, moid, Q_SENT_AS)
-        for moid in m.receives:
-            o2o(m.oid, moid, Q_RECEIVED_AS)
-        if not m.sends and not m.receives:
-            for p in dict.fromkeys(m.senders):
-                o2o(m.oid, participant(p), Q_FROM)
-            for p in dict.fromkeys(m.receivers):
-                o2o(m.oid, participant(p), Q_TO)
+        for eid in m.sends:
+            e2o(eid, m.oid, cx.Q_SEND)
+        for eid in m.receives:
+            e2o(eid, m.oid, cx.Q_RECEIVE)
+        for p in dict.fromkeys(m.senders):
+            o2o(m.oid, participant(p), Q_SOURCE)
+        for p in dict.fromkeys(m.receivers):
+            o2o(m.oid, participant(p), Q_TARGET)
+        o2o(m.oid, collaboration_case(m.case), Q_EXCHANGED_IN)
 
     # ---- M12: choreography tasks and instances ------------------------------
     case_of_task = {eid: case_of_event.get(eid) for eid in task_of}
@@ -322,6 +371,11 @@ def map_log(src: SourceLog) -> UnifiedResult:
     for eid in sorted(task_of):
         for q, moid in task_of[eid]:
             e2o(eid, moid, q)
+        initiators, participants = task_roles[eid]
+        for p in dict.fromkeys(initiators):
+            e2o(eid, participant(p), Q_INITIATOR)
+        for p in dict.fromkeys(participants):
+            e2o(eid, participant(p), Q_PARTICIPANT)
         e2o(eid, chc_id(case_of_task[eid]), Q_IN_CHOREOGRAPHY)
 
     # ---- M13: sub-choreographies --------------------------------------------
@@ -362,7 +416,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
         "n_two_way_tasks": sum(len(v) > 1 for v in task_of.values()),
         "n_objects": len(objects_df),
         "n_objects_by_type": objects_df[COL_TYPE].value_counts().to_dict(),
-        "n_new_objects": len(set(ob_rows) - infsys_objects),
+        "n_new_objects": len(set(ob_rows) - base_objects),
         "n_e2o": len(relations_df),
         "n_o2o": len(o2o_df),
         "n_logical_messages": len(msgs),
