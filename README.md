@@ -1,4 +1,4 @@
-# ocpm-collab-choreo
+# A Unified Object-Centric Representation of Collaboration and Choreography Views for Predictive Process Monitoring
 
 Unified object-centric representation of collaborative and choreography event data,
 exemplified for predictive process monitoring. It combines the collaborative mapping to
