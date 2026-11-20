@@ -101,15 +101,51 @@ def test_roundtrip_of_a_reference_is_equivalent():
     assert compare(exported, ETH)["equivalent"] and not any(diag.values())
 
 
-def test_iota_h_reports_disagreeing_roles(tmp_path):
-    h = load(HC)
-    m = copy.deepcopy(h)
-    r = first(m["events"][0]["relationships"], lambda r: r["qualifier"] == "choreo:participant")
-    r["objectId"] = "Hospital"
+def _write(tmp_path, m):
     p = tmp_path / "mutated.json"
     p.write_text(json.dumps(m))
-    _, diag = read_hobeck_ocel(p)
-    assert diag.get("tasks_whose_roles_differ_from_the_request") == 1
+    return p
+
+
+@pytest.mark.parametrize("role,u8_count", [
+    ("choreo:participant", "participants_not_request_receivers"),
+    ("choreo:initiator", "initiators_not_request_senders"),
+])
+def test_disagreeing_roles_survive_the_roundtrip(tmp_path, role, u8_count):
+    """Proposition 2 without C1/C9/C10: a task role that its request does not
+    name survives eta_H(mu_U(iota_H(H))), and U8 reports it."""
+    from e2b_roundtrip import evaluate
+    m = copy.deepcopy(load(HC))
+    r = first(m["events"][0]["relationships"], lambda r: r["qualifier"] == role)
+    r["objectId"] = "Hospital" if r["objectId"] != "Hospital" else "Laboratory"
+    out = evaluate(_write(tmp_path, m))
+    assert out["passed"] and out["equivalent"] and not any(out["iota_H_diagnostics"].values())
+    assert out["U8"][u8_count] == 1
+    assert sum(v for k, v in out["U8"].items() if k != "tasks") == 1
+
+
+def test_a_response_not_reversing_the_request_survives_the_roundtrip(tmp_path):
+    from e2b_roundtrip import evaluate
+    h = load(ETH)
+    m = copy.deepcopy(h)
+    objects = {o["id"]: o for o in m["objects"]}
+    two_way = first(m["events"], lambda e: sum(r["qualifier"] == "choreo:message"
+                                               for r in e["relationships"]) == 2)
+    initiator = first(two_way["relationships"],
+                      lambda r: r["qualifier"] == "choreo:initiator")["objectId"]
+    resp = first((objects[r["objectId"]] for r in two_way["relationships"]
+                  if r["qualifier"] == "choreo:message"),
+                 lambda o: initiator not in {x["objectId"] for x in o["relationships"]
+                                             if x["qualifier"] == "choreo:source"})
+    other = first(m["objects"], lambda o: o["id"] != initiator and o["type"] not in (
+        "choreographyInstance", "subchoreographyInstance") and not o.get("relationships")
+        and any(o["id"] == r["objectId"] for e in m["events"] for r in e["relationships"]
+                if r["qualifier"] in ("choreo:initiator", "choreo:participant")))
+    first(resp["relationships"], lambda x: x["qualifier"] == "choreo:target")["objectId"] = other["id"]
+    out = evaluate(_write(tmp_path, m))
+    assert out["equivalent"] and not any(out["iota_H_diagnostics"].values())
+    assert out["U8"]["responses_not_reversing_the_roles"] >= 1
+    assert not compare(m, h)["equivalent"]       # the mutation is visible to the comparison
 
 
 def test_e2b_fails_on_iota_h_diagnostics_alone(tmp_path):

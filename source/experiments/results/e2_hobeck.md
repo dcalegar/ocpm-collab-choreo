@@ -1,4 +1,4 @@
-# E2: reproduction of Hobeck et al. (eta_H(mu+(L)) vs. their OCEL)
+# E2: reproduction of Hobeck et al. (eta_H(mu_U(L)) vs. their OCEL)
 
 | Dataset | Equivalent | Tasks (ours/ref) | Tasks differing | Instances | Scopes | Message sharing | Participant types (N2) | None values (N3) | Attributes only ours (N4) | Attributes only ref (N4) | Common attr. values differing |
 |---|---|---|---|---|---|---|---|---|---|---|---|

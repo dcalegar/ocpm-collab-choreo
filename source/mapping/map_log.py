@@ -3,7 +3,7 @@
 
 Outputs, for an output base `<out>`:
 
-- `<out>.jsonocel` and `<out>.sqlite`: mu+(L) in OCEL 2.0, written with the
+- `<out>.jsonocel` and `<out>.sqlite`: mu_U(L) in OCEL 2.0, written with the
   InfSys exporters (pm4py);
 - `<out>_infsys.sqlite`: the collaboration view exported to the
   representation of InfSys (alpha_C), when the log has local events;

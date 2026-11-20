@@ -12,7 +12,7 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
 - [x] Punto 1: modelo fuente y construcción del núcleo neutral.
 - [x] Punto 2: adaptador InfSys $\alpha_C$.
 - [x] Punto 3: índices, serialización y criterios.
-- [ ] Punto 4: adaptadores Hobeck.
+- [x] Punto 4: adaptadores Hobeck.
 - [ ] Punto 5: predicción.
 - [ ] Punto 6: experimentos y documentación.
 
@@ -176,6 +176,26 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
   pérdida real de información.
 - Cambiar E2b para que las discrepancias sobrevivan al ida y vuelta y sean
   reportadas por U8.
+
+### Resultado del punto 4
+
+- $\eta_H$ exporta `choreo:initiator`/`choreo:participant` desde los roles
+  almacenados (`Index.roles`) y `choreo:source`/`choreo:target` desde los
+  endpoints almacenados de cada mensaje, incluida la response; no recalcula
+  nada.
+- $\iota_H$ guarda siempre `initiators`, `participants`, `response_senders` y
+  `response_receivers` tal como los registra el log de Hobeck. Ya no reporta
+  como diagnóstico roles distintos de los endpoints ni una response que no los
+  invierte (U8 los reporta); conserva solo los diagnósticos de pérdida o
+  elección: request ambiguo, request con varios sources, scopes con varios
+  padres, tareas en varios scopes, eventos y mensajes ignorados.
+- E2b reporta U8. Tres logs construidos (participante, iniciador y response
+  alterados) verifican la Proposición 2 sin C1/C9/C10: el ida y vuelta es
+  equivalente, $\iota_H$ no reporta nada y U8 cuenta la discrepancia.
+- Validación: 70 pruebas de mapping/experimentos pasan. Con el corpus completo
+  (incluido Ethereum, con el clon de ocelchor en `edbb6c1`), las 48 salidas
+  cumplen todos los criterios estructurales; E2 da 20/20 equivalentes (JSON
+  idéntico al resultado anterior) y E2b 20/20 aprobados, sin hallazgos de U8.
 
 ## 5. Adaptar las predicciones
 

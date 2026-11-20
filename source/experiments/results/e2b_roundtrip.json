@@ -1,6 +1,6 @@
 {
  "healthcare": {
-  "reference": "healthcare/hobeck/healthcare_uniqueInteraction_ocel.json",
+  "reference": "healthcare\\hobeck\\healthcare_uniqueInteraction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -11,7 +11,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=154; unreachable in the exported E2O table=0",
+  "p1_7": "objects=154; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     116,
@@ -46,18 +46,23 @@
   "U4": {
    "logical_messages": 116,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 116
+  },
+  "U8": {
+   "tasks": 116,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -68,7 +73,7 @@
   }
  },
  "real1": {
-  "reference": "real1/hobeck/real1_uniqueInteraction_ocel.json",
+  "reference": "real1\\hobeck\\real1_uniqueInteraction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -79,7 +84,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=6; unreachable in the exported E2O table=0",
+  "p1_7": "objects=6; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     2,
@@ -114,18 +119,23 @@
   "U4": {
    "logical_messages": 2,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 2
+  },
+  "U8": {
+   "tasks": 2,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -136,7 +146,7 @@
   }
  },
  "real2": {
-  "reference": "real2/hobeck/real2_uniqueInteraction_ocel.json",
+  "reference": "real2\\hobeck\\real2_uniqueInteraction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -147,7 +157,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=674; unreachable in the exported E2O table=0",
+  "p1_7": "objects=674; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     842,
@@ -182,18 +192,23 @@
   "U4": {
    "logical_messages": 480,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 95,
    "incoherent_several_tasks": 95,
    "no_message_events": 385
+  },
+  "U8": {
+   "tasks": 842,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -204,7 +219,7 @@
   }
  },
  "real3": {
-  "reference": "real3/hobeck/real3_uniqueInteraction_ocel.json",
+  "reference": "real3\\hobeck\\real3_uniqueInteraction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -215,7 +230,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=442; unreachable in the exported E2O table=0",
+  "p1_7": "objects=442; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     472,
@@ -250,18 +265,23 @@
   "U4": {
    "logical_messages": 321,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 73,
    "incoherent_several_tasks": 73,
    "no_message_events": 248
+  },
+  "U8": {
+   "tasks": 472,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -272,7 +292,7 @@
   }
  },
  "real4": {
-  "reference": "real4/hobeck/real4_uniqueInteraction_ocel.json",
+  "reference": "real4\\hobeck\\real4_uniqueInteraction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -283,7 +303,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=9; unreachable in the exported E2O table=0",
+  "p1_7": "objects=9; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     4,
@@ -318,18 +338,23 @@
   "U4": {
    "logical_messages": 4,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 4
+  },
+  "U8": {
+   "tasks": 4,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -340,7 +365,7 @@
   }
  },
  "real5": {
-  "reference": "real5/hobeck/real5_uniqueInteraction_ocel.json",
+  "reference": "real5\\hobeck\\real5_uniqueInteraction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -351,7 +376,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=24; unreachable in the exported E2O table=0",
+  "p1_7": "objects=24; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     15,
@@ -386,18 +411,23 @@
   "U4": {
    "logical_messages": 15,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 15
+  },
+  "U8": {
+   "tasks": 15,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -408,7 +438,7 @@
   }
  },
  "smartagriculture": {
-  "reference": "smartagriculture/hobeck/smartagriculture_uniqueInteraction_ocel.json",
+  "reference": "smartagriculture\\hobeck\\smartagriculture_uniqueInteraction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -419,7 +449,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=123; unreachable in the exported E2O table=0",
+  "p1_7": "objects=123; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     114,
@@ -454,18 +484,23 @@
   "U4": {
    "logical_messages": 100,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 5,
    "incoherent_several_tasks": 5,
    "no_message_events": 95
+  },
+  "U8": {
+   "tasks": 114,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -476,7 +511,7 @@
   }
  },
  "eth-beanstalk-attack (beanstalk_)": {
-  "reference": "eth-beanstalk-attack/hobeck/beanstalk_attack_ocel.json",
+  "reference": "eth-beanstalk-attack\\hobeck\\beanstalk_attack_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -487,7 +522,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=906; unreachable in the exported E2O table=0",
+  "p1_7": "objects=906; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     489,
@@ -522,18 +557,23 @@
   "U4": {
    "logical_messages": 703,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 703
+  },
+  "U8": {
+   "tasks": 489,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -544,7 +584,7 @@
   }
  },
  "eth-boredapeyachtclub (0xbc4ca0ed)": {
-  "reference": "eth-boredapeyachtclub/hobeck/0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d_uniqueFunction_ocel.json",
+  "reference": "eth-boredapeyachtclub\\hobeck\\0xbc4ca0eda7647a8ab7c2061c2e118a18a936f13d_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -555,7 +595,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=57; unreachable in the exported E2O table=0",
+  "p1_7": "objects=57; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     18,
@@ -590,18 +630,23 @@
   "U4": {
    "logical_messages": 21,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 21
+  },
+  "U8": {
+   "tasks": 18,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -612,7 +657,7 @@
   }
  },
  "eth-cryptokitties-core (0x06012c8c)": {
-  "reference": "eth-cryptokitties-core/hobeck/0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction_ocel.json",
+  "reference": "eth-cryptokitties-core\\hobeck\\0x06012c8cf97bead5deae237070f9587f8e7a266d_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -623,7 +668,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=483; unreachable in the exported E2O table=0",
+  "p1_7": "objects=483; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     204,
@@ -658,18 +703,23 @@
   "U4": {
    "logical_messages": 302,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 302
+  },
+  "U8": {
+   "tasks": 204,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -680,7 +730,7 @@
   }
  },
  "eth-cryptokitties-saleauction (0xb1690c08)": {
-  "reference": "eth-cryptokitties-saleauction/hobeck/0xb1690c08e213a35ed9bab7b318de14420fb57d8c_uniqueFunction_ocel.json",
+  "reference": "eth-cryptokitties-saleauction\\hobeck\\0xb1690c08e213a35ed9bab7b318de14420fb57d8c_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -691,7 +741,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=20; unreachable in the exported E2O table=0",
+  "p1_7": "objects=20; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     6,
@@ -726,18 +776,23 @@
   "U4": {
    "logical_messages": 10,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 10
+  },
+  "U8": {
+   "tasks": 6,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -748,7 +803,7 @@
   }
  },
  "eth-depositcontract (0x00000000)": {
-  "reference": "eth-depositcontract/hobeck/0x00000000219ab540356cbb839cbe05303d7705fa_uniqueFunction_ocel.json",
+  "reference": "eth-depositcontract\\hobeck\\0x00000000219ab540356cbb839cbe05303d7705fa_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -759,7 +814,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=23; unreachable in the exported E2O table=0",
+  "p1_7": "objects=23; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     9,
@@ -794,18 +849,23 @@
   "U4": {
    "logical_messages": 17,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 17
+  },
+  "U8": {
+   "tasks": 9,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -816,7 +876,7 @@
   }
  },
  "eth-ensgovernor (0x323a7639)": {
-  "reference": "eth-ensgovernor/hobeck/0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction_ocel.json",
+  "reference": "eth-ensgovernor\\hobeck\\0x323a76393544d5ecca80cd6ef2a560c6a395b7e3_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -827,7 +887,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=63; unreachable in the exported E2O table=0",
+  "p1_7": "objects=63; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     21,
@@ -862,18 +922,23 @@
   "U4": {
    "logical_messages": 31,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 31
+  },
+  "U8": {
+   "tasks": 21,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -884,7 +949,7 @@
   }
  },
  "eth-nounstoken (0x9c8ff314)": {
-  "reference": "eth-nounstoken/hobeck/0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03_uniqueFunction_ocel.json",
+  "reference": "eth-nounstoken\\hobeck\\0x9c8ff314c9bc7f6e59a9d9225fb22946427edc03_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -895,7 +960,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=41; unreachable in the exported E2O table=0",
+  "p1_7": "objects=41; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     12,
@@ -930,18 +995,23 @@
   "U4": {
    "logical_messages": 13,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 13
+  },
+  "U8": {
+   "tasks": 12,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -952,7 +1022,7 @@
   }
  },
  "eth-pancakeswap-masterchefv3 (0x556b9306)": {
-  "reference": "eth-pancakeswap-masterchefv3/hobeck/0x556b9306565093c855aea9ae92a594704c2cd59e_uniqueFunction_ocel.json",
+  "reference": "eth-pancakeswap-masterchefv3\\hobeck\\0x556b9306565093c855aea9ae92a594704c2cd59e_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -963,7 +1033,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=496; unreachable in the exported E2O table=0",
+  "p1_7": "objects=496; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     241,
@@ -998,18 +1068,23 @@
   "U4": {
    "logical_messages": 361,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 361
+  },
+  "U8": {
+   "tasks": 241,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -1020,7 +1095,7 @@
   }
  },
  "eth-sushiswap-router (0xd9e1ce17)": {
-  "reference": "eth-sushiswap-router/hobeck/0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction_ocel.json",
+  "reference": "eth-sushiswap-router\\hobeck\\0xd9e1ce17f2641f24ae83637ab66a2cca9c378b9f_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -1031,7 +1106,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=575; unreachable in the exported E2O table=0",
+  "p1_7": "objects=575; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     267,
@@ -1066,18 +1141,23 @@
   "U4": {
    "logical_messages": 415,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 415
+  },
+  "U8": {
+   "tasks": 267,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -1088,7 +1168,7 @@
   }
  },
  "eth-tornadocash-governance (0x5e_cd499)": {
-  "reference": "eth-tornadocash-governance/hobeck/0x5e_cd49912_ocel.json",
+  "reference": "eth-tornadocash-governance\\hobeck\\0x5e_cd49912_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -1099,7 +1179,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=13; unreachable in the exported E2O table=0",
+  "p1_7": "objects=13; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     4,
@@ -1134,18 +1214,23 @@
   "U4": {
    "logical_messages": 5,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 5
+  },
+  "U8": {
+   "tasks": 4,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -1156,7 +1241,7 @@
   }
  },
  "eth-tornadocash-governance (0x5efda50f)": {
-  "reference": "eth-tornadocash-governance/hobeck/0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction_ocel.json",
+  "reference": "eth-tornadocash-governance\\hobeck\\0x5efda50f22d34f262c29268506c5fa42cb56a1ce_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -1167,7 +1252,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=102; unreachable in the exported E2O table=0",
+  "p1_7": "objects=102; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     35,
@@ -1202,18 +1287,23 @@
   "U4": {
    "logical_messages": 47,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 47
+  },
+  "U8": {
+   "tasks": 35,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -1224,7 +1314,7 @@
   }
  },
  "eth-tornadocash-router (0xd90e2f92)": {
-  "reference": "eth-tornadocash-router/hobeck/0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction_ocel.json",
+  "reference": "eth-tornadocash-router\\hobeck\\0xd90e2f925da726b50c4ed8d0fb90ad053324f31b_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -1235,7 +1325,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=185; unreachable in the exported E2O table=0",
+  "p1_7": "objects=185; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     85,
@@ -1270,18 +1360,23 @@
   "U4": {
    "logical_messages": 146,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 146
+  },
+  "U8": {
+   "tasks": 85,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,
@@ -1292,7 +1387,7 @@
   }
  },
  "eth-uniswap-v2pair-usdc-weth (0xb4e16d01)": {
-  "reference": "eth-uniswap-v2pair-usdc-weth/hobeck/0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc_uniqueFunction_ocel.json",
+  "reference": "eth-uniswap-v2pair-usdc-weth\\hobeck\\0xb4e16d0168e52d35cacd2c6185b44281ec28c9dc_uniqueFunction_ocel.json",
   "passed": true,
   "equivalent": true,
   "structural_criteria_hold": true,
@@ -1303,7 +1398,7 @@
    "message_objects_without_task_ignored": 0
   },
   "conflicting_values": [],
-  "p1_7": "objects=133; unreachable in the exported E2O table=0",
+  "p1_7": "objects=133; unreachable in the exported E2O table=0; E2O to unknown objects=0",
   "comparison": {
    "tasks": [
     61,
@@ -1338,18 +1433,23 @@
   "U4": {
    "logical_messages": 88,
    "several_senders": 0,
-   "recorded_receiver_not_among_receives": 0,
-   "exchange_event_endpoints_disagree": 0
+   "declared_receiver_not_among_receives": 0
   },
   "U6": {
    "correct": 0,
    "correct_multicast": 0,
-   "absent": 0,
-   "absent_no_send": 0,
-   "absent_no_receive": 0,
+   "send_only": 0,
+   "receive_only": 0,
+   "uncorrelated": 0,
    "incoherent": 0,
    "incoherent_several_tasks": 0,
    "no_message_events": 88
+  },
+  "U8": {
+   "tasks": 61,
+   "initiators_not_request_senders": 0,
+   "participants_not_request_receivers": 0,
+   "responses_not_reversing_the_roles": 0
   },
   "profile": {
    "internal_tasks": false,

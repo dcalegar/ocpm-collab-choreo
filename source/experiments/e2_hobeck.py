@@ -178,7 +178,7 @@ def main() -> int:
                      ", ".join(r["N4_attributes_only_ours"]) or "—",
                      ", ".join(r["N4_attributes_only_reference"]) or "—",
                      r["N4_common_attribute_values_differing"]])
-    md = ("# E2: reproduction of Hobeck et al. (eta_H(mu+(L)) vs. their OCEL)\n\n"
+    md = ("# E2: reproduction of Hobeck et al. (eta_H(mu_U(L)) vs. their OCEL)\n\n"
           + md_table(["Dataset", "Equivalent", "Tasks (ours/ref)", "Tasks differing",
                       "Instances", "Scopes", "Message sharing", "Participant types (N2)",
                       "None values (N3)", "Attributes only ours (N4)",

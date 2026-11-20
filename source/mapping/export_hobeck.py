@@ -1,16 +1,17 @@
 """Export adapter eta_H: the choreography view in the representation of Hobeck et
 al. (`HobeckMMW27`, Def. 2), as OCEL 2.0 JSON readable by `ocelchorvalidator`.
 
-It adds no information. It renames types and qualifiers and materializes the
-relations that the unified representation derives:
+It adds no information and recomputes nothing: it renames types and
+qualifiers, and exports task roles and message endpoints as stored, so that a
+disagreement between them (U8) survives the export.
 
 | Hobeck et al. | Unified representation | Derivation |
 |---|---|---|
-| `choreographyInstance`, `choreo:instance` | `ChoreographyCase`, `in_choreography` | renaming |
+| `choreographyInstance`, `choreo:instance` | `ChoreographyCase`, `in_choreography` | renaming; `part_of` is not exported |
 | `subchoreographyInstance`, `choreo:contained-by`, `choreo:contains` | `SubChoreographyCase`, `contained_by`, `contains` | renaming |
 | `choreo:message` | `request` and `response` | both logical messages |
-| `choreo:source`, `choreo:target` | sender and receivers of the logical message | derived (M11) |
-| `choreo:initiator`, `choreo:participant` | sender and receivers of the request | derived (M12) |
+| `choreo:source`, `choreo:target` | `source`, `target` of the logical message (M10), including the response endpoints | prefixing |
+| `choreo:initiator`, `choreo:participant` | `initiator`, `participant` of the task (M12) | prefixing |
 
 Only tasks, their instances, scopes, logical messages, and participants are
 exported. Object types that Def. 2 leaves free are chosen as follows: a message
@@ -96,9 +97,10 @@ def export(ix: Index) -> Dict[str, Any]:
             objects.setdefault(c, {"id": c, "type": INSTANCE})
             rels.append({"objectId": c, "qualifier": "choreo:instance"})
         req = ix.targets(t, u.Q_REQUEST)
-        senders, receivers = ix.endpoints(req[0]) if req else ([], [])
-        rels += [{"objectId": participant(p), "qualifier": "choreo:initiator"} for p in senders]
-        rels += [{"objectId": participant(p), "qualifier": "choreo:participant"} for p in receivers]
+        initiators, participants = ix.roles(t)
+        rels += [{"objectId": participant(p), "qualifier": "choreo:initiator"} for p in initiators]
+        rels += [{"objectId": participant(p), "qualifier": "choreo:participant"}
+                 for p in participants]
         rels += [{"objectId": message(m), "qualifier": "choreo:message"}
                  for m in req + ix.targets(t, u.Q_RESPONSE)]
         rels += [{"objectId": scope(s), "qualifier": "choreo:contained-by"}

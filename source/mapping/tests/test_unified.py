@@ -237,3 +237,21 @@ def test_send_task_participants_include_correlated_receivers():
     assert {(target, q) for source, target, q in o2o
             if source == "message::c1::k" and q == u.Q_TARGET} == {
                 ("part::B", u.Q_TARGET), ("part::C", u.Q_TARGET)}
+
+
+def test_eta_h_exports_stored_roles_and_endpoints():
+    import export_hobeck
+    x = ExchangeEvent(
+        "c1", "Call", T("2020-01-01 10:00"), 0, "A", ("B",), "q",
+        response_key="r", initiators=("C",), participants=("D",),
+        response_senders=("E",), response_receivers=("F",))
+    out = export_hobeck.export(index_of(u.map_log(SourceLog("claims", [], exchange=[x]))))
+    (ev,) = out["events"]
+    rel = {(r["qualifier"], r["objectId"]) for r in ev["relationships"]}
+    assert {("choreo:initiator", "part::C"), ("choreo:participant", "part::D")} <= rel
+    assert not any(q in ("choreo:initiator", "choreo:participant") and o in ("part::A", "part::B")
+                   for q, o in rel)
+    objs = {o["id"]: o for o in out["objects"]}
+    ends = lambda m: {(r["qualifier"], r["objectId"]) for r in objs[m]["relationships"]}  # noqa: E731
+    assert ends("message::c1::q") == {("choreo:source", "part::A"), ("choreo:target", "part::B")}
+    assert ends("message::c1::r") == {("choreo:source", "part::E"), ("choreo:target", "part::F")}

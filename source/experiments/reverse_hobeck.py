@@ -2,7 +2,7 @@
 (`HobeckMMW27`, Def. 2) as a source of the unified mapping.
 
 iota_H reads an OCEL 2.0 JSON log of Hobeck et al. and returns a `SourceLog` of
-the choreography profile, which mu+ then maps: each choreography task becomes
+the choreography profile, which mu_U then maps: each choreography task becomes
 an exchange event, and each message object becomes one logical message (its
 object id is the message identifier, so tasks that share a message object
 share the logical message). No message event is created, and no send or
@@ -11,20 +11,20 @@ receive timestamp is invented.
 | Hobeck et al. | Exchange event |
 |---|---|
 | event with `choreo:instance` (a task) | one exchange event; case = the instance; activity, time, attributes unchanged |
-| request message: the `choreo:message` whose `choreo:source` is the initiator | `key`, `name` (message type), `content` (message attributes), `sender` (source), `receivers` (targets) |
-| the other `choreo:message`, if any | the response: `response_key`, `response_name`, `response_content` |
+| `choreo:initiator`, `choreo:participant` | `initiators`, `participants` (stored roles) |
+| request message: the `choreo:message` whose `choreo:source` includes the initiator | `key`, `name` (message type), `content` (message attributes), `sender` (source), `receivers` (targets) |
+| the other `choreo:message`, if any | the response: `response_key`, `response_name`, `response_content`, `response_senders` (source), `response_receivers` (targets) |
 | `choreo:contained-by` and the `choreo:contains` chain | `scope_path`, outermost first, with the scope `name` |
 | participant object type | participant role (exported back as its type by eta_H) |
 
-When the redundant relations of Hobeck et al. disagree, iota_H does not choose
-silently: it keeps the reading above and counts each case in `diagnostics`:
-- initiators or participants of a task that differ from the source or targets
-  of its request message;
+Task roles and message endpoints are both kept as recorded, also when they
+disagree (C1, C9, C10 of Hobeck et al.); the unified representation stores both
+and U8 reports the disagreement. iota_H counts in `diagnostics` only what it
+cannot represent or must choose:
 - a task with no message, with more than two, or with two messages of which
-  not exactly one starts at the initiator (ambiguous request);
-- a response whose endpoints do not reverse those of the request (the unified
-  representation derives them from the request, U5);
-- a request with several sources;
+  not exactly one starts at the initiator (ambiguous request, C7/C8);
+- a request with several sources (C5), of which only the first is the sender;
+- a scope with several parents, or a task in several scopes;
 - events without `choreo:instance` and message objects used by no task, which
   are not choreography tasks and are ignored.
 
@@ -111,22 +111,25 @@ def read_hobeck_ocel(path: str | Path) -> Tuple[SourceLog, Dict[str, int]]:
         src, tgt = _rels(obj[req], "choreo:source"), _rels(obj[req], "choreo:target")
         if len(src) > 1:
             diag["requests_with_several_sources"] += 1
-        if set(src) != set(initiators) or set(tgt) != set(participants):
-            diag["tasks_whose_roles_differ_from_the_request"] += 1
         x = ExchangeEvent(
             case=case, activity=e["type"], timestamp=pd.Timestamp(e["time"]),
             order=order, sender=pname(src[0]) if src else None,
             receivers=tuple(pname(p) for p in tgt), key=req, name=obj[req]["type"],
-            content=_attrs(obj[req]), attributes=_attrs(e))
+            content=_attrs(obj[req]), attributes=_attrs(e),
+            initiators=tuple(pname(p) for p in initiators),
+            participants=tuple(pname(p) for p in participants))
         for p in src + tgt:
             if p in obj:
                 roles.setdefault(pname(p), obj[p]["type"])
         if resp is not None:
             rs, rt = _rels(obj[resp], "choreo:source"), _rels(obj[resp], "choreo:target")
-            if set(rs) != set(tgt) or set(rt) != set(src):
-                diag["responses_not_reversing_the_request"] += 1
             x.response_key, x.response_name = resp, obj[resp]["type"]
             x.response_content = _attrs(obj[resp])
+            x.response_senders = tuple(pname(p) for p in rs)
+            x.response_receivers = tuple(pname(p) for p in rt)
+            for p in rs + rt:
+                if p in obj:
+                    roles.setdefault(pname(p), obj[p]["type"])
         sc = _rels(e, "choreo:contained-by")
         if len(sc) > 1:
             diag["tasks_in_several_scopes"] += 1
