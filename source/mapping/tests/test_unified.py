@@ -122,6 +122,23 @@ def test_conflicting_content_is_reported_not_lost():
     assert res.stats["n_logical_messages_with_conflicting_values"] == 1
 
 
+@pytest.mark.parametrize("send_minute,kept,values", [
+    (0, "from send", ("from send", "from exchange")),     # the send at 10:00 comes first
+    (9, "from exchange", ("from exchange", "from send")),  # the exchange at 10:04 comes first
+])
+def test_conflicting_names_keep_the_first_in_event_order(send_minute, kept, values):
+    """M10: the first value in event order is kept, across exchange and local
+    events, whichever kind the mapping reads first."""
+    send = local_event("Send", send_minute, cx.ELEM_SEND, "A", "k", to="B")
+    send["msgName"] = "from send"
+    x = [ExchangeEvent("c1", "S", T("2020-01-01 10:04"), 0, "A", ("B",), "k",
+                       name="from exchange")]
+    res = u.map_log(SourceLog("mixed", [], local=pd.DataFrame([send]), exchange=x))
+    assert res.objects_df.set_index(cx.COL_OID).loc["message::c1::k", u.A_NAME] == kept
+    assert [(c["kept"], tuple(c["values"])) for c in res.stats["conflicting_values"]] == [
+        (kept, values)]
+
+
 def test_u6_diagnoses_a_reused_key_without_message_events():
     """Choreography profile: two exchange events reuse one identifier, so one
     logical message has two tasks and no message events."""

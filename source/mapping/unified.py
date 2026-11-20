@@ -112,12 +112,21 @@ class _Msg:
     oid: str
     case: str
     key: Optional[str]
-    names: List[str] = field(default_factory=list)
-    content: Dict[str, List[Any]] = field(default_factory=dict)  # attribute -> values, in order
+    # Each name and content value carries the position (time, event id) of the
+    # event that records it, so that the first one in event order is kept (M10).
+    names: List[Tuple[Tuple[pd.Timestamp, str], str]] = field(default_factory=list)
+    content: Dict[str, List[Tuple[Tuple[pd.Timestamp, str], Any]]] = field(
+        default_factory=dict)
     sends: List[str] = field(default_factory=list)      # event ids
     receives: List[str] = field(default_factory=list)   # event ids
     senders: List[str] = field(default_factory=list)    # all recorded assertions
     receivers: List[str] = field(default_factory=list)
+
+
+def _utc(t: Any) -> pd.Timestamp:
+    """An event time as a UTC timestamp, so that exchange and local times compare."""
+    ts = pd.Timestamp(t)
+    return ts.tz_localize("UTC") if ts.tzinfo is None else ts.tz_convert("UTC")
 
 
 def has_response(x: ExchangeEvent) -> bool:
@@ -181,7 +190,7 @@ def map_log(src: SourceLog) -> UnifiedResult:
             name = next((clean(r.get(k)) for k in src.name_attrs
                          if clean(r.get(k)) is not None), None)
             local_msgs.append((
-                r[COL_EID], case_of_event[r[COL_EID]], elem,
+                r[COL_EID], r[COL_TS], case_of_event[r[COL_EID]], elem,
                 clean(r.get(src.key_attr)), name,
                 clean(r.get("participant")), clean(r.get("fromParticipant")),
                 clean(r.get("toParticipant"))))
@@ -257,20 +266,21 @@ def map_log(src: SourceLog) -> UnifiedResult:
             msgs[oid] = _Msg(oid, case, key)
         return msgs[oid]
 
-    def add_content(m: _Msg, content: Dict[str, Any]) -> None:
+    def add_content(m: _Msg, at: Tuple[pd.Timestamp, str], content: Dict[str, Any]) -> None:
         for k, v in content.items():
             if v is not None:              # an empty string is content; None is absent
-                m.content.setdefault(k, []).append(v)
+                m.content.setdefault(k, []).append((at, v))
 
     task_of: Dict[str, List[Tuple[str, str]]] = {}   # eid -> request/response
     task_roles: Dict[str, Tuple[Tuple[str, ...], Tuple[str, ...]]] = {}
     local_task_initiators: Dict[str, Tuple[str, ...]] = {}
     exchange_recorded = set()   # logical messages recorded by an exchange event (M12)
     for eid, x in exchange:
+        at = (_utc(x.timestamp), eid)
         req = logical(x.case, x.key, eid)
         if x.name:
-            req.names.append(x.name)
-        add_content(req, x.content)
+            req.names.append((at, x.name))
+        add_content(req, at, x.content)
         if x.sender:
             req.senders.append(x.sender)
         req.receivers.extend(x.receivers)
@@ -283,8 +293,8 @@ def map_log(src: SourceLog) -> UnifiedResult:
         if has_response(x):
             resp = logical(x.case, x.response_key, eid + "::response")
             if x.response_name:
-                resp.names.append(x.response_name)
-            add_content(resp, x.response_content)
+                resp.names.append((at, x.response_name))
+            add_content(resp, at, x.response_content)
             exchange_recorded.add(resp.oid)
             response_senders = (x.receivers if x.response_senders is None
                                 else x.response_senders)
@@ -295,10 +305,10 @@ def map_log(src: SourceLog) -> UnifiedResult:
             roles.append((Q_RESPONSE, resp.oid))
         task_of[eid] = roles
 
-    for eid, case, elem, key, name, executing, frm, to in local_msgs:
+    for eid, ts, case, elem, key, name, executing, frm, to in local_msgs:
         m = logical(case, key, eid)
         if name:
-            m.names.append(name)
+            m.names.append(((_utc(ts), eid), name))
         (m.sends if elem == cx.ELEM_SEND else m.receives).append(eid)
         if elem == cx.ELEM_SEND:
             if executing:
@@ -323,7 +333,8 @@ def map_log(src: SourceLog) -> UnifiedResult:
 
     # A logical message holds one value per attribute. When its carriers record
     # different names or contents (e.g., a reused identifier), the first value
-    # in event order is kept and the conflict is reported with all values, so
+    # in event order (time, then event id), across exchange and local events,
+    # is kept and the conflict is reported with all values in that order, so
     # that nothing is lost silently (diagnostic of the mapping, not repaired).
     conflicts: List[Dict[str, Any]] = []
     for m in msgs.values():
@@ -333,9 +344,10 @@ def map_log(src: SourceLog) -> UnifiedResult:
         values = dict(m.content)
         if m.names:
             values[A_NAME] = m.names
-        for k, vs in values.items():
+        for k, positioned in values.items():
             if k != A_NAME and (k in attrs or k in (COL_OID, COL_TYPE, A_NAME)):
                 raise ValueError(f"message content attribute {k!r} is reserved")
+            vs = [v for _, v in sorted(positioned, key=lambda p: p[0])]
             attrs[k] = vs[0]
             distinct = list(dict.fromkeys(str(v) for v in vs))
             if len(distinct) > 1:

@@ -131,6 +131,14 @@ def write_outputs(res: u.UnifiedResult, out: str) -> Dict[str, Any]:
                        "witness_e2o_edges": len(view_rel) - len(view.relations_df)}
     else:
         Path(out + "_infsys.sqlite").unlink(missing_ok=True)
+    # P1.7 again on the written files, read back (the checks above ran on the
+    # tables handed to the exporters).
+    for path in (out + ".jsonocel", out + ".sqlite"):
+        crits.append(criteria.p1_7_file("core", path, res.events_df, res.objects_df, rel,
+                                        res.o2o_df))
+    if view_rel is not None:
+        crits.append(criteria.p1_7_file("alpha_C", out + "_infsys.sqlite", view.events_df,
+                                        view.objects_df, view_rel, view.o2o_df))
     report = {
         "inputs": res.source.inputs,
         "stats": res.stats,

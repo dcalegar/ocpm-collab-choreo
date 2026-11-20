@@ -16,8 +16,11 @@ view (`export_hobeck.py`).
 
 from __future__ import annotations
 
+import json
+import sqlite3
 from collections import Counter
 from dataclasses import asdict, dataclass, field
+from pathlib import Path
 from typing import Any, Dict, List, Optional
 
 import pandas as pd
@@ -30,6 +33,7 @@ STRUCTURAL, DIAGNOSTIC = "structural", "diagnostic"
 MESSAGE_ROLES = (cx.Q_SEND, cx.Q_RECEIVE, u.Q_REQUEST, u.Q_RESPONSE)
 EXPECTED_LINK = {cx.ELEM_SEND: cx.Q_SEND, cx.ELEM_RECEIVE: cx.Q_RECEIVE}
 FROM_ATTR, TO_ATTR = "fromParticipant", "toParticipant"   # M8 / M9 event attributes
+EXECUTING_ATTR = "participant"                            # M8: who executes a local event
 
 
 @dataclass
@@ -62,7 +66,7 @@ def _carriers(ix: Index, m: str) -> set:
 
 
 def u1_instance(ix: Index) -> Criterion:
-    bad_inst, bad_case, bad_part, empty = [], [], [], []
+    bad_inst, bad_case, bad_part, other_parent, empty = [], [], [], [], []
     for t in ix.tasks():
         chcs = ix.targets(t, u.Q_IN_CHOREOGRAPHY)
         if len(chcs) != 1 or ix.objects[chcs[0]][cx.COL_OTYPE] != u.OT_CHC:
@@ -75,14 +79,18 @@ def u1_instance(ix: Index) -> Criterion:
         parents = ix.o2o_targets(c, u.Q_PART_OF)
         if len(parents) != 1 or ix.objects[parents[0]][cx.COL_OTYPE] != cx.OT_CC:
             bad_part.append(c)
+        elif ix.objects[parents[0]].get(u.A_CASE) != ix.objects[c].get(u.A_CASE):
+            other_parent.append(c)      # M12: part of the CollaborationCase of its case
         if not ix.events_of(c, u.Q_IN_CHOREOGRAPHY):
             empty.append(c)
     counts = {"tasks": len(ix.tasks()), "choreography_cases": len(ix.of_type(u.OT_CHC)),
               "tasks_without_exactly_one_case": len(bad_inst),
               "tasks_in_another_case_than_their_request": len(bad_case),
               "cases_without_exactly_one_part_of": len(bad_part),
+              "cases_part_of_another_case": len(other_parent),
               "cases_without_tasks": len(empty)}
-    return _crit("U1 Instance", STRUCTURAL, counts, bad_inst + bad_case + bad_part + empty,
+    return _crit("U1 Instance", STRUCTURAL, counts,
+                 bad_inst + bad_case + bad_part + other_parent + empty,
                  [k for k in counts if k not in ("tasks", "choreography_cases")])
 
 
@@ -173,18 +181,23 @@ def _endpoint_findings(ix: Index, m: str) -> Dict[str, bool]:
     """Disagreements among the claims of the carriers of a logical message.
     The stored senders join every sender claim (the executing participant of
     each send, the sender named by each receive or exchange event). The
-    receivers that sends and request-carrying exchange events declare must be
-    among those that the receives observe, when there are any; an additional
-    receive is a valid multicast."""
+    stored receivers join every receiver claim (the receivers that sends
+    name, those that an exchange event names for its request or its response,
+    and the executing participant of each receive); each must be among those
+    that the receives observe, when there are any. A receive observes only
+    its executing participant (M10), not the receiver it names, which is one
+    more claim. An additional receive is a valid multicast."""
     sends, receives = ix.message_events(m)
-    senders, _ = ix.endpoints(m)
+    senders, receivers = ix.endpoints(m)
     out = {"sender": len(senders) > 1, "receiver": False}
     if receives:
-        observed = {_attr(ix, r, TO_ATTR) for r in receives} - {None}
-        declared = {_attr(ix, s, TO_ATTR) for s in sends}
-        declared |= {_attr(ix, x, TO_ATTR) for x in ix.events_of(m, u.Q_REQUEST)
-                     if not ix.is_local(x)}
-        out["receiver"] = bool(declared - {None} - observed)
+        pid = cx._participant_id
+        observed = {pid(p) for r in receives for p in [_attr(ix, r, EXECUTING_ATTR)] if p}
+        # The toParticipant of an exchange event names its request receiver.
+        naming = sends + [x for x in ix.events_of(m, u.Q_REQUEST) if not ix.is_local(x)]
+        declared = set(receivers) | {pid(p) for e in naming
+                                     for p in [_attr(ix, e, TO_ATTR)] if p}
+        out["receiver"] = bool(declared - observed)
     return out
 
 
@@ -358,6 +371,60 @@ def p1_7(label: str, objects_df: pd.DataFrame, export_relations_df: pd.DataFrame
         f"; e.g. {dangling[:5]}" if dangling else "")
     return Criterion(f"{c.name} ({label})", STRUCTURAL, bool(c.passed) and not dangling,
                      {"detail": detail})
+
+
+def read_serialization(path: str) -> Dict[str, set]:
+    """Event and object ids, E2O, and O2O of a written OCEL 2.0 file (pm4py's
+    SQLite layout or its .jsonocel)."""
+    if str(path).endswith(".sqlite"):
+        con = sqlite3.connect(str(path))
+        try:
+            q = lambda sql: con.execute(sql).fetchall()  # noqa: E731
+            return {"events": {i for (i,) in q("select ocel_id from event")},
+                    "objects": {i for (i,) in q("select ocel_id from object")},
+                    "e2o": set(q("select ocel_event_id, ocel_object_id, ocel_qualifier "
+                                 "from event_object")),
+                    "o2o": set(q("select ocel_source_id, ocel_target_id, ocel_qualifier "
+                                 "from object_object"))}
+        finally:
+            con.close()
+    with open(path, encoding="utf-8") as f:
+        data = json.load(f)
+    rel = lambda items: {(it["id"], r["objectId"], r.get("qualifier", ""))  # noqa: E731
+                         for it in items for r in it.get("relationships") or []}
+    return {"events": {e["id"] for e in data.get("events", [])},
+            "objects": {o["id"] for o in data.get("objects", [])},
+            "e2o": rel(data.get("events", [])), "o2o": rel(data.get("objects", []))}
+
+
+def _triples(df: Optional[pd.DataFrame], a: str, b: str) -> set:
+    if df is None or df.empty:
+        return set()
+    return {(r[a], r[b], r[cx.COL_QUALIFIER]) for r in df.to_dict("records")}
+
+
+def p1_7_file(label: str, path: str, events_df: pd.DataFrame, objects_df: pd.DataFrame,
+              export_relations_df: pd.DataFrame, o2o_df: pd.DataFrame) -> Criterion:
+    """P1.7 on a written file: the file is read back, P1.7 is checked on what
+    it contains, and its events, objects, E2O, and O2O must be those handed to
+    the exporter, so that the reachability checked before writing survives the
+    serialization."""
+    got = read_serialization(path)
+    want = {"events": set(events_df[cx.COL_EID]) if len(events_df) else set(),
+            "objects": set(objects_df[cx.COL_OID]) if len(objects_df) else set(),
+            "e2o": _triples(export_relations_df, cx.COL_EID, cx.COL_OID),
+            "o2o": _triples(o2o_df, cx.COL_OID, cx.COL_OID2)}
+    reach = p1_7(label, pd.DataFrame({cx.COL_OID: sorted(got["objects"])}),
+                 pd.DataFrame(sorted(got["e2o"]),
+                              columns=[cx.COL_EID, cx.COL_OID, cx.COL_QUALIFIER]))
+    counts: Dict[str, Any] = {"detail": reach.counts["detail"]}
+    for k in ("events", "objects", "e2o", "o2o"):
+        counts[f"{k}_missing_in_file"] = len(want[k] - got[k])
+        counts[f"{k}_added_in_file"] = len(got[k] - want[k])
+    ok = reach.ok and not any(v for k, v in counts.items() if k != "detail")
+    suffix = Path(path).name
+    return Criterion(f"{reach.name.rsplit(' (', 1)[0]} ({label}, {suffix})", STRUCTURAL, ok,
+                     counts)
 
 
 def infsys_criteria(res: "u.UnifiedResult", core_export_relations: pd.DataFrame,

@@ -61,6 +61,22 @@ def test_structural_criteria_hold(log):
     assert c["U3"].counts["messages_without_events"] == 0
 
 
+# ---- U1 -------------------------------------------------------------------
+
+def test_u1_detects_a_choreography_case_part_of_another_case():
+    res = u.map_log(two_way_complete())
+    objects = pd.concat([res.objects_df, pd.DataFrame([{
+        cx.COL_OID: "cc::other", cx.COL_OTYPE: cx.OT_CC, u.A_CASE: "other"}])],
+        ignore_index=True)
+    o2o = res.o2o_df.copy()
+    redirect = (o2o[cx.COL_OID] == "chc::c1") & (o2o[cx.COL_QUALIFIER] == u.Q_PART_OF)
+    assert redirect.sum() == 1
+    o2o.loc[redirect, cx.COL_OID2] = "cc::other"
+    u1 = criteria.u1_instance(build_index(res.events_df, objects, res.relations_df, o2o))
+    assert not u1.ok and u1.counts["cases_part_of_another_case"] == 1
+    assert u1.counts["cases_without_exactly_one_part_of"] == 0
+
+
 # ---- U3 -------------------------------------------------------------------
 
 def test_u3_detects_a_message_event_with_two_messages():
@@ -126,6 +142,38 @@ def test_u4_exchange_declared_receiver_not_observed():
     log.exchange = [ExchangeEvent("c1", "Send", T("2020-01-01 10:00"), 0, "A", ("B",), "k",
                                   attributes={"toParticipant": "B"})]
     assert crits(log)["U4"].counts["declared_receiver_not_among_receives"] == 1
+
+
+@pytest.mark.parametrize("response_receivers,findings", [(("C",), 1), (None, 0)],
+                         ids=["declared_C_observed_A", "default_reversal"])
+def test_u4_u6_response_receiver_that_the_exchange_event_declares(response_receivers,
+                                                                  findings):
+    """The exchange event declares the receiver of its response; a receive
+    observes A. Only a declared C is a U4 finding (the default is the request
+    sender, A)."""
+    log = cl(local_event("Get answer", 5, cx.ELEM_RECEIVE, "A", "r", frm="B"))
+    log.exchange = [ExchangeEvent("c1", "Call", T("2020-01-01 10:00"), 0, "A", ("B",), "q",
+                                  response_key="r", response_receivers=response_receivers)]
+    c = crits(log)
+    assert c["U4"].counts["declared_receiver_not_among_receives"] == findings
+    assert c["U6"].counts["incoherent"] == findings
+    assert all(c[k].ok for k in STRUCTURAL)
+
+
+def test_u4_u6_receiver_named_by_a_receive_is_not_observed():
+    """The exchange event declares C as the receiver of its response; the
+    receive is executed by A and still names toParticipant=C. Only the
+    executing participant is observed (M10), so C remains a U4 finding."""
+    log = cl(local_event("Get answer", 5, cx.ELEM_RECEIVE, "A", "r", frm="B", to="C"))
+    log.exchange = [ExchangeEvent("c1", "Call", T("2020-01-01 10:00"), 0, "A", ("B",), "q",
+                                  response_key="r", response_receivers=("C",))]
+    res = u.map_log(log)
+    recv = res.events_df.set_index(cx.COL_EID).loc[eid(res, "Get answer")]
+    assert recv["participant"] == "A" and recv["toParticipant"] == "C"
+    c = by_name(criteria.unified_criteria(index_of(res), KEY))
+    assert c["U4"].counts["declared_receiver_not_among_receives"] == 1
+    assert c["U6"].counts["incoherent"] == 1
+    assert all(c[k].ok for k in STRUCTURAL)
 
 
 def test_u4_u6_several_senders():
@@ -206,6 +254,31 @@ def test_core_witnesses_reference_only_core_objects():
     rel = map_log.export_relations(res)
     assert set(rel[cx.COL_OID]) <= set(res.objects_df[cx.COL_OID])
     assert not any(o.startswith("msg::") for o in rel[cx.COL_OID])
+
+
+def test_p1_7_holds_on_the_written_files(tmp_path):
+    report = map_log.write_outputs(u.map_log(two_way_complete()), str(tmp_path / "tw"))
+    files = [c for c in report["criteria"] if c["name"].startswith("P1.7") and "," in c["name"]]
+    assert [c["name"] for c in files] == [
+        "P1.7 Export reachability (core, tw.jsonocel)",
+        "P1.7 Export reachability (core, tw.sqlite)",
+        "P1.7 Export reachability (alpha_C, tw_infsys.sqlite)"]
+    assert all(c["ok"] for c in files) and report["structural_criteria_hold"]
+
+
+def test_p1_7_file_detects_what_the_serialization_lost(tmp_path):
+    import sqlite3
+    res = u.map_log(two_way_complete())
+    map_log.write_outputs(res, str(tmp_path / "tw"))
+    con = sqlite3.connect(str(tmp_path / "tw.sqlite"))
+    con.execute("delete from event_object where ocel_object_id = 'chc::c1'")
+    con.commit()
+    con.close()
+    p = criteria.p1_7_file("core", str(tmp_path / "tw.sqlite"), res.events_df, res.objects_df,
+                           map_log.export_relations(res), res.o2o_df)
+    assert not p.ok
+    assert p.counts["e2o_missing_in_file"] >= 1 and "unreachable in the exported E2O table=1" \
+        in p.counts["detail"]
 
 
 def test_p1_7_rejects_an_edge_to_an_unknown_object():
