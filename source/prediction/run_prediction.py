@@ -13,8 +13,11 @@ things adapt it to the choreography view:
 2. OCPA adds every event of every reached object to a process execution, so the task
    roles (`initiator`, `participant`) to the shared, log-wide participant objects would
    connect all cases. As InfSys does for `in_participant` (`features.io_ocel`, not
-   modified), OCPA reads a temporary copy of the log without these E2O relations, and
-   without the witness edges that reuse `source` / `target`, except one row per object.
+   modified), OCPA reads a temporary copy of the log without these E2O relations, nor
+   `in_participant` and the witness edges that reuse `source` / `target` / `from` /
+   `to`, except one row per object over all of them. Filtering all of them at once
+   leaves one witness per participant; filtering the roles apart from the InfSys
+   qualifiers would leave two, which can join two cases of a complete log.
    The label reader keeps reading the roles from the original file.
 3. `run_one_log` builds its label log with `read_ocel2_labels`, the InfSys adapter of
    the collaboration view. `_label_reader` replaces that one module attribute, for the
@@ -72,8 +75,10 @@ CHL_LOGS = ["artificial1", "artificial5", "healthcare", "real1", "real2", "real3
             "real4", "real5", "smartagriculture"]
 
 CHOREOGRAPHY_SCHEMA = Schema(ot_cc=cv.OT_CHC, ot_message=cv.OT_MESSAGE)
-# E2O relations to log-wide participant objects: task roles (M12) and export witnesses.
-ROLE_QUALIFIERS = (cv.Q_INITIATOR, cv.Q_PARTICIPANT, cv.Q_SOURCE, cv.Q_TARGET)
+# E2O relations to log-wide participant objects: task roles (M12), the direct edge of M6,
+# and export witnesses that reuse an endpoint qualifier.
+ROLE_QUALIFIERS = (cv.Q_INITIATOR, cv.Q_PARTICIPANT, "in_participant",
+                   cv.Q_SOURCE, cv.Q_TARGET, "from", "to")
 FOLDS = HERE / "folds"
 RESULT_NAME = "e4_prediction"
 

@@ -129,3 +129,21 @@ def test_healthcare_executions_with_and_without_the_role_filter():
     assert len(sizes) == 100 and sum(sizes) == 550 and max(sizes) < 550
     unfiltered = load_ocpa_ocel(rp.CHOREOGRAPHY_SCHEMA, str(HC_CHL))
     assert {len(x) for x in unfiltered.process_executions} == {550}
+
+
+HC_COMPLETE = HC_CHL.with_name("healthcare_complete.sqlite")
+
+
+@pytest.mark.skipif(not HC_COMPLETE.exists(), reason="run source/mapping/map_all.py first")
+def test_healthcare_complete_executions_partition_the_events():
+    """With task roles and in_participant filtered together, CollaborationCase
+    executions of the complete core partition all 2000 events (1450 task instances
+    and 550 exchange events): a participant keeps a single witness row."""
+    from collections import Counter
+    from features.io_ocel import load_ocpa_ocel
+    from tasks.schema import Schema
+    with rp.without_role_relations(HC_COMPLETE) as copy:
+        ocel = load_ocpa_ocel(Schema(ot_message=cv.OT_MESSAGE), str(copy))
+    seen = Counter(e for x in ocel.process_executions for e in x)
+    assert len(ocel.process_executions) == 100
+    assert len(seen) == 2000 and max(seen.values()) == 1

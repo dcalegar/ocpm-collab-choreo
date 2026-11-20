@@ -29,9 +29,13 @@ Notes:
   roles to the shared participant objects would connect all cases (each of the 100
   executions of the Healthcare ChL would contain all 550 tasks). As InfSys does for
   `in_participant`, `run_prediction.py` hands OCPA a temporary copy without the
-  `initiator` and `participant` E2O relations (and without witness edges that reuse
-  `source` / `target`), keeping one row per object; then the executions have 5.5 tasks
-  on average. `ocpm-collab-ppm` is not modified.
+  `initiator`, `participant`, and `in_participant` E2O relations (and without witness
+  edges that reuse `source` / `target` / `from` / `to`), keeping one row per object over
+  all of them; then the executions have 5.5 tasks on average. Filtering them together
+  matters for a complete log: on the complete profile of Healthcare, the 100
+  `CollaborationCase` executions then partition all 2000 events, while filtering the
+  roles apart from `in_participant` left 15 events in two executions.
+  `ocpm-collab-ppm` is not modified.
 - The parameters are part of the task, so they are given, never chosen from the data:
   the participant of NE-NMPa, NV-NMPa, NV-PaT, and OB-P (`--participant`) and the
   activity of OB-M (`--activity`). Without a parameter, its tasks are skipped and
