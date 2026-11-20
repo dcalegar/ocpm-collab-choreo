@@ -9,8 +9,10 @@ Each restated task is an InfSys task (`tasks.catalog.TASKS`) whose label functio
   tasks for messages, and the last task for the end of the case.
 
 Collapsed and lost tasks are listed for completeness and are never computed: a
-collapsed task has, at every prefix, the target of the task it collapses into, and a
-lost task needs the receive event, which the choreography view does not record.
+collapsed task has, at every prefix, the target of the task it collapses into or a
+one-to-one relabeling of it (NE-NEPa predicts the pair (activity, sender), which a
+single sender per activity makes a relabeling of the activity), and a lost task needs
+the receive event, which the choreography view does not record.
 """
 
 from __future__ import annotations
@@ -54,7 +56,7 @@ RESTATED: Dict[str, RestatedTask] = {t.key: t for t in [
 
 # (InfSys key, direction or None) -> task it collapses into.
 COLLAPSED_INTO: Dict[Tuple[str, Optional[str]], str] = {
-    ("NE-NEPa", None): "NE-NEPr",     # if every activity has a single sender
+    ("NE-NEPa", None): "NE-NEPr",     # relabeling, if every activity has a single sender
     ("NE-NMPr", None): "NE-NEPr",     # if messages are identified by the send activity
     ("NE-NPaM", "send"): "NE-NPaA",
     ("NV-TNM", "send"): "NV-TNE",
