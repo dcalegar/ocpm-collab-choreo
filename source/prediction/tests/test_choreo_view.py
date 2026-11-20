@@ -1,13 +1,13 @@
 """Minimal checks of the choreography-view adapter and of the restated tasks.
 
-- `read_choreography` derives senders and receivers as the representation defines them,
-  on a synthetic OCEL 2.0 SQLite log.
+- `read_choreography` reads the stored task roles and request endpoints of the
+  representation, independently of each other, on a synthetic OCEL 2.0 SQLite log.
 - The InfSys label functions, run unchanged on the adapted views, give the hand-computed
   targets of the ten restated tasks.
 - The involvement view computes exactly "a task involves p", and the unconditional
   collapses of the paper hold.
 - On the mapped ChL of Artificial5 (skipped if `map_all.py` has not run), the adapter
-  agrees with the mapping's own derivation of endpoints (`index.Index.endpoints`).
+  agrees with the mapping's own index (`index.Index.roles`, `Index.endpoints`).
 
 Run: .venv/bin/python -m pytest source/prediction/tests
 """
@@ -61,37 +61,39 @@ def _write_ocel(path: Path, events, objects, e2o, o2o) -> None:
     con.close()
 
 
-def test_read_choreography_endpoints(tmp_path):
-    """Endpoints from the logical message (no message events), from its Message objects
-    (with message events), and a task without receiver; local events are not tasks."""
+def test_read_choreography_roles_and_endpoints(tmp_path):
+    """Roles from initiator/participant, request endpoints from source/target, read
+    independently (task C disagrees on purpose); a task without receiver; local
+    events, even with send/receive relations, are not tasks."""
     path = tmp_path / "log.sqlite"
     parts = [(f"part::{p}", f"Party{p}", {"name": p}) for p in "PQR"]
     events = [("x::c1::0", "A", T0),
-              ("e::c1::1", "Local", T0 + timedelta(seconds=5)),   # local event, no request
+              ("e::c1::1", "Local", T0 + timedelta(seconds=5)),   # receive, no request
               ("x::c1::2", "B", T0 + timedelta(seconds=10)),
               ("x::c1::3", "C", T0 + timedelta(seconds=20))]
     objects = parts + [("chc::c1", "ChoreographyCase", {}),
-                       ("cm::c1::a", "ChoreographyMessage", {}),
-                       ("cm::c1::b", "ChoreographyMessage", {}),
-                       ("cm::c1::c", "ChoreographyMessage", {}),
-                       ("msg::s", "Message", {}), ("msg::r", "Message", {})]
+                       ("message::c1::a", "Message", {}),
+                       ("message::c1::b", "Message", {}),
+                       ("message::c1::c", "Message", {})]
     e2o = [(e, "chc::c1", "in_choreography") for e in ("x::c1::0", "x::c1::2", "x::c1::3")]
-    e2o += [("x::c1::0", "cm::c1::a", "request"), ("x::c1::2", "cm::c1::b", "request"),
-            ("x::c1::3", "cm::c1::c", "request")]
-    o2o = [("cm::c1::a", "part::P", "from"), ("cm::c1::a", "part::Q", "to"),
-           ("cm::c1::b", "part::Q", "from"),                       # no receiver recorded
-           ("cm::c1::c", "msg::s", "sent_as"), ("cm::c1::c", "msg::r", "received_as"),
-           ("msg::s", "part::R", "from"), ("msg::s", "part::P", "to"),
-           ("msg::r", "part::R", "from"), ("msg::r", "part::P", "to"),
-           ("cm::c1::c", "part::Q", "to")]                         # ignored: message events exist
+    e2o += [("x::c1::0", "message::c1::a", "request"), ("x::c1::2", "message::c1::b", "request"),
+            ("x::c1::3", "message::c1::c", "request"),
+            ("e::c1::1", "message::c1::a", "receive"),
+            ("x::c1::0", "part::P", "initiator"), ("x::c1::0", "part::Q", "participant"),
+            ("x::c1::2", "part::Q", "initiator"),
+            ("x::c1::3", "part::R", "initiator"), ("x::c1::3", "part::P", "participant")]
+    o2o = [("message::c1::a", "part::P", "source"), ("message::c1::a", "part::Q", "target"),
+           ("message::c1::b", "part::Q", "source"),                 # no receiver recorded
+           ("message::c1::c", "part::Q", "source"), ("message::c1::c", "part::P", "target")]
     _write_ocel(path, events, objects, e2o, o2o)
 
     view = cv.read_choreography(path)
     assert list(view.cases) == ["chc::c1"]
-    got = [(t.event_id, t.activity, t.sender, t.receivers) for t in view.cases["chc::c1"]]
-    assert got == [("x::c1::0", "A", "P", ("Q",)),
-                   ("x::c1::2", "B", "Q", ()),
-                   ("x::c1::3", "C", "R", ("P",))]
+    got = [(t.event_id, t.activity, t.initiator, t.participants, t.message_sender,
+            t.message_receivers) for t in view.cases["chc::c1"]]
+    assert got == [("x::c1::0", "A", "P", ("Q",), "P", ("Q",)),
+                   ("x::c1::2", "B", "Q", (), "Q", ()),
+                   ("x::c1::3", "C", "R", ("P",), "Q", ("P",))]
     assert view.participants() == ["P", "Q", "R"]
 
 
@@ -99,8 +101,9 @@ def test_read_choreography_endpoints(tmp_path):
 def _task(i, act, sender, receivers, secs):
     return cv.ChoreographyTask(event_id=f"x::c1::{i}", case_id="chc::c1", activity=act,
                                timestamp=T0 + timedelta(seconds=secs),
-                               message=f"cm::c1::{i}", sender=sender,
-                               receivers=tuple(receivers))
+                               message=f"message::c1::{i}", initiator=sender,
+                               participants=tuple(receivers), message_sender=sender,
+                               message_receivers=tuple(receivers))
 
 
 @pytest.fixture
@@ -169,7 +172,7 @@ def _mapping_env() -> bool:
 def test_artificial5_chl_matches_mapping_index():
     view = cv.read_choreography(A5_CHL)
     assert len(view.cases) == 100 and len(view.tasks) == 530
-    assert sum(1 for t in view.tasks if not t.receivers) == 44
+    assert sum(1 for t in view.tasks if not t.participants) == 44
 
     mapping = REPO / "source" / "mapping"
     sys.path.insert(0, str(mapping))
@@ -181,9 +184,12 @@ def test_artificial5_chl_matches_mapping_index():
         chl = next((REPO / "data" / "artificial5" / "pena").glob("*_chor.xes"))
     ix = index_of(u.map_log(sources.read_chl(str(chl), sources.MSG_KEY)))
     for t in view.tasks:
+        initiators, participants = ix.roles(t.event_id)
         senders, receivers = ix.endpoints(t.message)
-        assert [ix.participant_name(p) for p in senders] == [t.sender]
-        assert sorted(ix.participant_name(p) for p in receivers) == list(t.receivers)
+        assert [ix.participant_name(p) for p in initiators] == [t.initiator]
+        assert sorted(ix.participant_name(p) for p in participants) == list(t.participants)
+        assert [ix.participant_name(p) for p in senders] == [t.message_sender]
+        assert sorted(ix.participant_name(p) for p in receivers) == list(t.message_receivers)
 
     # Every restated task yields labels on the real log.
     p = "PartyA"

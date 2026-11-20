@@ -13,7 +13,7 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
 - [x] Punto 2: adaptador InfSys $\alpha_C$.
 - [x] Punto 3: índices, serialización y criterios.
 - [x] Punto 4: adaptadores Hobeck.
-- [ ] Punto 5: predicción.
+- [x] Punto 5: predicción.
 - [ ] Punto 6: experimentos y documentación.
 
 ## 1. Actualizar el modelo fuente y el núcleo
@@ -205,6 +205,24 @@ compatibilidad mediante los adaptadores $\alpha_C$ y $\eta_H$.
 - Filtrar E2O `initiator`/`participant` en una copia temporal antes de delegar
   el SQLite a OCPA, sin modificar `ocpm-collab-ppm`.
 - Comprobar en Healthcare 100 ejecuciones y 5,5 eventos por ejecución, no 550.
+
+### Resultado del punto 5
+
+- `choreo_view` lee el iniciador y los participantes de cada tarea desde
+  `initiator`/`participant` y el emisor y receptores del request desde
+  `source`/`target` de su `Message`; los roles dan el `actor` de las vistas, y
+  los endpoints, `msg_from`/`msg_to`.
+- `run_prediction` usa `Message` como tipo de mensaje y entrega a OCPA una
+  copia temporal sin E2O `initiator`/`participant` (ni testigos
+  `source`/`target`), salvo una fila por objeto, como InfSys hace con
+  `in_participant`; ocpm-collab-ppm no se modifica.
+- Validación: pruebas de predicción, 18 pasan en `.venv` y 26 en
+  `.venv-predict` (una omitida en cada uno por depender del otro entorno). En
+  Healthcare, con el filtro hay 100 ejecuciones y 550 eventos (5,5 por
+  ejecución); sin él, cada ejecución contiene los 550. E4 termina de extremo a
+  extremo con las diez tareas: muestras, etiquetas y folds idénticos al
+  resultado anterior, y métricas iguales salvo diferencias de 1e-5 en tres
+  regresiones.
 
 ## 6. Actualizar experimentos y documentación
 

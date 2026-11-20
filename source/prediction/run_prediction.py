@@ -6,17 +6,23 @@ the random forest (`predictors`), the degeneracy flag, and the trivial baseline.
 things adapt it to the choreography view:
 
 1. The schema sets `ChoreographyCase` as the case type, so OCPA's leading-type
-   extraction builds one process execution per choreography case, and
-   `ChoreographyMessage` as the message type of the "previous message count" feature.
+   extraction builds one process execution per choreography case, and the logical
+   `Message` as the message type of the "previous message count" feature.
    In a ChL there are no `OrchestrationCase` objects, so the InfSys feature that counts
    them is constant 0.
-2. `run_one_log` builds its label log with `read_ocel2_labels`, the InfSys adapter of
+2. OCPA adds every event of every reached object to a process execution, so the task
+   roles (`initiator`, `participant`) to the shared, log-wide participant objects would
+   connect all cases. As InfSys does for `in_participant` (`features.io_ocel`, not
+   modified), OCPA reads a temporary copy of the log without these E2O relations, and
+   without the witness edges that reuse `source` / `target`, except one row per object.
+   The label reader keeps reading the roles from the original file.
+3. `run_one_log` builds its label log with `read_ocel2_labels`, the InfSys adapter of
    the collaboration view. `_label_reader` replaces that one module attribute, for the
    duration of a call, with the neutral view of `choreo_view`. OCPA still reads the
    SQLite file itself, and the alignment oracle of `extract_feature_table` (OCPA's
    remaining time equals NV-PrT on the adapted log, event by event) checks that both
    sides see the same executions and events.
-3. Each log runs up to twice, once per view (`tasks_chor.RESTATED`): the sender view for
+4. Each log runs up to twice, once per view (`tasks_chor.RESTATED`): the sender view for
    NE-NEPr, NV-TNE, OB-M, NE-NPaA, NV-NMPr, and NV-PrT, and the involvement view of the
    participant for NE-NMPa, NV-NMPa, NV-PaT, and OB-P. Both runs share the persisted
    folds of the log.
@@ -38,11 +44,15 @@ Run with the prediction environment (`../requirements-predict.txt`), from the re
 from __future__ import annotations
 
 import argparse
+import os
+import shutil
+import sqlite3
 import sys
+import tempfile
 from contextlib import contextmanager
 from dataclasses import dataclass
 from pathlib import Path
-from typing import List, Optional
+from typing import Iterator, List, Optional
 from unittest import mock
 
 HERE = Path(__file__).resolve().parent
@@ -61,7 +71,9 @@ from tasks.schema import Schema  # noqa: E402
 CHL_LOGS = ["artificial1", "artificial5", "healthcare", "real1", "real2", "real3",
             "real4", "real5", "smartagriculture"]
 
-CHOREOGRAPHY_SCHEMA = Schema(ot_cc=cv.OT_CHC, ot_message=cv.OT_CM)
+CHOREOGRAPHY_SCHEMA = Schema(ot_cc=cv.OT_CHC, ot_message=cv.OT_MESSAGE)
+# E2O relations to log-wide participant objects: task roles (M12) and export witnesses.
+ROLE_QUALIFIERS = (cv.Q_INITIATOR, cv.Q_PARTICIPANT, cv.Q_SOURCE, cv.Q_TARGET)
 FOLDS = HERE / "folds"
 RESULT_NAME = "e4_prediction"
 
@@ -107,6 +119,33 @@ def plan(view: cv.ChoreographyView, participant: Optional[str],
 
 
 @contextmanager
+def without_role_relations(path: Path) -> Iterator[Path]:
+    """A temporary copy of an OCEL 2.0 SQLite log without the E2O rows of
+    `ROLE_QUALIFIERS`, except the first row of each object, so that no object is
+    dropped and no shared participant joins two cases. The file is never modified."""
+    fd, tmp = tempfile.mkstemp(suffix=".sqlite")
+    os.close(fd)
+    try:
+        shutil.copyfile(path, tmp)
+        con = sqlite3.connect(tmp)
+        try:
+            marks = ",".join("?" * len(ROLE_QUALIFIERS))
+            con.execute(
+                f"DELETE FROM event_object WHERE ocel_qualifier IN ({marks}) AND rowid NOT IN "
+                f"(SELECT MIN(rowid) FROM event_object WHERE ocel_qualifier IN ({marks}) "
+                "GROUP BY ocel_object_id)", ROLE_QUALIFIERS + ROLE_QUALIFIERS)
+            con.commit()
+        finally:
+            con.close()
+        yield Path(tmp)
+    finally:
+        try:
+            os.unlink(tmp)
+        except OSError:
+            pass
+
+
+@contextmanager
 def _label_reader(log):
     """Make `run_one_log` take its labels from `log` instead of the InfSys adapter."""
     def read(path, schema, ocpa_ocel=None):
@@ -128,10 +167,10 @@ def run_dataset(dataset: str, participant: Optional[str] = None,
     path = require(chl_path(dataset))
     view = cv.read_choreography(path)
     runs, skipped = plan(view, participant, activity)
-    spec = LogSpec(name=f"{dataset}_chl", ocel_path=str(path), xes_path="")
     rows: List[dict] = []
     for run in runs:
-        with _label_reader(run.log):
+        with without_role_relations(path) as ocpa_path, _label_reader(run.log):
+            spec = LogSpec(name=f"{dataset}_chl", ocel_path=str(ocpa_path), xes_path="")
             out = rq3_pipeline.run_one_log(spec, config(run.tasks, participant, activity))
         for rec in out:
             rec.update(dataset=dataset, kind=tc.RESTATED[rec["task"]].kind, view=run.view)
